@@ -8,14 +8,20 @@ import {
 
 type ButtonVariant = "primary" | "secondary" | "ghost";
 
-interface ButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement>,
-    AnchorHTMLAttributes<HTMLAnchorElement>,
-    PropsWithChildren {
+type ButtonBaseProps = {
   variant?: ButtonVariant;
   fullWidth?: boolean;
-  href?: string;
-}
+};
+
+type ButtonAsButton = ButtonBaseProps &
+  ButtonHTMLAttributes<HTMLButtonElement> &
+  PropsWithChildren & { href?: undefined };
+
+type ButtonAsLink = ButtonBaseProps &
+  AnchorHTMLAttributes<HTMLAnchorElement> &
+  PropsWithChildren & { href: string };
+
+type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const baseClasses =
   "inline-flex items-center justify-center rounded-lg px-6 py-3 text-base font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
@@ -45,15 +51,17 @@ const Button = ({
   );
 
   if (href) {
+    const linkProps = props as AnchorHTMLAttributes<HTMLAnchorElement>;
     return (
-      <Link href={href} className={classes} {...props}>
+      <Link href={href} className={classes} {...linkProps}>
         {children}
       </Link>
     );
   }
 
+  const buttonProps = props as ButtonHTMLAttributes<HTMLButtonElement>;
   return (
-    <button className={classes} {...props}>
+    <button className={classes} {...buttonProps}>
       {children}
     </button>
   );
