@@ -57,8 +57,8 @@ const ContactForm = () => {
               </label>
               <div className="space-y-2">
                 {[
-                  { label: "USA", value: "USA" },
-                  { label: "United Kingdom", value: "UK" },
+                { label: "USA", value: "USA" },
+                { label: "United Kingdom", value: "UK" },
                 ].map((option) => (
                   <label
                     key={option.value}
