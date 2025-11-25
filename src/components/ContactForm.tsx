@@ -1,8 +1,6 @@
 import Input from "@/components/common/Input";
 import Button from "@/components/common/Button";
 import { useContactForm } from "@/hooks/useContactForm";
-import type { SubmitHandler } from "react-hook-form";
-import type { ContactFormValues } from "@/utils/validation";
 import { Controller } from "react-hook-form";
 
 const printerOptions = [
@@ -24,7 +22,7 @@ const ContactForm = () => {
   } = form;
 
   return (
-    <form className="space-y-6" onSubmit={handleSubmit(onSubmit as SubmitHandler<ContactFormValues>)}>
+    <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
       <div className="grid gap-6 md:grid-cols-2">
         <Input
           id="fullName"
