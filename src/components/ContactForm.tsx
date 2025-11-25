@@ -2,6 +2,7 @@ import Input from "@/components/common/Input";
 import Button from "@/components/common/Button";
 import { useContactForm } from "@/hooks/useContactForm";
 import type { SubmitHandler } from "react-hook-form";
+import type { ContactFormValues } from "@/utils/validation";
 import { Controller } from "react-hook-form";
 
 const printerOptions = [
