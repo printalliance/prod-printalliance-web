@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { useState } from "react";
@@ -22,7 +22,7 @@ export const useContactForm = () => {
     },
   });
 
-  const onSubmit = async (data: ContactFormValues) => {
+  const onSubmit: SubmitHandler<ContactFormValues> = async (data) => {
     try {
       setStatus("loading");
       await axios.post("/api/contact", data);
