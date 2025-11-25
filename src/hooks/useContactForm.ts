@@ -22,7 +22,7 @@ export const useContactForm = () => {
     },
   });
 
-  const onSubmit: SubmitHandler<ContactFormValues> = async (data) => {
+  const onSubmit = async (data: ContactFormValues) => {
     try {
       setStatus("loading");
       await axios.post("/api/contact", data);
@@ -39,6 +39,6 @@ export const useContactForm = () => {
     }
   };
 
-  return { form, onSubmit, status };
+  return { form, onSubmit: onSubmit as SubmitHandler<ContactFormValues>, status };
 };
 

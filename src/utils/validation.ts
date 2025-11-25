@@ -17,7 +17,7 @@ export const contactSchema = z.object({
   contactMethod: z.enum(["phone", "email", "chat"]),
   preferredTime: z.string().optional(),
   newsletter: z.boolean().optional(),
-  gdpr: z.literal(true).refine((val) => val, {
+  gdpr: z.boolean().refine((val) => val === true, {
     message: "Please agree to the privacy policy",
   }),
 });

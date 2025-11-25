@@ -1,7 +1,10 @@
 import Input from "@/components/common/Input";
 import Button from "@/components/common/Button";
-import { useContactForm } from "@/hooks/useContactForm";
-import { Controller } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import axios from "axios";
+import { contactSchema, type ContactFormValues } from "@/utils/validation";
 
 const printerOptions = [
   { label: "HP", value: "hp" },
@@ -13,13 +16,40 @@ const printerOptions = [
 ];
 
 const ContactForm = () => {
-  const { form, onSubmit, status } = useContactForm();
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
   const {
     control,
     register,
     handleSubmit,
     formState: { errors },
-  } = form;
+    reset,
+  } = useForm<ContactFormValues>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      country: "USA" as const,
+      contactMethod: "phone" as const,
+      newsletter: false,
+      gdpr: false,
+    },
+  });
+
+  const onSubmit = async (data: ContactFormValues) => {
+    try {
+      setStatus("loading");
+      await axios.post("/api/contact", data);
+      setStatus("success");
+      reset({
+        country: "USA",
+        contactMethod: "phone",
+        newsletter: false,
+        gdpr: false,
+      } as Partial<ContactFormValues>);
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
+    }
+  };
 
   return (
     <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
