@@ -7,8 +7,8 @@ export const contactSchema = z.object({
   fullName: z.string().min(2, "Enter your full name"),
   email: z.string().email("Enter a valid email"),
   phone: z.string().regex(phonePattern, "Enter a valid US or UK number"),
-  country: z.enum(["USA", "UK"], {
-    required_error: "Select a country",
+  country: z.enum(["USA", "UK"]).refine((val) => !!val, {
+    message: "Select a country",
   }),
   printerBrand: z.string().optional(),
   issueDescription: z
