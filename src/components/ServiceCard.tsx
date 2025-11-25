@@ -1,11 +1,5 @@
 import Button from "./common/Button";
-
-export type Service = {
-  title: string;
-  description: string;
-  slug: string;
-  category: "setup" | "troubleshooting" | "network" | "maintenance" | "emergency";
-};
+import type { Service } from "@/utils/data";
 
 const ServiceCard = ({ service }: { service: Service }) => (
   <div className="card flex flex-col gap-4 border border-gray-100">

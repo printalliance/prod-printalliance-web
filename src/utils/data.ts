@@ -1,4 +1,18 @@
-export const servicesList = [
+export type ServiceCategory =
+  | "setup"
+  | "troubleshooting"
+  | "network"
+  | "maintenance"
+  | "emergency";
+
+export type Service = {
+  title: string;
+  description: string;
+  slug: string;
+  category: ServiceCategory;
+};
+
+export const servicesList: Service[] = [
   {
     title: "Printer Setup & Installation",
     description:
