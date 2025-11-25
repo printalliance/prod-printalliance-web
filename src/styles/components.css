@@ -1,0 +1,45 @@
+:root {
+  --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.section-padding {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+.highlight-bar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-left: 1.75rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--color-navy);
+}
+
+.highlight-bar--light {
+  color: var(--color-white);
+}
+
+.highlight-bar--light::before {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.highlight-bar::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 1.25rem;
+  height: 2px;
+  background-color: var(--color-red);
+}
+

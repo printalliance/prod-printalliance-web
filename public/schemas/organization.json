@@ -1,0 +1,14 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "PrintAlliance",
+  "url": "https://www.printalliance.com",
+  "logo": "https://www.printalliance.com/images/logo.svg",
+  "description": "24/7 printer repair, troubleshooting, and managed services for USA and UK businesses.",
+  "sameAs": [
+    "https://www.linkedin.com/company/printalliance",
+    "https://twitter.com/printalliance",
+    "https://www.facebook.com/printalliance"
+  ]
+}
+
