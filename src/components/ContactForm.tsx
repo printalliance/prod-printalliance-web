@@ -4,7 +4,8 @@ import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import axios from "axios";
-import { contactSchema, type ContactFormValues } from "@/utils/validation";
+import { contactSchema } from "@/utils/validation";
+import type { ContactFormValues } from "@/utils/validation";
 
 const printerOptions = [
   { label: "HP", value: "hp" },
