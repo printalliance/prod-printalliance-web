@@ -5,7 +5,7 @@ import Footer from "@/components/layout/Footer";
 import CookieConsent from "@/components/CookieConsent";
 import SocialMediaSidebar from "@/components/SocialMediaSidebar";
 import PhoneFloatingButton from "@/components/PhoneFloatingButton";
-import ChatWidget from "@/components/ChatWidget";
+// import ChatWidget from "@/components/ChatWidget";
 
 const Layout = ({ children }: PropsWithChildren) => {
   const router = useRouter();
@@ -16,7 +16,7 @@ const Layout = ({ children }: PropsWithChildren) => {
     <Header />
       <SocialMediaSidebar />
       <PhoneFloatingButton />
-      {!isAdminPage && <ChatWidget />}
+      {/* {!isAdminPage && <ChatWidget />} */}
     <main className="min-h-screen bg-white text-gray-dark">{children}</main>
     <Footer />
     <CookieConsent />

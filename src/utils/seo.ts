@@ -77,7 +77,7 @@ const baseMeta: Record<string, MetaInput> = {
   "/services/troubleshooting": {
     title: "Printer Troubleshooting & Repair | PrintAlliance",
     description:
-      "Eliminate error codes, paper jams, and print quality issues with rapid diagnostics and replacement parts.",
+      "Eliminate error codes, paper jams, and print quality issues with rapid diagnostics.",
     keywords: "printer troubleshooting, printer repair service",
     path: "/services/troubleshooting",
   },

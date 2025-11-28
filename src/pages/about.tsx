@@ -2,13 +2,6 @@ import Head from "next/head";
 import CTA from "@/components/CTA";
 import { siteUrl } from "@/utils/seo";
 
-const statistics = [
-  { label: "Devices managed", value: "5,400+" },
-  { label: "Issues resolved", value: "32,000+" },
-  { label: "Avg. uptime", value: "99.7%" },
-  { label: "Customer rating", value: "4.9/5" },
-];
-
 const AboutPage = () => (
   <>
     <Head>
@@ -54,14 +47,6 @@ const AboutPage = () => (
               printer infrastructure, from SMB offices to multinational HQs.
             </p>
           </div>
-        </div>
-        <div className="grid gap-6 rounded-3xl bg-gray-light p-8 md:grid-cols-4">
-          {statistics.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p className="text-3xl font-bold text-navy">{stat.value}</p>
-              <p className="text-sm text-gray-600">{stat.label}</p>
-            </div>
-          ))}
         </div>
       </div>
     </section>

@@ -100,27 +100,6 @@ const commonIssues = [
   },
 ];
 
-const testimonials = [
-  {
-    name: "Sarah Johnson",
-    role: "Small Business Owner",
-    comment: "Excellent service! They helped me fix my HP printer in minutes. The step-by-step instructions were clear and easy to follow.",
-    rating: 5,
-  },
-  {
-    name: "Michael Chen",
-    role: "IT Manager",
-    comment: "Very knowledgeable team. They resolved our Brother printer network issues quickly and professionally.",
-    rating: 5,
-  },
-  {
-    name: "Emily Rodriguez",
-    role: "Home User",
-    comment: "Great support for my Canon printer. Available 24/7 and very patient in explaining the troubleshooting steps.",
-    rating: 5,
-  },
-];
-
 const Home = () => {
   const router = useRouter();
   const [selectedBrand, setSelectedBrand] = useState<string>("");
@@ -164,30 +143,38 @@ const Home = () => {
       </Head>
 
       {/* Hero Section - Printer Brand Selection */}
-      <section className="bg-gradient-to-br from-blue-50 via-white to-gray-50 py-16 px-4">
-        <div className="mx-auto max-w-5xl">
-          <div className="text-center mb-8">
-            <h1 className="text-5xl md:text-6xl font-bold text-navy mb-4">
-              Print Brand
-            </h1>
-            <p className="text-xl text-gray-600 mb-2">
-              Your Trusted Printer Troubleshooting Partner
-            </p>
-          </div>
-
-          <div className="text-center mb-12 max-w-3xl mx-auto">
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-              Select your printer brand and proceed (click 'NEXT') to access all necessary troubleshooting step-by-step instructions for issues like printer offline, wireless setup, not printing, blank prints, error codes or scanner issues.
-            </p>
+      <section
+        className="relative px-4 pt-0 pb-10"
+        style={{
+          backgroundImage:
+            "url('https://raw.githubusercontent.com/printalliance/public-images/refs/heads/main/printer-toner-hd-8k-wallpaper-stock-photographic-image_915071-69886.avif')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" aria-hidden />
+        <div className="relative mx-auto max-w-5xl">
+          <div className="mb-8">
+            <div className="rounded-b-[3rem] rounded-t-xl bg-black/55 p-8 pb-10 text-center shadow-2xl backdrop-blur text-white border-t border-white/10">
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">
+                Printer Brand
+              </h1>
+              <p className="text-lg text-gray-100 mb-3">
+                Your Trusted Printer Troubleshooting Partner
+              </p>
+              <p className="text-base md:text-lg text-gray-100 leading-relaxed">
+                Select your printer brand and proceed (click 'NEXT') to access all necessary troubleshooting step-by-step instructions for issues like printer offline, wireless setup, not printing, blank prints, error codes or scanner issues.
+              </p>
+            </div>
           </div>
 
           {/* Printer Brand Logos */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-12 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6 mb-10 max-w-5xl mx-auto">
             {printerBrands.map((brand) => (
               <button
                 key={brand.slug}
                 onClick={() => setSelectedBrand(brand.slug)}
-                className={`group relative bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 border-2 ${
+                className={`group relative bg-white rounded-xl p-6 shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 border-2 ${
                   selectedBrand === brand.slug
                     ? "border-navy ring-4 ring-navy ring-opacity-20 shadow-2xl scale-105"
                     : "border-gray-200 hover:border-navy"
@@ -203,14 +190,26 @@ const Home = () => {
                 )}
 
                 {/* Logo Container */}
-                <div className={`aspect-square flex items-center justify-center mb-4 transition-all duration-300 ${
-                  selectedBrand === brand.slug ? "scale-110" : "group-hover:scale-105"
-                }`}>
-                  <img
-                    src={brand.logo}
-                    alt={`${brand.name} logo`}
-                    className="max-w-full max-h-full object-contain filter drop-shadow-md"
+                <div className="relative mb-4">
+                  <div
+                    className={`absolute inset-0 rounded-3xl border-4 border-transparent transition-all duration-300 ${
+                      selectedBrand === brand.slug
+                        ? "border-navy shadow-[0_0_20px_rgba(8,47,73,0.35)]"
+                        : "group-hover:border-navy group-hover:shadow-[0_0_25px_rgba(8,47,73,0.4)]"
+                    }`}
+                    aria-hidden
                   />
+                  <div
+                    className={`relative aspect-square flex items-center justify-center rounded-2xl bg-white transition-all duration-300 ${
+                      selectedBrand === brand.slug ? "scale-110" : "group-hover:scale-105"
+                    }`}
+                  >
+                    <img
+                      src={brand.logo}
+                      alt={`${brand.name} logo`}
+                      className="max-w-full max-h-full object-contain filter drop-shadow-md"
+                    />
+                  </div>
                 </div>
 
                 {/* Brand Name */}
@@ -230,45 +229,28 @@ const Home = () => {
             ))}
           </div>
 
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <button
               onClick={handleNext}
-              className="bg-navy hover:bg-blue-800 text-white font-bold text-xl px-12 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="group inline-flex items-center justify-center gap-3 rounded-full bg-red px-12 py-4 text-xl font-bold text-white shadow-[0_10px_25px_rgba(201,47,58,0.45)] transition-all duration-300 hover:bg-[#c92f3a] hover:shadow-[0_15px_35px_rgba(201,47,58,0.55)] hover:scale-105 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-red/40 disabled:cursor-not-allowed"
               disabled={!selectedBrand}
             >
-              NEXT
+              <span>Next</span>
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-2xl transition-all duration-300 group-hover:translate-x-1 group-hover:bg-white/30">
+                →
+              </span>
             </button>
-          </div>
-
-          {/* Disclaimer */}
-          <div className="max-w-4xl mx-auto bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-lg shadow-sm">
-            <p className="text-sm text-gray-700 leading-relaxed">
-              <strong className="font-semibold text-gray-900">Disclaimer:</strong> PrintAlliance is an independent online support provider. We have no association or affiliation with any brands mentioned on this website in any manner whatsoever. The sole intent of this website is to provide necessary troubleshooting step-by-step instructions and experienced expert advice to help users solve printer-related issues. We will not be responsible for any kind of damage that occurs while following our troubleshooting steps.
-            </p>
           </div>
         </div>
       </section>
 
-      {/* Statistics Section */}
+      {/* Disclaimer Section */}
       <section className="bg-navy py-12 px-4 text-white">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-semibold mb-2">24/7</div>
-              <div className="text-sm text-gray-300">Available Support</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-semibold mb-2">50K+</div>
-              <div className="text-sm text-gray-300">Happy Customers</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-semibold mb-2">95%</div>
-              <div className="text-sm text-gray-300">Success Rate</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-semibold mb-2">&lt;15min</div>
-              <div className="text-sm text-gray-300">Response Time</div>
-            </div>
+        <div className="mx-auto max-w-5xl">
+          <div className="bg-white/10 border border-white/20 rounded-2xl p-8 shadow-2xl backdrop-blur">
+            <p className="text-base leading-relaxed">
+              <strong className="font-semibold">Disclaimer:</strong> PrintAlliance is an independent online support provider. We have no association or affiliation with any brands mentioned on this website in any manner whatsoever. The sole intent of this website is to provide necessary troubleshooting step-by-step instructions and experienced expert advice to help users solve printer-related issues. We will not be responsible for any kind of damage that occurs while following our troubleshooting steps.
+            </p>
           </div>
         </div>
       </section>
@@ -450,47 +432,6 @@ const Home = () => {
                 Follow step-by-step instructions or get help from our experts
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-16 px-4 bg-gray-50">
-        <div className="mx-auto max-w-6xl">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-semibold text-navy mb-3">
-              What Our Customers Say
-            </h2>
-            <p className="text-base text-gray-600 max-w-2xl mx-auto">
-              Trusted by thousands of satisfied customers
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="bg-white border border-gray-200 rounded-lg p-6 hover:border-navy transition-all duration-300"
-              >
-                <div className="flex mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <svg
-                      key={i}
-                      className="w-4 h-4 text-yellow-500"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-5 text-sm leading-relaxed">"{testimonial.comment}"</p>
-                <div className="border-t border-gray-100 pt-4">
-                  <p className="font-semibold text-navy text-sm">{testimonial.name}</p>
-                  <p className="text-xs text-gray-500 mt-1">{testimonial.role}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

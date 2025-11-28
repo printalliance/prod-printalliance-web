@@ -10,7 +10,6 @@ const plans = [
     description: "Pay-as-you-go support for teams with occasional issues.",
     features: [
       "Remote triage & guided fixes",
-      "Parts sourcing & shipping",
       "On-site dispatch at local rates",
     ],
   },

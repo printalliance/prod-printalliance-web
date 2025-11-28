@@ -23,7 +23,7 @@ export const servicesList: Service[] = [
   {
     title: "Troubleshooting & Repair",
     description:
-      "Same-day diagnostics, parts replacement, and firmware fixes that eliminate recurring jams and error codes.",
+      "Same-day diagnostics, and firmware fixes that eliminate recurring jams and error codes.",
     slug: "troubleshooting",
     category: "troubleshooting",
   },
@@ -37,7 +37,7 @@ export const servicesList: Service[] = [
   {
     title: "Driver Installation",
     description:
-      "Automated driver deployment for Windows, macOS, and Linux endpoints with version monitoring.",
+      "Driver setup for Windows and macOS endpoints",
     slug: "driver-installation",
     category: "setup",
   },
@@ -139,7 +139,6 @@ export const serviceDetails = {
     benefits: [
       "Remote diagnostics with live screen share",
       "On-site dispatch in major USA & UK metros",
-      "Genuine OEM parts stocked for fast swaps",
     ],
     steps: [
       "Remote triage & log analysis",
