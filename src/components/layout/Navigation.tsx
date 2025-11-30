@@ -38,4 +38,3 @@ const Navigation = ({ onNavigate }: { onNavigate?: () => void }) => {
 };
 
 export default Navigation;
-

@@ -23,7 +23,7 @@ const RefundPolicyPage = () => (
           <h2 className="text-2xl font-semibold text-navy">Satisfaction promise</h2>
           <p className="mt-2 text-gray-700">
             If we are unable to resolve the issue outlined in your ticket, you are not charged. Completed sessions are also covered by a 30-day
-            satisfaction period. If the resolution does not meet expectations, you may ask for a partial or full refund.
+            satisfaction period. If the resolution does not meet expectations, you will get full refund in 7 days.
           </p>
         </section>
 
@@ -51,8 +51,7 @@ const RefundPolicyPage = () => (
         <section>
           <h2 className="text-2xl font-semibold text-navy">Exclusions</h2>
           <ul className="mt-2 list-disc space-y-2 pl-6 text-gray-700">
-            <li>Hardware damage, consumables, or accessories purchased through third parties.</li>
-            <li>Connectivity failures caused by client networks, ISP outages, or security appliances outside our control.</li>
+s            <li>Connectivity failures caused by client networks, ISP outages, or security appliances outside our control.</li>
             <li>Unsupported printer models or systems that deviate from manufacturer specifications.</li>
           </ul>
         </section>

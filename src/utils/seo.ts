@@ -32,12 +32,12 @@ const baseMeta: Record<string, MetaInput> = {
     keywords: "about printer service, printer experts, managed print partner",
     path: "/about",
   },
-  "/pricing": {
-    title: "Printer Support Pricing & Plans | PrintAlliance",
+  "/support": {
+    title: "Support Plans & Services | PrintAlliance",
     description:
-      "Compare on-demand, managed, and enterprise printer support plans for USA & UK locations. Transparent pricing and SLA-backed coverage.",
-    keywords: "printer service pricing, managed print cost, printer support plans",
-    path: "/pricing",
+      "Choose from Basic, Comprehensive, or Perpetual support plans. Get expert printer and device support with transparent pricing and guaranteed fixes.",
+    keywords: "printer support plans, device support, technical support services",
+    path: "/support",
   },
   "/faq": {
     title: "Printer Support FAQ | PrintAlliance",

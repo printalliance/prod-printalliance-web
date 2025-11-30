@@ -111,12 +111,12 @@ const GetStartedModal = ({ isOpen, onClose }: GetStartedModalProps) => {
             </label>
 
             {/* Printer Brand Logos */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {printerBrands.map((brand) => (
                 <button
                   key={brand.slug}
                   onClick={() => setSelectedBrand(brand.slug)}
-                  className={`group relative bg-white border-2 rounded-lg p-4 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 ${
+                  className={`group relative bg-white border-2 rounded-lg p-3 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 ${
                     selectedBrand === brand.slug
                       ? "border-navy ring-2 ring-navy ring-opacity-20 shadow-lg scale-105"
                       : "border-gray-200 hover:border-navy"
@@ -124,21 +124,21 @@ const GetStartedModal = ({ isOpen, onClose }: GetStartedModalProps) => {
                 >
                   {/* Selected Indicator */}
                   {selectedBrand === brand.slug && (
-                    <div className="absolute -top-2 -right-2 bg-navy text-white rounded-full w-7 h-7 flex items-center justify-center shadow-md z-10">
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <div className="absolute -top-2 -right-2 bg-navy text-white rounded-full w-6 h-6 flex items-center justify-center shadow-md z-10">
+                      <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                     </div>
                   )}
 
                   {/* Logo Container */}
-                  <div className={`aspect-square flex items-center justify-center mb-2 transition-all duration-300 ${
-                    selectedBrand === brand.slug ? "scale-110" : "group-hover:scale-105"
+                  <div className={`aspect-square flex items-center justify-center mb-1.5 transition-all duration-300 ${
+                    selectedBrand === brand.slug ? "scale-105" : "group-hover:scale-102"
                   }`}>
                     <img
                       src={brand.logo}
                       alt={`${brand.name} logo`}
-                      className="max-w-full max-h-full object-contain filter drop-shadow-sm"
+                      className="max-w-[70%] max-h-[70%] object-contain filter drop-shadow-sm"
                     />
                   </div>
 

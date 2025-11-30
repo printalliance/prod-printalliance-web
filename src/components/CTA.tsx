@@ -14,10 +14,10 @@ const CTA = () => (
         <Button href="tel:+12105128406">Call Now</Button>
         <Button
           variant="secondary"
-          href="/pricing"
+          href="/support"
           className="border-white text-white hover:bg-white hover:text-navy"
         >
-          View Pricing
+          View Support Plans
         </Button>
       </div>
     </div>

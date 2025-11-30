@@ -169,52 +169,52 @@ const Home = () => {
           </div>
 
           {/* Printer Brand Logos */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6 mb-10 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-10 max-w-4xl mx-auto">
             {printerBrands.map((brand) => (
               <button
                 key={brand.slug}
                 onClick={() => setSelectedBrand(brand.slug)}
-                className={`group relative bg-white rounded-xl p-6 shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 border-2 ${
+                className={`group relative bg-white rounded-xl p-3 md:p-4 shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 border-2 ${
                   selectedBrand === brand.slug
-                    ? "border-navy ring-4 ring-navy ring-opacity-20 shadow-2xl scale-105"
+                    ? "border-navy ring-2 ring-navy ring-opacity-20 shadow-xl scale-105"
                     : "border-gray-200 hover:border-navy"
                 }`}
               >
                 {/* Selected Indicator */}
                 {selectedBrand === brand.slug && (
-                  <div className="absolute -top-3 -right-3 bg-navy text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg z-10">
-                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="absolute -top-2 -right-2 bg-navy text-white rounded-full w-7 h-7 md:w-8 md:h-8 flex items-center justify-center shadow-lg z-10">
+                    <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
                 )}
 
                 {/* Logo Container */}
-                <div className="relative mb-4">
+                <div className="relative mb-2 md:mb-3">
                   <div
-                    className={`absolute inset-0 rounded-3xl border-4 border-transparent transition-all duration-300 ${
+                    className={`absolute inset-0 rounded-2xl border-2 border-transparent transition-all duration-300 ${
                       selectedBrand === brand.slug
-                        ? "border-navy shadow-[0_0_20px_rgba(8,47,73,0.35)]"
-                        : "group-hover:border-navy group-hover:shadow-[0_0_25px_rgba(8,47,73,0.4)]"
+                        ? "border-navy shadow-[0_0_15px_rgba(8,47,73,0.3)]"
+                        : "group-hover:border-navy group-hover:shadow-[0_0_20px_rgba(8,47,73,0.35)]"
                     }`}
                     aria-hidden
                   />
                   <div
-                    className={`relative aspect-square flex items-center justify-center rounded-2xl bg-white transition-all duration-300 ${
-                      selectedBrand === brand.slug ? "scale-110" : "group-hover:scale-105"
+                    className={`relative aspect-square flex items-center justify-center rounded-xl bg-white transition-all duration-300 ${
+                      selectedBrand === brand.slug ? "scale-105" : "group-hover:scale-102"
                     }`}
                   >
                     <img
                       src={brand.logo}
                       alt={`${brand.name} logo`}
-                      className="max-w-full max-h-full object-contain filter drop-shadow-md"
+                      className="max-w-[70%] max-h-[70%] object-contain filter drop-shadow-sm"
                     />
                   </div>
                 </div>
 
                 {/* Brand Name */}
                 <div className="text-center">
-                  <p className={`font-semibold text-sm transition-colors duration-300 ${
+                  <p className={`font-semibold text-xs md:text-sm transition-colors duration-300 ${
                     selectedBrand === brand.slug ? "text-navy" : "text-gray-600 group-hover:text-navy"
                   }`}>
                     {brand.name}
