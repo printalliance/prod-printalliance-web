@@ -120,13 +120,15 @@ const TroubleshootPage = () => {
   const [userAddress, setUserAddress] = useState("");
   const [country, setCountry] = useState("");
 
-  // Show modal periodically
+  // Show modal only on the last step (step 5)
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowModal(true);
-    }, 15000); // Show after 15 seconds
+    if (step === 5) {
+      const timer = setTimeout(() => {
+        setShowModal(true);
+      }, 15000); // Show after 15 seconds on the last step
 
-    return () => clearTimeout(timer);
+      return () => clearTimeout(timer);
+    }
   }, [step]);
 
   const handleStep1Next = () => {
