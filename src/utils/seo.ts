@@ -2,7 +2,7 @@ export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.printalliance.com";
 
 export const defaultOgImage = `${siteUrl}/images/printalliance-logo.png`;
-export const defaultFavicon = `${siteUrl}/images/fevicon.png`;
+export const defaultFavicon = `https://raw.githubusercontent.com/printalliance/public-images/refs/heads/main/fevicon.png`;
 export const defaultTwitterHandle = "@printalliance";
 
 type MetaInput = {
