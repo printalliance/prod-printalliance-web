@@ -4,14 +4,20 @@ const RECIPIENT_EMAIL = "support@printalliance.net";
 
 // Create transporter using Hostinger SMTP settings
 const createTransporter = () => {
+  const port = parseInt(process.env.SMTP_PORT || "587");
+  
   return nodemailer.createTransport({
     host: process.env.SMTP_HOST || "smtp.hostinger.com",
-    port: parseInt(process.env.SMTP_PORT || "465"),
-    secure: true, // true for 465, false for other ports
+    port: port,
+    secure: port === 465, // true for 465, false for other ports
     auth: {
       user: process.env.SMTP_USER || process.env.EMAIL_USER,
       pass: process.env.SMTP_PASS || process.env.EMAIL_PASSWORD,
     },
+    tls: {
+      // Do not fail on invalid certs
+      rejectUnauthorized: false
+    }
   });
 };
 
@@ -37,7 +43,7 @@ export const sendEmail = async ({ subject, html, text }: EmailOptions) => {
     console.log("Email sent successfully:", info.messageId);
     return { success: true, messageId: info.messageId };
   } catch (error: any) {
-    console.error("Error sending email:", error);
+    console.error("Error sending email:", error.message);
     return { success: false, error: error.message };
   }
 };
