@@ -28,7 +28,7 @@ export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "PrintAlliance",
-  image: `${siteUrl}/images/og-default.svg`,
+  image: `${siteUrl}/images/printalliance-logo.png`,
   address: {
     "@type": "PostalAddress",
     addressCountry: "US",

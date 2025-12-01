@@ -31,7 +31,7 @@ const SEO = ({
   description,
   keywords,
   canonical,
-  ogImage = `${siteUrl}/images/og-default.svg`,
+  ogImage = `${siteUrl}/images/printalliance-logo.png`,
   ogType = "website",
   twitterCard = "summary_large_image",
   noindex = false,

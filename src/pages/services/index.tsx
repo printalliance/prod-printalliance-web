@@ -36,7 +36,7 @@ const ServicesPage = () => {
           content="View managed printer services with 24/7 coverage."
         />
         <meta property="og:url" content={`${siteUrl}/services`} />
-        <meta property="og:image" content={`${siteUrl}/images/og-default.svg`} />
+        <meta property="og:image" content={`${siteUrl}/images/printalliance-logo.png`} />
       </Head>
       <section className="section-padding">
         <div className="mx-auto max-w-6xl px-4 lg:px-8">

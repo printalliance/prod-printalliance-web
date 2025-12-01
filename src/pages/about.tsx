@@ -17,7 +17,7 @@ const AboutPage = () => (
         content="Meet the engineers, mission, and certifications powering PrintAlliance."
       />
       <meta property="og:url" content={`${siteUrl}/about`} />
-      <meta property="og:image" content={`${siteUrl}/images/og-default.svg`} />
+      <meta property="og:image" content={`${siteUrl}/images/printalliance-logo.png`} />
     </Head>
     <section className="section-padding">
       <div className="mx-auto max-w-5xl px-4 text-center lg:px-0">

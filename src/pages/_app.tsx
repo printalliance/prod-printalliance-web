@@ -38,6 +38,13 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* Favicon */}
+        <link rel="icon" type="image/png" href="/images/fevicon.png" />
+        <link rel="shortcut icon" type="image/png" href="/images/fevicon.png" />
+        <link rel="apple-touch-icon" href="/images/fevicon.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/fevicon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/fevicon.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/fevicon.png" />
       </Head>
       {/*Start of Tawk.to Script*/}
       <Script id="tawk-to" strategy="afterInteractive">
