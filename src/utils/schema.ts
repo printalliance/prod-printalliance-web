@@ -74,4 +74,102 @@ export const buildFaqSchema = (faqs: Array<{ question: string; answer: string }>
   })),
 });
 
+export const buildBreadcrumbSchema = (items: Array<{ name: string; url: string }>) => ({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: items.map((item, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: item.name,
+    item: item.url,
+  })),
+});
+
+export const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "PrintAlliance",
+  url: siteUrl,
+  description:
+    "Professional printer repair, setup, and managed services across the USA and UK. 24/7 support for HP, Brother, Epson, and Canon printers.",
+  publisher: {
+    "@type": "Organization",
+    name: "PrintAlliance",
+    logo: {
+      "@type": "ImageObject",
+      url: `${siteUrl}/images/logo.svg`,
+    },
+  },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${siteUrl}/search?q={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
+  inLanguage: ["en-US", "en-GB"],
+  areaServed: [
+    {
+      "@type": "Country",
+      name: "United States",
+    },
+    {
+      "@type": "Country",
+      name: "United Kingdom",
+    },
+  ],
+};
+
+export const serviceProviderSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Printer Repair and Support Services",
+  provider: {
+    "@type": "Organization",
+    name: "PrintAlliance",
+    url: siteUrl,
+    logo: `${siteUrl}/images/logo.svg`,
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: "+1-210-512-8406",
+        contactType: "customer service",
+        areaServed: ["US", "GB"],
+        availableLanguage: ["English"],
+        hoursAvailable: {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday",
+          ],
+          opens: "00:00",
+          closes: "23:59",
+        },
+      },
+    ],
+  },
+  areaServed: [
+    {
+      "@type": "Country",
+      name: "United States",
+    },
+    {
+      "@type": "Country",
+      name: "United Kingdom",
+    },
+  ],
+  availableChannel: {
+    "@type": "ServiceChannel",
+    serviceUrl: siteUrl,
+    servicePhone: "+1-210-512-8406",
+    serviceEmail: "Support@printalliance.net",
+  },
+};
+
 

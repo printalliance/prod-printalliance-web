@@ -1,9 +1,10 @@
 import { useState } from "react";
-import Head from "next/head";
 import CTA from "@/components/CTA";
 import Button from "@/components/common/Button";
 import SupportPlanModal from "@/components/SupportPlanModal";
-import { siteUrl } from "@/utils/seo";
+import SEO from "@/components/SEO";
+import { defaultMeta, generateHreflang } from "@/utils/seo";
+import { buildServiceSchema, buildBreadcrumbSchema } from "@/utils/schema";
 
 const supportPlans = [
   {
@@ -133,23 +134,34 @@ const SupportPage = () => {
     setSelectedPlan(null);
   };
 
+  const meta = defaultMeta("/support");
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", url: `${meta.canonical.replace("/support", "")}` },
+    { name: "Support Plans", url: meta.canonical },
+  ]);
+  const serviceSchema = buildServiceSchema({
+    name: "Printer Support Plans",
+    description: meta.description,
+    url: meta.canonical,
+  });
+  const combinedSchema = {
+    "@context": "https://schema.org",
+    "@graph": [breadcrumbSchema, serviceSchema],
+  };
+
   return (
     <>
-      <Head>
-      <title>Support Plans & Services | PrintAlliance</title>
-      <meta
-        name="description"
-        content="Choose from Basic, Comprehensive, or Perpetual support plans. Get expert printer and device support with transparent pricing and guaranteed fixes."
+      <SEO
+        title={meta.title}
+        description={meta.description}
+        keywords={meta.keywords}
+        canonical={meta.path}
+        ogImage={meta.ogImage}
+        ogType="website"
+        hreflang={generateHreflang(meta.path)}
+        geo={meta.geo}
+        schema={combinedSchema}
       />
-      <link rel="canonical" href={`${siteUrl}/support`} />
-      <meta property="og:title" content="PrintAlliance Support Plans" />
-      <meta
-        property="og:description"
-        content="Professional support plans for printers and devices with 24/7 assistance."
-      />
-      <meta property="og:url" content={`${siteUrl}/support`} />
-      <meta property="og:image" content={`${siteUrl}/images/og-default.svg`} />
-    </Head>
     <section className="section-padding bg-gray-light">
       <div className="mx-auto max-w-5xl text-center">
         <p className="highlight-bar justify-center">Support Plans</p>

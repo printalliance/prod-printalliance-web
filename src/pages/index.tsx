@@ -1,12 +1,14 @@
 import { useState } from "react";
-import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import SEO from "@/components/SEO";
 import {
   organizationSchema,
   localBusinessSchema,
+  websiteSchema,
+  serviceProviderSchema,
 } from "@/utils/schema";
-import { buildSchemaScript } from "@/utils/seo";
+import { siteUrl, defaultMeta, generateHreflang } from "@/utils/seo";
 
 const printerBrands = [
   {
@@ -112,35 +114,31 @@ const Home = () => {
     }
   };
 
+  const meta = defaultMeta("/");
+  const combinedSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      organizationSchema,
+      localBusinessSchema,
+      websiteSchema,
+      serviceProviderSchema,
+    ],
+  };
+
   return (
     <>
-      <Head>
-        <title>PrintAlliance - Printer Troubleshooting & Support</title>
-        <meta
-          name="description"
-          content="Independent online support provider for printer troubleshooting, wireless setup, and technical support for HP, Brother, Epson, and Canon printers."
-        />
-        <meta
-          name="keywords"
-          content="printer support, printer troubleshooting, printer offline, wireless setup, HP printer, Brother printer, Epson printer, Canon printer"
-        />
-        <link rel="canonical" href="https://www.printalliance.com/" />
-        <meta property="og:title" content="PrintAlliance - Printer Troubleshooting & Support" />
-        <meta
-          property="og:description"
-          content="Step-by-step troubleshooting instructions for all major printer brands."
-        />
-        <meta property="og:image" content="https://www.printalliance.com/images/og-default.svg" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: buildSchemaScript({
-              "@context": "https://schema.org",
-              "@graph": [organizationSchema, localBusinessSchema],
-            }),
-          }}
-        />
-      </Head>
+      <SEO
+        title={meta.title}
+        description={meta.description}
+        keywords={meta.keywords}
+        canonical={meta.path}
+        ogImage={meta.ogImage}
+        ogType="website"
+        twitterCard="summary_large_image"
+        hreflang={generateHreflang(meta.path)}
+        geo={meta.geo}
+        schema={combinedSchema}
+      />
 
       {/* Hero Section - Printer Brand Selection */}
       <section
