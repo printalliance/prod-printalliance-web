@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { contactSchema } from "@/utils/validation";
 import { supabase } from "@/lib/supabase";
+import { sendContactFormEmail } from "@/lib/email";
 
 export default async function handler(
   req: NextApiRequest,
@@ -38,6 +39,23 @@ export default async function handler(
     }
 
     console.info("New contact submission saved to Supabase", data);
+
+    // Send email notification
+    try {
+      await sendContactFormEmail({
+        fullName: payload.fullName,
+        email: payload.email,
+        phone: payload.phone,
+        country: payload.country,
+        printerBrand: payload.printerBrand,
+        preferredTime: payload.preferredTime,
+        issueDescription: payload.issueDescription,
+        contactMethod: payload.contactMethod,
+      });
+    } catch (emailError) {
+      console.error("Error sending email notification:", emailError);
+      // Don't fail the request if email fails
+    }
 
     return res.status(200).json({ success: true, data });
   } catch (error: any) {

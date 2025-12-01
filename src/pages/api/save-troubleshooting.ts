@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { supabase } from "@/lib/supabase";
+import { sendTroubleshootingEmail } from "@/lib/email";
 
 export default async function handler(
   req: NextApiRequest,
@@ -50,6 +51,24 @@ export default async function handler(
     if (error) {
       console.error("Error saving troubleshooting request:", error);
       return res.status(500).json({ error: error.message });
+    }
+
+    // Send email notification
+    try {
+      await sendTroubleshootingEmail({
+        brand: brand || "unknown",
+        modelNumber,
+        problem: selectedProblem,
+        deviceType: selectedDevice,
+        userName,
+        userEmail,
+        userPhone,
+        userAddress,
+        country,
+      });
+    } catch (emailError) {
+      console.error("Error sending email notification:", emailError);
+      // Don't fail the request if email fails
     }
 
     return res.status(200).json({ success: true, data });

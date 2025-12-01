@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { supabase } from "@/lib/supabase";
+import { sendSupportPlanEmail } from "@/lib/email";
 
 export default async function handler(
   req: NextApiRequest,
@@ -49,6 +50,21 @@ export default async function handler(
     if (error) {
       console.error("Error saving support plan request:", error);
       return res.status(500).json({ error: error.message });
+    }
+
+    // Send email notification
+    try {
+      await sendSupportPlanEmail({
+        planName,
+        planTitle,
+        name: name.trim(),
+        email: email.trim().toLowerCase(),
+        country,
+        issueType,
+      });
+    } catch (emailError) {
+      console.error("Error sending email notification:", emailError);
+      // Don't fail the request if email fails
     }
 
     return res.status(200).json({ success: true, data });
