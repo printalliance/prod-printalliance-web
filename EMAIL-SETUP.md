@@ -1,33 +1,45 @@
 # Email Notification Setup Guide
 
 ## Overview
-All form submissions will automatically send email notifications to **support@printalliance.net** using your Hostinger business email.
+All form submissions will automatically send email notifications to **support@printalliance.net** using Gmail SMTP.
 
 ## Environment Variables Required
 
 Add these variables to your `.env.local` file:
 
 ```env
-# Email Configuration (Hostinger Business Email)
-SMTP_HOST=smtp.hostinger.com
+# Email Configuration (Gmail SMTP)
+SMTP_HOST=smtp.gmail.com
 SMTP_PORT=465
-SMTP_USER=your-email@yourdomain.com
-SMTP_PASS=your-email-password
+SMTP_USER=your-gmail@gmail.com
+SMTP_PASS=your-gmail-app-password
 
 # Alternative variable names (also supported)
-EMAIL_USER=your-email@yourdomain.com
-EMAIL_PASSWORD=your-email-password
-EMAIL_FROM=PrintAlliance <your-email@yourdomain.com>
+EMAIL_USER=your-gmail@gmail.com
+EMAIL_PASSWORD=your-gmail-app-password
+EMAIL_FROM=PrintAlliance <your-gmail@gmail.com>
 ```
 
-## Hostinger SMTP Settings
+## Gmail SMTP Settings
 
-For Hostinger business email, use these settings:
-- **SMTP Host**: `smtp.hostinger.com`
+For Gmail, use these settings:
+- **SMTP Host**: `smtp.gmail.com`
 - **SMTP Port**: `465` (SSL) or `587` (TLS)
 - **Security**: SSL/TLS
-- **Username**: Your full email address (e.g., `support@printalliance.net`)
-- **Password**: Your email account password
+- **Username**: Your full Gmail address (e.g., `yourname@gmail.com`)
+- **Password**: Your Gmail App Password (NOT your regular Gmail password)
+
+### Important: Gmail App Password Required
+
+Gmail requires an **App Password** for SMTP authentication, not your regular Gmail password. To generate an App Password:
+
+1. Go to your Google Account settings: https://myaccount.google.com/
+2. Navigate to **Security** → **2-Step Verification** (must be enabled)
+3. Scroll down to **App passwords**
+4. Select **Mail** and **Other (Custom name)**
+5. Enter "PrintAlliance" or any name you prefer
+6. Click **Generate**
+7. Copy the 16-character password and use it as `SMTP_PASS` or `EMAIL_PASSWORD`
 
 ## Forms That Send Email Notifications
 
@@ -61,13 +73,18 @@ To test email functionality:
 ### Email Not Sending
 1. Verify SMTP credentials in `.env.local`
 2. Check that SMTP port 465 is not blocked by firewall
-3. Verify email account password is correct
-4. Check server logs for error messages
+3. Verify you're using a Gmail App Password (not your regular password)
+4. Ensure 2-Step Verification is enabled on your Google Account
+5. Check server logs for error messages
 
 ### Common Issues
-- **Authentication failed**: Check username and password
-- **Connection timeout**: Verify SMTP host and port
+- **Authentication failed**: 
+  - Make sure you're using a Gmail App Password, not your regular Gmail password
+  - Verify 2-Step Verification is enabled on your Google Account
+  - Check that the App Password was copied correctly (16 characters, no spaces)
+- **Connection timeout**: Verify SMTP host (`smtp.gmail.com`) and port
 - **Port blocked**: Try port 587 with TLS instead of 465 with SSL
+- **"Less secure app" error**: Gmail no longer supports "less secure apps". You must use an App Password.
 
 ## Security Notes
 

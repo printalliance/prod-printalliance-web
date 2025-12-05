@@ -1,16 +1,13 @@
-<<<<<<< HEAD
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xdkqzonz";
-=======
 import nodemailer from "nodemailer";
 
 const RECIPIENT_EMAIL = "support@printalliance.net";
 
-// Create transporter using Hostinger SMTP settings
+// Create transporter using Gmail SMTP settings
 const createTransporter = () => {
   const port = parseInt(process.env.SMTP_PORT || "587");
   
   return nodemailer.createTransport({
-    host: process.env.SMTP_HOST || "smtp.hostinger.com",
+    host: process.env.SMTP_HOST || "smtp.gmail.com",
     port: port,
     secure: port === 465, // true for 465, false for other ports
     auth: {
@@ -23,7 +20,6 @@ const createTransporter = () => {
     }
   });
 };
->>>>>>> 5444b08800ee9796081790d520c0ebac0d3c54e1
 
 interface EmailOptions {
   subject: string;
@@ -33,36 +29,22 @@ interface EmailOptions {
 
 export const sendEmail = async ({ subject, html, text }: EmailOptions) => {
   try {
-    // Forward all form submissions to Formspree.
-    // The Formspree dashboard is configured to deliver to support@printalliance.net.
-    const response = await fetch(FORMSPREE_ENDPOINT, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        _subject: subject,
-        subject,
-        message_html: html,
-        message_text: text || subject,
-      }),
-    });
+    const transporter = createTransporter();
+    const fromEmail = process.env.EMAIL_FROM || process.env.SMTP_USER || process.env.EMAIL_USER || "noreply@printalliance.net";
+    
+    const mailOptions = {
+      from: fromEmail,
+      to: RECIPIENT_EMAIL,
+      subject: subject,
+      html: html,
+      text: text || subject,
+    };
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error("Formspree error:", response.status, errorText);
-      throw new Error(`Formspree responded with ${response.status}`);
-    }
-
-    console.log("Form submission forwarded to Formspree successfully");
-    return { success: true };
+    const info = await transporter.sendMail(mailOptions);
+    console.log("Email sent successfully:", info.messageId);
+    return { success: true, messageId: info.messageId };
   } catch (error: any) {
-<<<<<<< HEAD
-    console.error("Error sending email via Formspree:", error);
-=======
     console.error("Error sending email:", error.message);
->>>>>>> 5444b08800ee9796081790d520c0ebac0d3c54e1
     return { success: false, error: error.message };
   }
 };
@@ -336,4 +318,3 @@ export const sendSupportRequestEmail = async (data: {
 
   return sendEmail({ subject, html });
 };
-
