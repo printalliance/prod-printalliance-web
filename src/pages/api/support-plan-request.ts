@@ -62,8 +62,8 @@ export default async function handler(
         country,
         issueType,
       });
-    } catch (emailError) {
-      console.error("Error sending email notification:", emailError);
+    } catch (emailError: any) {
+      console.error("Error sending email notification:", emailError.message);
       // Don't fail the request if email fails
     }
 

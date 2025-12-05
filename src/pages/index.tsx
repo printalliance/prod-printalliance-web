@@ -150,7 +150,7 @@ const Home = () => {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" aria-hidden />
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] pointer-events-none" aria-hidden />
         <div className="relative mx-auto max-w-5xl">
           <div className="mb-8">
             <div className="rounded-b-[3rem] rounded-t-xl bg-black/55 p-8 pb-10 text-center shadow-2xl backdrop-blur text-white border-t border-white/10">
@@ -170,6 +170,7 @@ const Home = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-10 max-w-4xl mx-auto">
             {printerBrands.map((brand) => (
               <button
+                type="button"
                 key={brand.slug}
                 onClick={() => setSelectedBrand(brand.slug)}
                 className={`group relative bg-white rounded-xl p-3 md:p-4 shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 border-2 ${
@@ -229,6 +230,7 @@ const Home = () => {
 
           <div className="text-center mb-8">
             <button
+              type="button"
               onClick={handleNext}
               className="group inline-flex items-center justify-center gap-3 rounded-full bg-red px-12 py-4 text-xl font-bold text-white shadow-[0_10px_25px_rgba(201,47,58,0.45)] transition-all duration-300 hover:bg-[#c92f3a] hover:shadow-[0_15px_35px_rgba(201,47,58,0.55)] hover:scale-105 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-red/40 disabled:cursor-not-allowed"
               disabled={!selectedBrand}

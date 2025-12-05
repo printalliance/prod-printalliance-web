@@ -1,4 +1,29 @@
+<<<<<<< HEAD
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xdkqzonz";
+=======
+import nodemailer from "nodemailer";
+
+const RECIPIENT_EMAIL = "support@printalliance.net";
+
+// Create transporter using Hostinger SMTP settings
+const createTransporter = () => {
+  const port = parseInt(process.env.SMTP_PORT || "587");
+  
+  return nodemailer.createTransport({
+    host: process.env.SMTP_HOST || "smtp.hostinger.com",
+    port: port,
+    secure: port === 465, // true for 465, false for other ports
+    auth: {
+      user: process.env.SMTP_USER || process.env.EMAIL_USER,
+      pass: process.env.SMTP_PASS || process.env.EMAIL_PASSWORD,
+    },
+    tls: {
+      // Do not fail on invalid certs
+      rejectUnauthorized: false
+    }
+  });
+};
+>>>>>>> 5444b08800ee9796081790d520c0ebac0d3c54e1
 
 interface EmailOptions {
   subject: string;
@@ -33,7 +58,11 @@ export const sendEmail = async ({ subject, html, text }: EmailOptions) => {
     console.log("Form submission forwarded to Formspree successfully");
     return { success: true };
   } catch (error: any) {
+<<<<<<< HEAD
     console.error("Error sending email via Formspree:", error);
+=======
+    console.error("Error sending email:", error.message);
+>>>>>>> 5444b08800ee9796081790d520c0ebac0d3c54e1
     return { success: false, error: error.message };
   }
 };
