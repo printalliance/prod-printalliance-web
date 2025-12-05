@@ -1,19 +1,4 @@
-import nodemailer from "nodemailer";
-
-const RECIPIENT_EMAIL = "support@printalliance.net";
-
-// Create transporter using Hostinger SMTP settings
-const createTransporter = () => {
-  return nodemailer.createTransport({
-    host: process.env.SMTP_HOST || "smtp.hostinger.com",
-    port: parseInt(process.env.SMTP_PORT || "465"),
-    secure: true, // true for 465, false for other ports
-    auth: {
-      user: process.env.SMTP_USER || process.env.EMAIL_USER,
-      pass: process.env.SMTP_PASS || process.env.EMAIL_PASSWORD,
-    },
-  });
-};
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xdkqzonz";
 
 interface EmailOptions {
   subject: string;
@@ -23,21 +8,32 @@ interface EmailOptions {
 
 export const sendEmail = async ({ subject, html, text }: EmailOptions) => {
   try {
-    const transporter = createTransporter();
+    // Forward all form submissions to Formspree.
+    // The Formspree dashboard is configured to deliver to support@printalliance.net.
+    const response = await fetch(FORMSPREE_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        _subject: subject,
+        subject,
+        message_html: html,
+        message_text: text || subject,
+      }),
+    });
 
-    const mailOptions = {
-      from: process.env.EMAIL_FROM || `PrintAlliance <${process.env.SMTP_USER || process.env.EMAIL_USER}>`,
-      to: RECIPIENT_EMAIL,
-      subject,
-      text: text || subject,
-      html,
-    };
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error("Formspree error:", response.status, errorText);
+      throw new Error(`Formspree responded with ${response.status}`);
+    }
 
-    const info = await transporter.sendMail(mailOptions);
-    console.log("Email sent successfully:", info.messageId);
-    return { success: true, messageId: info.messageId };
+    console.log("Form submission forwarded to Formspree successfully");
+    return { success: true };
   } catch (error: any) {
-    console.error("Error sending email:", error);
+    console.error("Error sending email via Formspree:", error);
     return { success: false, error: error.message };
   }
 };

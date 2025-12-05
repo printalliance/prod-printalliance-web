@@ -481,7 +481,7 @@ const TroubleshootPage = () => {
                     href="tel:+12105128406"
                     className="hover:text-yellow-300 transition-colors font-bold text-2xl"
                   >
-                    📞 +1-210-512-8406
+                    📞 +1-325-219-5205
                   </a>
                   <a
                     href="mailto:Support@printalliance.net"
@@ -539,7 +539,7 @@ const TroubleshootPage = () => {
                     href="tel:+12105128406"
                     className="text-blue-600 hover:text-blue-800 font-bold text-2xl"
                   >
-                    📞 +1-210-512-8406
+                    📞 +1-325-219-5205
                   </a>
                 </div>
               </div>

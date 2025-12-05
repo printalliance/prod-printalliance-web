@@ -33,7 +33,7 @@ const ExpertAssistanceModal = ({ isOpen, onClose }: ExpertAssistanceModalProps) 
             <p className="font-semibold text-navy mb-3">📞 Call us on:</p>
             <div className="flex flex-wrap justify-center gap-4 text-lg">
               <a href="tel:+12105128406" className="text-blue-600 hover:text-blue-800 font-medium text-2xl">
-                +1-210-512-8406
+                +1-325-219-5205
               </a>
             </div>
           </div>

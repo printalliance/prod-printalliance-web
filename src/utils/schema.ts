@@ -11,7 +11,7 @@ export const organizationSchema = {
   contactPoint: [
     {
       "@type": "ContactPoint",
-      telephone: "+1-210-512-8406",
+      telephone: "+1-325-219-5205",
       contactType: "customer service",
       areaServed: ["US", "GB"],
       availableLanguage: ["en"],
@@ -35,7 +35,7 @@ export const localBusinessSchema = {
   },
   areaServed: ["US", "GB"],
   url: siteUrl,
-  telephone: "+1-210-512-8406",
+  telephone: "+1-325-219-5205",
   openingHours: "Mo-Su 00:00-23:59",
 };
 
@@ -133,7 +133,7 @@ export const serviceProviderSchema = {
     contactPoint: [
       {
         "@type": "ContactPoint",
-        telephone: "+1-210-512-8406",
+        telephone: "+1-325-219-5205",
         contactType: "customer service",
         areaServed: ["US", "GB"],
         availableLanguage: ["English"],
@@ -167,7 +167,7 @@ export const serviceProviderSchema = {
   availableChannel: {
     "@type": "ServiceChannel",
     serviceUrl: siteUrl,
-    servicePhone: "+1-210-512-8406",
+    servicePhone: "+1-325-219-5205",
     serviceEmail: "Support@printalliance.net",
   },
 };

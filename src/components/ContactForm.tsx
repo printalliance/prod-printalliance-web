@@ -74,7 +74,7 @@ const ContactForm = () => {
           id="phone"
           label="Phone Number"
           type="tel"
-          placeholder="+1-210-512-8406"
+          placeholder="+1-325-219-5205"
           error={errors.phone?.message}
           {...register("phone")}
         />
@@ -234,7 +234,7 @@ const ContactForm = () => {
       )}
       {status === "error" && (
         <p className="text-center text-sm font-semibold text-red">
-          Something went wrong. Please try again or call us at +1-210-512-8406.
+          Something went wrong. Please try again or call us at +1-325-219-5205.
         </p>
       )}
     </form>

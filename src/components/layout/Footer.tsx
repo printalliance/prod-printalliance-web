@@ -73,7 +73,7 @@ const Footer = () => (
             <p>
               📞{" "}
               <a className="underline" href="tel:+12105128406">
-                +1-210-512-8406
+                +1-325-219-5205
               </a>
             </p>
             <p>USA & UK coverage • Remote + Onsite</p>
