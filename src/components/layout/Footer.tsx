@@ -72,7 +72,7 @@ const Footer = () => (
             </p>
             <p>
               📞{" "}
-              <a className="underline" href="tel:+12105128406">
+              <a className="underline" href="tel:+13252195205">
                 +1-325-219-5205
               </a>
             </p>

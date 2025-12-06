@@ -155,7 +155,7 @@ const Home = () => {
           <div className="mb-8">
             <div className="rounded-b-[3rem] rounded-t-xl bg-black/55 p-8 pb-10 text-center shadow-2xl backdrop-blur text-white border-t border-white/10">
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">
-                Printer Brand
+                PRINTER BRAND
               </h1>
               <p className="text-lg text-gray-100 mb-3">
                 Your Trusted Printer Troubleshooting Partner
