@@ -157,6 +157,7 @@ const Home = () => {
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">
                 PRINTER BRAND
               </h1>
+              <div className="w-3/4 max-w-md h-1 bg-red mx-auto mb-3"></div>
               <p className="text-lg text-gray-100 mb-3">
                 Your Trusted Printer Troubleshooting Partner
               </p>
