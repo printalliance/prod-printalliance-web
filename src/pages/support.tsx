@@ -235,7 +235,7 @@ const SupportPage = () => {
       <div className="mx-auto max-w-6xl px-4">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-navy">
-            Tier-2 Technician from Retail Stores vs Print Me Now Tier-2 Support
+            Tier-2 Technician from Retail Stores vs PRINTER BRAND Tier-2 Support
           </h2>
           <p className="mt-3 text-gray-600">
             See why our support stands out from traditional retail store
@@ -254,7 +254,7 @@ const SupportPage = () => {
                   etc.)
                 </th>
                 <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-navy">
-                  Print Me Now Tier-2 Support – Fast, Reliable & Cost-Effective
+                  Tier-2 Support – Fast, Reliable & Cost-Effective
                 </th>
               </tr>
             </thead>
