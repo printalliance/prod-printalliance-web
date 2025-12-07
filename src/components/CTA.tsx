@@ -11,7 +11,7 @@ const CTA = () => (
         Average response time: 38 minutes.
       </p>
       <div className="flex flex-col gap-4 sm:flex-row">
-        <Button href="tel:+12105128406">Call Now</Button>
+        <Button href="tel:+13252195205">Call Now</Button>
         <Button
           variant="secondary"
           href="/support"

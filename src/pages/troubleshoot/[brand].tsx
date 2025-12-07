@@ -478,7 +478,7 @@ const TroubleshootPage = () => {
                 <p className="text-xl mb-6">WE ARE JUST A CALL AWAY!</p>
                 <div className="flex flex-col items-center gap-4">
                   <a
-                    href="tel:+12105128406"
+                    href="tel:+13252195205"
                     className="hover:text-yellow-300 transition-colors font-bold text-2xl"
                   >
                     📞 +1-325-219-5205
@@ -536,7 +536,7 @@ const TroubleshootPage = () => {
                 </p>
                 <div className="flex justify-center">
                   <a
-                    href="tel:+12105128406"
+                    href="tel:+13252195205"
                     className="text-blue-600 hover:text-blue-800 font-bold text-2xl"
                   >
                     📞 +1-325-219-5205

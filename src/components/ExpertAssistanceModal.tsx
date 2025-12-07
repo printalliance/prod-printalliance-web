@@ -32,7 +32,7 @@ const ExpertAssistanceModal = ({ isOpen, onClose }: ExpertAssistanceModalProps) 
           <div className="bg-blue-50 rounded-xl p-6 space-y-3">
             <p className="font-semibold text-navy mb-3">📞 Call us on:</p>
             <div className="flex flex-wrap justify-center gap-4 text-lg">
-              <a href="tel:+12105128406" className="text-blue-600 hover:text-blue-800 font-medium text-2xl">
+              <a href="tel:+13252195205" className="text-blue-600 hover:text-blue-800 font-medium text-2xl">
                 +1-325-219-5205
               </a>
             </div>

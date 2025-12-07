@@ -448,7 +448,7 @@ const Home = () => {
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
             <a
-              href="tel:+12105128406"
+              href="tel:+13252195205"
               className="bg-white text-navy hover:bg-gray-100 font-semibold text-base px-8 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 inline-flex items-center gap-2"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

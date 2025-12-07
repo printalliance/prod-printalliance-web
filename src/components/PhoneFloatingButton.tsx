@@ -2,7 +2,7 @@ const PhoneFloatingButton = () => {
   return (
     <div className="fixed right-0 top-1/2 -translate-y-1/2 z-30 hidden lg:block">
       <a
-        href="tel:+12105128406"
+        href="tel:+13252195205"
         className="group relative flex items-center justify-center bg-navy hover:bg-blue-800 text-white rounded-l-xl p-4 shadow-lg hover:shadow-xl transition-all duration-300"
         aria-label="Call us"
       >

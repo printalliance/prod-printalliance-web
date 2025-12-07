@@ -60,7 +60,7 @@ s            <li>Connectivity failures caused by client networks, ISP outages, o
           <h2 className="text-2xl font-semibold text-navy">Need help?</h2>
           <p className="mt-2 text-gray-700">
             Reach our billing desk at <a className="text-navy underline" href="mailto:Support@printalliance.net">Support@printalliance.net</a> or
-            call <a className="text-navy underline" href="tel:+12105128406">+1-325-219-5205</a>. We respond 24/7 and make every effort to resolve
+            call <a className="text-navy underline" href="tel:+13252195205">+1-325-219-5205</a>. We respond 24/7 and make every effort to resolve
             refund reviews within three business days.
           </p>
         </section>
