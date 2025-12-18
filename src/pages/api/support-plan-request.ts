@@ -33,23 +33,32 @@ export default async function handler(
       return res.status(400).json({ error: "Issue Type is required" });
     }
 
-    const { data, error } = await supabase
-      .from("support_plan_requests")
-      .insert({
-        plan_name: planName,
-        plan_title: planTitle,
-        name: name.trim(),
-        email: email.trim().toLowerCase(),
-        country: country,
-        issue_type: issueType,
-        status: "pending",
-      })
-      .select()
-      .single();
+    // Try to save the request in Supabase, but don't fail the whole request
+    // if Supabase is temporarily unreachable (e.g. "fetch failed").
+    let data = null;
+    try {
+      const { data: dbData, error } = await supabase
+        .from("support_plan_requests")
+        .insert({
+          plan_name: planName,
+          plan_title: planTitle,
+          name: name.trim(),
+          email: email.trim().toLowerCase(),
+          country: country,
+          issue_type: issueType,
+          status: "pending",
+        })
+        .select()
+        .single();
 
-    if (error) {
-      console.error("Error saving support plan request:", error);
-      return res.status(500).json({ error: error.message });
+      if (error) {
+        console.error("Error saving support plan request:", error);
+      } else {
+        data = dbData;
+      }
+    } catch (dbError: any) {
+      console.error("Supabase request failed while saving support plan request:", dbError);
+      // Continue anyway – we'll still send the email and return success
     }
 
     // Send email notification
