@@ -51,7 +51,7 @@ const RefundPolicyPage = () => (
         <section>
           <h2 className="text-2xl font-semibold text-navy">Exclusions</h2>
           <ul className="mt-2 list-disc space-y-2 pl-6 text-gray-700">
-s            <li>Connectivity failures caused by client networks, ISP outages, or security appliances outside our control.</li>
+            <li>Connectivity failures caused by client networks, ISP outages, or security appliances outside our control.</li>
             <li>Unsupported printer models or systems that deviate from manufacturer specifications.</li>
           </ul>
         </section>
@@ -70,6 +70,9 @@ s            <li>Connectivity failures caused by client networks, ISP outages, o
 );
 
 export default RefundPolicyPage;
+
+
+
 
 
 

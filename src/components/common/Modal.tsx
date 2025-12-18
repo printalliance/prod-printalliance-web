@@ -23,9 +23,13 @@ const Modal = ({
       role="dialog"
       aria-modal="true"
       aria-label={title}
+      onClick={onClose}
       {...props}
     >
-      <div className={clsx("w-full max-w-lg rounded-2xl bg-white p-6", className)}>
+      <div 
+        className={clsx("w-full max-w-lg rounded-2xl bg-white p-6", className)}
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="mb-4 flex items-center justify-between">
           {title && <h3 className="text-xl font-semibold text-navy">{title}</h3>}
           <button
