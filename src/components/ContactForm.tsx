@@ -46,6 +46,9 @@ const ContactForm = () => {
         newsletter: false,
         gdpr: false,
       } as Partial<ContactFormValues>);
+      
+      // Trigger popup after successful form submission
+      window.dispatchEvent(new CustomEvent("formSubmitted"));
     } catch (error) {
       console.error(error);
       setStatus("error");

@@ -146,6 +146,13 @@ const TroubleshootPage = () => {
       return;
     }
 
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(userEmail)) {
+      alert("Please enter a valid email address");
+      return;
+    }
+
     // Save troubleshooting data to Supabase
     try {
       const response = await fetch("/api/save-troubleshooting", {
@@ -170,17 +177,27 @@ const TroubleshootPage = () => {
         }),
       });
 
-      if (!response.ok) {
-        console.error("Failed to save troubleshooting data");
-      } else {
-        console.log("Troubleshooting data saved successfully");
-      }
-    } catch (error) {
-      console.error("Error saving troubleshooting data:", error);
-    }
+      const responseData = await response.json().catch(() => ({}));
 
-    setStep(3);
-    window.scrollTo(0, 0);
+      if (!response.ok) {
+        console.error("Failed to save troubleshooting data:", responseData);
+        const errorMessage = responseData?.error || "Failed to submit form. Please try again.";
+        alert(`Error: ${errorMessage}\n\nPlease check your connection and try again, or call us at +1-325-219-5205.`);
+        return;
+      } else {
+        console.log("Troubleshooting data saved successfully", responseData);
+        
+        // Trigger popup after successful form submission
+        window.dispatchEvent(new CustomEvent("formSubmitted"));
+        
+        setStep(3);
+        window.scrollTo(0, 0);
+      }
+    } catch (error: any) {
+      console.error("Error saving troubleshooting data:", error);
+      alert(`Network error: ${error?.message || "Unable to connect to server"}\n\nPlease check your internet connection and try again, or call us at +1-325-219-5205.`);
+      return;
+    }
   };
 
   const handleStep3Next = () => {

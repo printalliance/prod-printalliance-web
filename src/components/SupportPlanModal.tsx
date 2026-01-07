@@ -102,6 +102,9 @@ const SupportPlanModal = ({
         issueType: "",
       });
 
+      // Trigger popup after successful form submission
+      window.dispatchEvent(new CustomEvent("formSubmitted"));
+
       // Close modal after 2 seconds
       setTimeout(() => {
         onClose();
