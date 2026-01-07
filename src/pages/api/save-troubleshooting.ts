@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { createClient } from "@supabase/supabase-js";
 import { sendTroubleshootingEmail } from "@/lib/email";
+import { getClientIp } from "@/utils/getClientIp";
 
 // Use service role key for server-side API operations to bypass RLS
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || 'https://flfjzyxibzfuqcfyexfx.supabase.co';
@@ -97,6 +98,9 @@ export default async function handler(
       // Continue anyway – we'll still send the email and return success
     }
 
+    // Get client IP address
+    const clientIp = getClientIp(req);
+
     // Send email notification (always try to send email even if DB insert failed)
     try {
       const emailResult = await sendTroubleshootingEmail({
@@ -109,6 +113,7 @@ export default async function handler(
         userPhone,
         userAddress,
         country,
+        ipAddress: clientIp,
       });
       
       if (emailResult && emailResult.success) {

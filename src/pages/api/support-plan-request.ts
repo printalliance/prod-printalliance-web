@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { supabase } from "@/lib/supabase";
 import { sendSupportPlanEmail } from "@/lib/email";
+import { getClientIp } from "@/utils/getClientIp";
 
 export default async function handler(
   req: NextApiRequest,
@@ -61,6 +62,9 @@ export default async function handler(
       // Continue anyway – we'll still send the email and return success
     }
 
+    // Get client IP address
+    const clientIp = getClientIp(req);
+
     // Send email notification
     try {
       await sendSupportPlanEmail({
@@ -70,6 +74,7 @@ export default async function handler(
         email: email.trim().toLowerCase(),
         country,
         issueType,
+        ipAddress: clientIp,
       });
     } catch (emailError: any) {
       console.error("Error sending email notification:", emailError.message);

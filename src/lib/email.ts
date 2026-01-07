@@ -58,6 +58,7 @@ export const sendContactFormEmail = async (data: {
   preferredTime?: string;
   issueDescription?: string;
   contactMethod: string;
+  ipAddress?: string;
 }) => {
   const subject = `New Contact Form Submission - ${data.fullName}`;
   const html = `
@@ -120,6 +121,12 @@ export const sendContactFormEmail = async (data: {
             <div class="value">${data.issueDescription}</div>
           </div>
           ` : ""}
+          ${data.ipAddress ? `
+          <div class="field">
+            <div class="label">IP Address:</div>
+            <div class="value">${data.ipAddress}</div>
+          </div>
+          ` : ""}
         </div>
       </div>
     </body>
@@ -136,6 +143,7 @@ export const sendSupportPlanEmail = async (data: {
   email: string;
   country: string;
   issueType: string;
+  ipAddress?: string;
 }) => {
   const subject = `New Support Plan Request - ${data.planTitle}`;
   const html = `
@@ -180,6 +188,12 @@ export const sendSupportPlanEmail = async (data: {
             <div class="label">Issue Type:</div>
             <div class="value">${data.issueType}</div>
           </div>
+          ${data.ipAddress ? `
+          <div class="field">
+            <div class="label">IP Address:</div>
+            <div class="value">${data.ipAddress}</div>
+          </div>
+          ` : ""}
         </div>
       </div>
     </body>
@@ -199,6 +213,7 @@ export const sendTroubleshootingEmail = async (data: {
   userPhone?: string;
   userAddress?: string;
   country?: string;
+  ipAddress?: string;
 }) => {
   const subject = `New Troubleshooting Request - ${data.brand.toUpperCase()}`;
   const html = `
@@ -271,6 +286,12 @@ export const sendTroubleshootingEmail = async (data: {
           <div class="field">
             <div class="label">Address:</div>
             <div class="value">${data.userAddress}</div>
+          </div>
+          ` : ""}
+          ${data.ipAddress ? `
+          <div class="field">
+            <div class="label">IP Address:</div>
+            <div class="value">${data.ipAddress}</div>
           </div>
           ` : ""}
         </div>

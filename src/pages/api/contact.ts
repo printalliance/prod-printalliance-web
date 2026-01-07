@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { contactSchema } from "@/utils/validation";
 import { supabase } from "@/lib/supabase";
 import { sendContactFormEmail } from "@/lib/email";
+import { getClientIp } from "@/utils/getClientIp";
 
 export default async function handler(
   req: NextApiRequest,
@@ -40,6 +41,9 @@ export default async function handler(
 
     console.info("New contact submission saved to Supabase", data);
 
+    // Get client IP address
+    const clientIp = getClientIp(req);
+
     // Send email notification
     try {
       await sendContactFormEmail({
@@ -51,6 +55,7 @@ export default async function handler(
         preferredTime: payload.preferredTime,
         issueDescription: payload.issueDescription,
         contactMethod: payload.contactMethod,
+        ipAddress: clientIp,
       });
     } catch (emailError) {
       console.error("Error sending email notification:", emailError);
