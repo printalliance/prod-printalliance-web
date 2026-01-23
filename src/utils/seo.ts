@@ -127,7 +127,7 @@ const baseMeta: Record<string, MetaInput> = {
   "/services/emergency": {
     title: "Emergency Printer Support | PrintAlliance",
     description:
-      "24/7 emergency dispatch, remote triage, and on-site engineers who restore mission critical printers fast.",
+      "24/7 emergency dispatch, remote triage, and rapid support to restore mission critical printers fast.",
     keywords: "emergency printer repair, 24/7 printer support",
     path: "/services/emergency",
   },

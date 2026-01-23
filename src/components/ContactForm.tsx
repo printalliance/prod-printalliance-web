@@ -232,7 +232,7 @@ const ContactForm = () => {
 
       {status === "success" && (
         <p className="text-center text-sm font-semibold text-green-700">
-          Thank you! We&apos;ll contact you within 1 hour.
+          Thank you! We&apos;ll contact you within 1o min.
         </p>
       )}
       {status === "error" && (

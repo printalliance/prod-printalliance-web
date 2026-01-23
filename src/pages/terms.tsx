@@ -16,7 +16,7 @@ const TermsPage = () => (
         <h1 className="text-4xl font-bold text-navy">Terms of Service</h1>
         <p className="text-gray-600">
           Effective November 14, 2025. These terms govern use of PrintAlliance
-          services for all USA and UK clients.
+          services for all clients.
         </p>
         <div className="space-y-4 text-gray-700">
           <section>
@@ -58,8 +58,8 @@ const TermsPage = () => (
               5. Governing law
             </h2>
             <p>
-              US engagements follow Delaware law; UK engagements follow English
-              law. Disputes will be handled via binding arbitration.
+              Service engagements are governed by applicable local law. Disputes
+              will be handled via binding arbitration.
             </p>
           </section>
         </div>

@@ -5,7 +5,7 @@ const testimonials = [
     name: "Olivia Bennett",
     location: "USA",
     quote:
-      "PrintAlliance resolved a mission-critical printer outage for our law firm within 45 minutes. Their engineers are the real deal.",
+      "PrintAlliance resolved a mission-critical printer outage for our law firm within 45 minutes. Their team is the real deal.",
   },
   {
     name: "James Carter",

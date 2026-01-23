@@ -5,16 +5,16 @@ import { siteUrl } from "@/utils/seo";
 const AboutPage = () => (
   <>
     <Head>
-      <title>About PrintAlliance | Certified Printer Experts</title>
+      <title>About PrintAlliance | Printer Support Services</title>
       <meta
         name="description"
-        content="PrintAlliance delivers enterprise-grade printer setup, maintenance, and emergency support backed by certified engineers in the USA and UK."
+        content="PrintAlliance delivers enterprise-grade printer setup, maintenance, and emergency support with expert service delivery."
       />
       <link rel="canonical" href={`${siteUrl}/about`} />
       <meta property="og:title" content="About PrintAlliance" />
       <meta
         property="og:description"
-        content="Meet the engineers, mission, and certifications powering PrintAlliance."
+        content="Learn about the mission and expertise powering PrintAlliance."
       />
       <meta property="og:url" content={`${siteUrl}/about`} />
       <meta property="og:image" content={`${siteUrl}/images/printalliance-logo.png`} />
@@ -23,11 +23,11 @@ const AboutPage = () => (
       <div className="mx-auto max-w-5xl px-4 text-center lg:px-0">
         <p className="highlight-bar justify-center">Our story</p>
         <h1 className="mt-4 text-4xl font-bold text-navy">
-          Aligning USA & UK businesses with printer uptime
+          Keeping your business running with reliable printer support
         </h1>
         <p className="mt-4 text-lg text-gray-600">
-          Founded by former OEM field engineers, PrintAlliance combines remote
-          diagnostics, on-site expertise, and proactive maintenance to keep
+          Founded by printer support experts, PrintAlliance combines remote
+          diagnostics, expert support, and proactive maintenance to keep
           distributed teams productive.
         </p>
       </div>

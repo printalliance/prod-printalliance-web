@@ -166,7 +166,7 @@ const SupportPage = () => {
       <div className="mx-auto max-w-5xl text-center">
         <p className="highlight-bar justify-center">Support Plans</p>
         <h1 className="mt-4 text-4xl font-bold text-navy">
-          Our Support Plans
+          🛟 Our Support Plans
         </h1>
         <p className="mt-3 text-gray-600">
           Choose the right support plan for your needs. All plans include
@@ -198,24 +198,24 @@ const SupportPage = () => {
               </p>
             </div>
             <div className="mt-5">
-              <p className="font-semibold text-gray-700">Issues Covered:</p>
+              <p className="font-semibold text-gray-700">📋 Issues Covered:</p>
               <ul className="mt-2 space-y-1.5 text-sm text-gray-600">
                 {plan.issues.map((issue, idx) => (
-                  <li key={idx}>• {issue}</li>
+                  <li key={idx}>✓ {issue}</li>
                 ))}
               </ul>
             </div>
             <div className="mt-4">
               <p className="font-semibold text-gray-700">
-                Number of Devices Covered:
+                💻 Number of Devices Covered:
               </p>
               <p className="mt-1 text-sm text-gray-600">{plan.devices}</p>
             </div>
             <div className="mt-5">
-              <p className="font-semibold text-gray-700">Additional Benefits:</p>
+              <p className="font-semibold text-gray-700">⭐ Additional Benefits:</p>
               <ul className="mt-2 space-y-1.5 text-sm text-gray-600">
                 {plan.benefits.map((benefit, idx) => (
-                  <li key={idx}>• {benefit}</li>
+                  <li key={idx}>✓ {benefit}</li>
                 ))}
               </ul>
             </div>
@@ -235,7 +235,7 @@ const SupportPage = () => {
       <div className="mx-auto max-w-6xl px-4">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-navy">
-            Tier-2 Technician from Retail Stores vs PRINTER BRAND Tier-2 Support
+            🏪 Retail Stores vs 🎯 Our Tier-2 Support
           </h2>
           <p className="mt-3 text-gray-600">
             See why our support stands out from traditional retail store
@@ -250,11 +250,11 @@ const SupportPage = () => {
                   Feature
                 </th>
                 <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-navy">
-                  Retail Store Technicians (Curry's, Best Buy, Local Stores,
+                  🏪 Retail Store Technicians (Curry's, Best Buy, Local Stores,
                   etc.)
                 </th>
                 <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-navy">
-                  Tier-2 Support – Fast, Reliable & Cost-Effective
+                  ⚡ Tier-2 Support – Fast, Reliable & Cost-Effective
                 </th>
               </tr>
             </thead>
@@ -265,10 +265,10 @@ const SupportPage = () => {
                     {item.feature}
                   </td>
                   <td className="border border-gray-300 px-4 py-3 text-gray-600">
-                    {item.retail}
+                    ❌ {item.retail}
                   </td>
                   <td className="border border-gray-300 px-4 py-3 text-gray-600">
-                    {item.printMeNow}
+                    ✅ {item.printMeNow}
                   </td>
                 </tr>
               ))}

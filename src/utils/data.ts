@@ -16,7 +16,7 @@ export const servicesList: Service[] = [
   {
     title: "Printer Setup & Installation",
     description:
-      "On-site and remote deployment, fleet configuration, and driver installation for every major printer manufacturer.",
+      "Remote and cloud deployment, fleet configuration, and driver installation for every major printer manufacturer.",
     slug: "printer-setup",
     category: "setup",
   },
@@ -51,7 +51,7 @@ export const servicesList: Service[] = [
   {
     title: "Emergency Support",
     description:
-      "24/7 hotlines, remote screen share, and rapid-dispatch engineers for outages and jammed queues.",
+      "24/7 hotlines, remote screen share, and rapid-dispatch support for outages and jammed queues.",
     slug: "emergency",
     category: "emergency",
   },
@@ -64,7 +64,7 @@ export const serviceBenefits = [
   },
   {
     title: "Certified Technicians",
-    description: "HP, Canon, Brother, and Lexmark certified senior engineers.",
+    description: "HP, Canon, Brother, and Lexmark certified senior specialists.",
   },
   {
     title: "Fast Response Time",
@@ -76,7 +76,7 @@ export const faqContent = [
   {
     question: "How fast can PrintAlliance respond?",
     answer:
-      "Response times average 38 minutes for remote tickets and under 2 hours for on-site dispatch in major metros.",
+      "Response times average 10 minutes for remote tickets with comprehensive support in all major metros.",
     category: "General",
   },
   {
@@ -138,12 +138,12 @@ export const serviceDetails = {
       "Eliminate jams, streaks, and ‘printer offline’ alerts before they impact revenue teams.",
     benefits: [
       "Remote diagnostics with live screen share",
-      "On-site dispatch in major USA & UK metros",
+      "Remote dispatch in major metros",
     ],
     steps: [
       "Remote triage & log analysis",
       "Part identification & courier",
-      "On-site repair or replacement",
+      "Remote repair or replacement",
       "Root-cause report & prevention plan",
     ],
     pricing: [
@@ -155,7 +155,7 @@ export const serviceDetails = {
       {
         question: "Do repairs void warranties?",
         answer:
-          "No, our certified engineers follow OEM guidelines and document every change for compliance.",
+          "No, our certified specialists follow OEM guidelines and document every change for compliance.",
       },
     ],
   },
@@ -215,7 +215,7 @@ export const serviceDetails = {
     hero:
       "Predictive printer maintenance that prevents downtime and optimizes consumable spend.",
     benefits: [
-      "Quarterly on-site wellness checks",
+      "Quarterly wellness checks",
       "Consumable forecasting with auto-ship",
       "Firmware governance & reporting",
     ],
@@ -240,7 +240,7 @@ export const serviceDetails = {
   },
   emergency: {
     hero:
-      "Mission-critical outages resolved by senior engineers any hour, any day.",
+      "Mission-critical outages resolved by senior specialists any hour, any day.",
     benefits: [
       "Emergency hotline answered in 3 rings",
       "Loaner printers staged in major metros",

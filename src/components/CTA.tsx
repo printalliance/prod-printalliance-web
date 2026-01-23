@@ -7,8 +7,8 @@ const CTA = () => (
         Ready to get your printers back online?
       </h2>
       <p className="text-lg text-gray-200">
-        Certified engineers are on standby 24/7 for USA and UK offices.
-        Average response time: 38 minutes.
+        Expert support is on standby 24/7.
+        Average response time: 10 minutes.
       </p>
       <div className="flex flex-col gap-4 sm:flex-row">
         <Button href="tel:+13252195205">Call Now</Button>

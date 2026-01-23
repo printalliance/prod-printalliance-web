@@ -4,7 +4,7 @@ import clsx from "clsx";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "/services" },
+  // { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
 ];
 

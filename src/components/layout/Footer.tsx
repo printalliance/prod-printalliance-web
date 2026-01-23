@@ -9,7 +9,7 @@ const Footer = () => (
         <div>
           <h3 className="text-2xl font-bold">PrintAlliance</h3>
           <p className="mt-4 text-sm text-gray-200">
-            Enterprise-grade printer support for hybrid teams. We pair remote diagnostics with onsite dispatch in every major USA and UK metro.
+            Enterprise-grade printer support with remote diagnostics and onsite dispatch. We provide reliable service for businesses worldwide.
           </p>
           <div className="mt-5 space-y-1 text-xs uppercase tracking-wide text-gray-400">
             <p>Response &lt; 1 hour</p>
@@ -27,8 +27,11 @@ const Footer = () => (
             <li>
               <Link href="/about">About</Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="/services">Services</Link>
+            </li> */}
+            <li>
+              <Link href="/contact">Contact Us</Link>
             </li>
             <li>
               <Link href="/support">Support</Link>
@@ -71,12 +74,12 @@ const Footer = () => (
               </a>
             </p>
             <p>
-              📞{" "}
+              🇺🇸 📞{" "}
               <a className="underline" href="tel:+13252195205">
                 +1-325-219-5205
               </a>
             </p>
-            <p>USA & UK coverage • Remote + Onsite</p>
+            <p>Global coverage • Remote</p>
           </div>
 
 
@@ -85,7 +88,7 @@ const Footer = () => (
 
       <div className="flex flex-col gap-4 border-t border-white/20 pt-6 text-sm text-gray-200 lg:flex-row lg:items-center lg:justify-between">
         <p>© {currentYear} PrintAlliance. All rights reserved.</p>
-        <p>USA & UK | Response time &lt; 1 hour | 24/7 support</p>
+        <p>Response time &lt; 10 Min | 24/7 support</p>
       </div>
     </div>
   </footer>

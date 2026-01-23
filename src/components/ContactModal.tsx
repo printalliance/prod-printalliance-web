@@ -49,7 +49,7 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
             <div className="flex-1">
               <h4 className="font-semibold text-navy group-hover:text-red">Email Us</h4>
               <p className="text-lg font-semibold text-gray-700">Support@printalliance.net</p>
-              <p className="text-sm text-gray-500">We'll respond within 1 hour</p>
+              <p className="text-sm text-gray-500">Instant Respond</p>
             </div>
             <svg className="h-5 w-5 text-gray-400 group-hover:text-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

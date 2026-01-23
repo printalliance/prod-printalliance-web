@@ -27,7 +27,7 @@ const ServicesPage = () => {
         <title>Our Comprehensive Printer Services | PrintAlliance</title>
         <meta
           name="description"
-          content="Explore printer setup, troubleshooting, networking, driver management, maintenance, and emergency services crafted for USA & UK teams."
+          content="Explore printer setup, troubleshooting, networking, driver management, maintenance, and emergency services to keep your operations running smoothly."
         />
         <link rel="canonical" href={`${siteUrl}/services`} />
         <meta property="og:title" content="PrintAlliance Services" />
