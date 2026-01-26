@@ -126,7 +126,7 @@ const ContactForm = () => {
           render={({ field }) => (
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-3">
-                Printer Brand (optional)
+                PrintAlliance (optional)
               </label>
               <div className="space-y-2">
                 {printerOptions.map((option) => (

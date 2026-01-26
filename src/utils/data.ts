@@ -135,7 +135,7 @@ export const serviceDetails = {
   },
   troubleshooting: {
     hero:
-      "Eliminate jams, streaks, and ‘printer offline’ alerts before they impact revenue teams.",
+      "Eliminate jams, streaks, and connectivity alerts before they impact revenue teams.",
     benefits: [
       "Remote diagnostics with live screen share",
       "Remote dispatch in major metros",

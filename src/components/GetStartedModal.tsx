@@ -59,7 +59,7 @@ const GetStartedModal = ({ isOpen, onClose }: GetStartedModalProps) => {
       onClose();
       router.push(`/troubleshoot/${selectedBrand}`);
     } else {
-      alert("Please select a printer brand to continue");
+      alert("Please select a PrintAlliance to continue");
     }
   };
 
@@ -110,7 +110,7 @@ const GetStartedModal = ({ isOpen, onClose }: GetStartedModalProps) => {
               Q1. Please Select the Brand of your Printer
             </label>
 
-            {/* Printer Brand Logos */}
+            {/* PrintAlliance Logos */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {printerBrands.map((brand) => (
                 <button

@@ -44,7 +44,7 @@ Gmail requires an **App Password** for SMTP authentication, not your regular Gma
 ## Forms That Send Email Notifications
 
 1. **Contact Form** (`/api/contact`)
-   - Sends notification with: Name, Email, Phone, Country, Printer Brand, Issue Description, Contact Method
+   - Sends notification with: Name, Email, Phone, Country, PrintAlliance, Issue Description, Contact Method
 
 2. **Support Plan Request** (`/api/support-plan-request`)
    - Sends notification with: Plan Name, Plan Title, Customer Name, Email, Country, Issue Type
@@ -53,7 +53,7 @@ Gmail requires an **App Password** for SMTP authentication, not your regular Gma
    - Sends notification with: Brand, Model Number, Problem, Device Type, User Details
 
 4. **Support Request** (`/api/save-support-request`)
-   - Sends notification with: Printer Brand
+   - Sends notification with: PrintAlliance
 
 ## Email Recipient
 

@@ -23,7 +23,7 @@ const baseMeta: Record<string, MetaInput> = {
     description:
       "PrintAlliance delivers 24/7 printer repair, setup, and managed support across the USA and UK. Certified technicians, rapid response, and proactive maintenance. Get expert help for HP, Brother, Epson, and Canon printers.",
     keywords:
-      "printer services USA, printer repair UK, printer support, printer troubleshooting, HP printer support, Brother printer repair, Epson printer help, Canon printer service, printer setup, wireless printer setup, printer offline fix, 24/7 printer support, printer maintenance, managed print services, printer technician, printer expert, printer troubleshooting guide, printer error codes, network printer setup, printer driver installation",
+      "printer services USA, printer repair UK, printer support, printer troubleshooting, HP printer support, Brother printer repair, Epson printer help, Canon printer service, printer setup, wireless printer setup, connectivity fixes, 24/7 printer support, printer maintenance, managed print services, printer technician, printer expert, printer troubleshooting guide, printer error codes, network printer setup, printer driver installation",
     path: "/",
     geo: {
       region: "US, GB",

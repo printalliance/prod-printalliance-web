@@ -12,7 +12,7 @@ interface SupportPlanModalProps {
 }
 
 const issueTypes = [
-  { label: "Printer Offline", value: "printer_offline" },
+  { label: "Connectivity Issues", value: "connectivity_issues" },
   { label: "New Printer Setup", value: "new_setup" },
   { label: "Printer Won't Print", value: "wont_print" },
   { label: "Slow Computer Performance", value: "slow_computer" },

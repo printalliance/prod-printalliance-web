@@ -13,7 +13,7 @@ const supportPlans = [
     fixation: "One-time fix included",
     coverage: "1 year",
     issues: [
-      "Printer offline issues",
+      "Connectivity issues",
       "New printer setup assistance",
       "Printer won't print errors",
     ],
@@ -30,7 +30,7 @@ const supportPlans = [
     fixation: "One-time fix included",
     coverage: "2 years",
     issues: [
-      "Printer offline issues",
+      "Connectivity issues",
       "New printer setup assistance",
       "Printer won't print errors",
       "Slow computer performance",
@@ -103,7 +103,7 @@ const comparisonFeatures = [
   {
     feature: "Support Scope",
     retail: "Basic troubleshooting, limited to store capabilities.",
-    printMeNow: "Comprehensive support, including new setup, offline errors, and connectivity issues.",
+    printMeNow: "Comprehensive support, including new setup, connectivity errors, and connectivity issues.",
   },
   {
     feature: "Transparency",

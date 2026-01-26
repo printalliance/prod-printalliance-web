@@ -85,8 +85,8 @@ const commonIssues = [
     description: "Connect your printer to WiFi networks easily",
   },
   {
-    title: "Printer Offline",
-    description: "Fix connectivity and offline status issues",
+    title: "Connectivity Issues",
+    description: "Fix connectivity and connection status issues",
   },
   {
     title: "Not Printing",
@@ -110,7 +110,7 @@ const Home = () => {
     if (selectedBrand) {
       router.push(`/troubleshoot/${selectedBrand}`);
     } else {
-      alert("Please select a printer brand to continue");
+      alert("Please select a PrintAlliance to continue");
     }
   };
 
@@ -140,7 +140,7 @@ const Home = () => {
         schema={combinedSchema}
       />
 
-      {/* Hero Section - Printer Brand Selection */}
+      {/* Hero Section - PrintAlliance Selection */}
       <section
         className="relative px-4 pt-0 pb-10"
         style={{
@@ -155,19 +155,19 @@ const Home = () => {
           <div className="mb-8">
             <div className="rounded-b-[3rem] rounded-t-xl bg-black/55 p-8 pb-10 text-center shadow-2xl backdrop-blur text-white border-t border-white/10">
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">
-                PRINTER BRAND
+                PrintAlliance
               </h1>
               <div className="w-3/4 max-w-md h-1 bg-red mx-auto mb-3"></div>
               <p className="text-lg text-gray-100 mb-3">
                 Your Trusted Printer Troubleshooting Partner
               </p>
               <p className="text-base md:text-lg text-gray-100 leading-relaxed">
-                Select your printer brand and proceed (click 'NEXT') to access all necessary troubleshooting step-by-step instructions for issues like printer offline, wireless setup, not printing, blank prints, error codes or scanner issues.
+                Select your PrintAlliance and proceed (click 'NEXT') to access all necessary troubleshooting step-by-step instructions for issues like connectivity problems, wireless setup, not printing, blank prints, error codes or scanner issues.
               </p>
             </div>
           </div>
 
-          {/* Printer Brand Logos */}
+          {/* PrintAlliance Logos */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-10 max-w-4xl mx-auto">
             {printerBrands.map((brand) => (
               <button
@@ -406,7 +406,7 @@ const Home = () => {
                 Select Your Brand
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Choose your printer brand from HP, Brother, Epson, or Canon
+                Choose your PrintAlliance from HP, Brother, Epson, or Canon
               </p>
             </div>
 

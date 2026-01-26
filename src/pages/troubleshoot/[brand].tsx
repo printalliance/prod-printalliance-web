@@ -6,7 +6,7 @@ import ExpertAssistanceModal from "@/components/ExpertAssistanceModal";
 const printerProblems = [
   "Set-up a new printer",
   "Wi-Fi or Wireless setup",
-  "Offline or Can't connect",
+  "Can't connect",
   "Won't print",
   "Printing blank papers",
   "Paper jam",
@@ -49,7 +49,7 @@ const troubleshootingSteps: Record<string, string[]> = {
     "On your computer, add the printer through Settings > Devices > Printers & Scanners",
     "Print a test page to confirm the wireless connection is working",
   ],
-  "Offline or Can't connect": [
+  "Can't connect": [
     "Check that the printer is powered on and the display shows it's ready",
     "Restart both your printer and computer/device",
     "Check all cable connections if using a USB connection",

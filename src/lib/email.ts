@@ -101,7 +101,7 @@ export const sendContactFormEmail = async (data: {
           </div>
           ${data.printerBrand ? `
           <div class="field">
-            <div class="label">Printer Brand:</div>
+            <div class="label">PrintAlliance:</div>
             <div class="value">${data.printerBrand}</div>
           </div>
           ` : ""}
@@ -237,7 +237,7 @@ export const sendTroubleshootingEmail = async (data: {
         </div>
         <div class="content">
           <div class="field">
-            <div class="label">Printer Brand:</div>
+            <div class="label">PrintAlliance:</div>
             <div class="value">${data.brand.toUpperCase()}</div>
           </div>
           ${data.modelNumber ? `
@@ -328,7 +328,7 @@ export const sendSupportRequestEmail = async (data: {
         </div>
         <div class="content">
           <div class="field">
-            <div class="label">Printer Brand:</div>
+            <div class="label">PrintAlliance:</div>
             <div class="value">${data.brand.toUpperCase()}</div>
           </div>
         </div>

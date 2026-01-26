@@ -3,7 +3,7 @@ import { useState } from "react";
 import { siteUrl } from "@/utils/seo";
 
 const printerBrands = [
-  { label: "Select Printer Brand", value: "" },
+  { label: "Select PrintAlliance", value: "" },
   { label: "HP", value: "hp" },
   { label: "Brother", value: "brother" },
   { label: "Epson", value: "epson" },
@@ -15,7 +15,6 @@ const printerIssues = [
   { label: "Select Printer Issue", value: "" },
   { label: "Paper Jam", value: "paper-jam" },
   { label: "Wireless Setup", value: "wireless-setup" },
-  { label: "Printer Offline", value: "offline" },
   { label: "Not Printing", value: "not-printing" },
   { label: "Blank Prints", value: "blank-prints" },
   { label: "Error Codes", value: "error-codes" },
@@ -191,7 +190,7 @@ const ContactPage = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-navy mb-2">
-                    Select Printer Brand
+                    Select PrintAlliance
                   </label>
                   <select
                     name="brand"
