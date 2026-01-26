@@ -3,7 +3,7 @@ import { useState } from "react";
 import { siteUrl } from "@/utils/seo";
 
 const printerBrands = [
-  { label: "Select PrintAlliance", value: "" },
+  { label: "Select Printer Brand", value: "" },
   { label: "HP", value: "hp" },
   { label: "Brother", value: "brother" },
   { label: "Epson", value: "epson" },
@@ -190,7 +190,7 @@ const ContactPage = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-navy mb-2">
-                    Select PrintAlliance
+                    Select Printer Brand
                   </label>
                   <select
                     name="brand"

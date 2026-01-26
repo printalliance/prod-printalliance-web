@@ -98,7 +98,7 @@ export default async function handler(
                 <div class="value"><a href="tel:${phone}">${phone}</a></div>
               </div>
               <div class="field">
-                <div class="label">PrintAlliance:</div>
+                <div class="label">Printer Brand:</div>
                 <div class="value">${brand}</div>
               </div>
               <div class="field">
@@ -149,7 +149,7 @@ export default async function handler(
               <p>We have received your printer support query and appreciate you reaching out to us.</p>
               <p><strong>Your Query Details:</strong></p>
               <ul>
-                <li><strong>PrintAlliance:</strong> ${brand}</li>
+                <li><strong>Printer Brand:</strong> ${brand}</li>
                 <li><strong>Issue:</strong> ${issue}</li>
               </ul>
               <p>Our support team will review your submission and get back to you within 1 hour at the contact information you provided.</p>
