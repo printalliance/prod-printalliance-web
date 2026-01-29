@@ -91,7 +91,7 @@ export const websiteSchema = {
   name: "PrintAlliance",
   url: siteUrl,
   description:
-    "Professional printer repair, setup, and managed services. 24/7 support for HP, Brother, Epson, and Canon printers.",,
+    "Professional printer repair, setup, and managed services. 24/7 support for HP, Brother, Epson, and Canon printers.",
   publisher: {
     "@type": "Organization",
     name: "PrintAlliance",

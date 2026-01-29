@@ -83,7 +83,7 @@ const baseMeta: Record<string, MetaInput> = {
       "Deploy printers faster with OEM-certified technicians handling configuration, driver rollout, and fleet onboarding.",
     keywords: "printer setup service, printer installation service",
     path: "/services/printer-setup",
-  }
+  },
   "/services/troubleshooting": {
     title: "Printer Troubleshooting & Repair | PrintAlliance",
     description:
