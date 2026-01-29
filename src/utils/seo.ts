@@ -70,13 +70,6 @@ const baseMeta: Record<string, MetaInput> = {
     keywords: "printer privacy policy, gdpr printer services",
     path: "/privacy",
   },
-  "/terms": {
-    title: "Terms of Service | PrintAlliance",
-    description:
-      "Review PrintAlliance service terms, SLAs, and acceptable use for managed printer support engagements.",
-    keywords: "printer services terms, managed print agreement",
-    path: "/terms",
-  },
   "/services/printer-setup": {
     title: "Printer Setup & Installation Services | PrintAlliance",
     description:

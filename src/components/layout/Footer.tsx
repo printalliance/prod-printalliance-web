@@ -50,9 +50,6 @@ const Footer = () => (
               <Link href="/privacy">Privacy Policy</Link>
             </li>
             <li>
-              <Link href="/terms">Terms of Service</Link>
-            </li>
-            <li>
               <Link href="/refund-policy">Refund Policy</Link>
             </li>
            

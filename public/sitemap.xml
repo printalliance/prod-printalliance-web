@@ -171,13 +171,7 @@
   </url>
 
   <url>
-    <loc>https://www.printalliance.com/terms</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.printalliance.com/terms" />
-    <xhtml:link rel="alternate" hreflang="en-GB" href="https://www.printalliance.com/terms" />
-  </url>
+  <!-- Terms page removed -->
 
   <url>
     <loc>https://www.printalliance.com/refund-policy</loc>
