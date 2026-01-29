@@ -26,9 +26,8 @@ const AboutPage = () => (
           Keeping your business running with reliable printer support
         </h1>
         <p className="mt-4 text-lg text-gray-600">
-          Founded by printer support experts, PrintAlliance combines remote
-          diagnostics, expert support, and proactive maintenance to keep
-          distributed teams productive.
+          PrintAlliance is an independent Support provider. We have no association or affiliation with any brands mentioned on this website. The sole intent of this website is to provide necessary troubleshooting steps and expert advice to help users with printer related issues.
+          Start by selecting your printer brand and let us know about the issue that you're facing, and receive all the necessary troubleshooting instructions on the web or in your email. You can also chose to connect with our experts via chat or over the phone for immediate resolution.
         </p>
       </div>
       <div className="mx-auto mt-12 grid max-w-6xl gap-8 px-4 lg:px-8">
