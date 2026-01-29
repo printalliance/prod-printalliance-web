@@ -152,7 +152,7 @@ export default async function handler(
                 <li><strong>Printer Brand:</strong> ${brand}</li>
                 <li><strong>Issue:</strong> ${issue}</li>
               </ul>
-              <p>Our support team will review your submission and get back to you within 1 hour at the contact information you provided.</p>
+              <p>Our support team will review your submission and get back to you within 10 minutes at the contact information you provided.</p>
               <p>If you have any urgent issues, you can also reach us at:</p>
               <p>
                 <strong>📧 Email:</strong> <a href="mailto:Support@printalliance.net">Support@printalliance.net</a><br>

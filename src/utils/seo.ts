@@ -19,28 +19,20 @@ type MetaInput = {
 
 const baseMeta: Record<string, MetaInput> = {
   "/": {
-    title: "Professional Printer Services for USA & UK | PrintAlliance",
+    title: "Professional Printer Support Services | PrintAlliance",
     description:
-      "PrintAlliance delivers 24/7 printer repair, setup, and managed support across the USA and UK. Certified technicians, rapid response, and proactive maintenance. Get expert help for HP, Brother, Epson, and Canon printers.",
+      "PrintAlliance delivers 24/7 printer repair, setup, and managed support services. Certified technicians, rapid response, and proactive maintenance. Get expert help for HP, Brother, Epson, and Canon printers.",
     keywords:
-      "printer services USA, printer repair UK, printer support, printer troubleshooting, HP printer support, Brother printer repair, Epson printer help, Canon printer service, printer setup, wireless printer setup, connectivity fixes, 24/7 printer support, printer maintenance, managed print services, printer technician, printer expert, printer troubleshooting guide, printer error codes, network printer setup, printer driver installation",
+      "printer support, printer repair, printer troubleshooting, HP printer support, Brother printer repair, Epson printer help, Canon printer service, printer setup, wireless printer setup, connectivity fixes, 24/7 printer support, printer maintenance, managed print services, printer technician, printer expert, printer troubleshooting guide, printer error codes, network printer setup, printer driver installation",
     path: "/",
-    geo: {
-      region: "US, GB",
-      placename: "United States, United Kingdom",
-    },
   },
   "/services": {
     title: "Comprehensive Printer Services | PrintAlliance",
     description:
-      "Explore printer setup, troubleshooting, networking, maintenance, and emergency repair solutions backed by certified PrintAlliance technicians. Available 24/7 across USA and UK.",
+      "Explore printer setup, troubleshooting, networking, maintenance, and emergency repair solutions backed by certified PrintAlliance technicians. Available 24/7 with expert support.",
     keywords:
       "printer services, printer setup, printer repair, printer maintenance, printer troubleshooting, network printer setup, printer driver installation, emergency printer repair, printer support services, managed print services, printer installation, printer configuration, printer diagnostics, printer error fixing",
     path: "/services",
-    geo: {
-      region: "US, GB",
-      placename: "United States, United Kingdom",
-    },
   },
   "/about": {
     title: "About PrintAlliance | Certified Printer Experts",
@@ -52,14 +44,10 @@ const baseMeta: Record<string, MetaInput> = {
   "/support": {
     title: "Support Plans & Services | PrintAlliance",
     description:
-      "Choose from Basic, Comprehensive, or Perpetual support plans. Get expert printer and device support with transparent pricing and guaranteed fixes. Available for USA and UK customers.",
+      "Choose from Basic, Comprehensive, or Perpetual support plans. Get expert printer and device support with transparent pricing and guaranteed fixes.",
     keywords:
-      "printer support plans, device support, technical support services, printer support packages, printer maintenance plans, printer service plans, printer support subscription, printer help plans, printer assistance plans, printer support pricing, printer support cost, printer support packages USA, printer support UK",
+      "printer support plans, device support, technical support services, printer support packages, printer maintenance plans, printer service plans, printer support subscription, printer help plans, printer assistance plans, printer support pricing, printer support cost",
     path: "/support",
-    geo: {
-      region: "US, GB",
-      placename: "United States, United Kingdom",
-    },
   },
   "/faq": {
     title: "Printer Support FAQ | PrintAlliance",
@@ -69,10 +57,10 @@ const baseMeta: Record<string, MetaInput> = {
     path: "/faq",
   },
   "/service-areas": {
-    title: "USA & UK Service Areas | PrintAlliance",
+    title: "Service Areas | PrintAlliance",
     description:
-      "PrintAlliance provides comprehensive printer support services across all US states and all UK regions with rapid response times.",
-    keywords: "printer service areas USA, printer support UK",
+      "PrintAlliance provides comprehensive printer support services globally with rapid response times.",
+    keywords: "printer service areas, global printer support",
     path: "/service-areas",
   },
   "/privacy": {

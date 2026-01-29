@@ -158,9 +158,6 @@ const Home = () => {
                 PRINTER BRAND
               </h1>
               <div className="w-3/4 max-w-md h-1 bg-red mx-auto mb-3"></div>
-              <p className="text-lg text-gray-100 mb-3">
-                Your Trusted Printer Troubleshooting Partner
-              </p>
               <p className="text-base md:text-lg text-gray-100 leading-relaxed">
                 Select your printer brand and proceed (click 'NEXT') to access all necessary troubleshooting step-by-step instructions for issues like connectivity problems, wireless setup, not printing, blank prints, error codes or scanner issues.
               </p>

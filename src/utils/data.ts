@@ -68,7 +68,7 @@ export const serviceBenefits = [
   },
   {
     title: "Fast Response Time",
-    description: "< 1-hour average response with proactive status updates.",
+    description: "< 10 min average response with proactive status updates.",
   },
 ];
 
