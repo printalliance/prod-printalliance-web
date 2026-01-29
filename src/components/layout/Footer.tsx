@@ -12,7 +12,7 @@ const Footer = () => (
             Enterprise-grade printer support with remote diagnostics and onsite dispatch. We provide reliable service for businesses worldwide.
           </p>
           <div className="mt-5 space-y-1 text-xs uppercase tracking-wide text-gray-400">
-            <p>Response &lt; 1 hour</p>
+            <p>Response &lt; 10 Min</p>
             <p>24/7 expert hotline</p>
             <p>HP · Brother · Epson · Canon</p>
           </div>
