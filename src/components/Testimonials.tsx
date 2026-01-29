@@ -38,7 +38,7 @@ const Testimonials = () => {
       <div className="mx-auto max-w-5xl px-4 text-center lg:px-0">
         <p className="highlight-bar justify-center">Testimonials</p>
         <h2 className="mt-4 text-3xl font-bold text-navy md:text-4xl">
-          Rated 4.9/5 by offices across the USA & UK
+          Rated 4.9/5 by clients worldwide
         </h2>
         <div className="surface mt-8 p-8">
           <div className="flex justify-center gap-1 text-red">

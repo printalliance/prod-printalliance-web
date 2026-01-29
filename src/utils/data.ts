@@ -60,7 +60,7 @@ export const servicesList: Service[] = [
 export const serviceBenefits = [
   {
     title: "24/7 Customer Support",
-    description: "Live technicians in the USA and UK to keep printers online.",
+    description: "Live technicians to keep printers online globally.",
   },
   {
     title: "Certified Technicians",
@@ -80,9 +80,9 @@ export const faqContent = [
     category: "General",
   },
   {
-    question: "Do you support both USA and UK offices?",
+    question: "Do you support international offices?",
     answer:
-      "Yes, we have distributed teams covering all US states and all regions of the UK, providing comprehensive support nationwide.",
+      "Yes, we have distributed teams providing comprehensive global support.",
     category: "Service Areas",
   },
   {
@@ -106,8 +106,7 @@ export const faqContent = [
 ];
 
 export const serviceAreas = {
-  usa: "All US States",
-  uk: "All UK Regions",
+  global: "Worldwide Coverage",
 };
 
 export const serviceDetails = {

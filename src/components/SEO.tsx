@@ -38,8 +38,7 @@ const SEO = ({
   nofollow = false,
   schema,
   hreflang = [
-    { lang: "en-US", url: `${siteUrl}${canonical || ""}` },
-    { lang: "en-GB", url: `${siteUrl}${canonical || ""}` },
+    { lang: "en", url: `${siteUrl}${canonical || ""}` },
   ],
   geo,
   author = "PrintAlliance",
@@ -71,9 +70,8 @@ const SEO = ({
       <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
       {/* Language and Geo Tags */}
-      <meta httpEquiv="content-language" content="en-US, en-GB" />
-      <link rel="alternate" hrefLang="en-US" href={hreflang[0]?.url || fullCanonical} />
-      <link rel="alternate" hrefLang="en-GB" href={hreflang[1]?.url || fullCanonical} />
+      <meta httpEquiv="content-language" content="en" />
+      <link rel="alternate" hrefLang="en" href={hreflang[0]?.url || fullCanonical} />
       <link rel="alternate" hrefLang="x-default" href={fullCanonical} />
       {geo && (
         <>

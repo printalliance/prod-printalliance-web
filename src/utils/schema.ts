@@ -7,7 +7,7 @@ export const organizationSchema = {
   url: siteUrl,
   logo: `${siteUrl}/images/logo.svg`,
   description:
-    "PrintAlliance provides professional printer repair, setup, and managed services across the USA and UK.",
+    "PrintAlliance provides professional printer repair, setup, and managed services.",
   contactPoint: [
     {
       "@type": "ContactPoint",
@@ -91,7 +91,7 @@ export const websiteSchema = {
   name: "PrintAlliance",
   url: siteUrl,
   description:
-    "Professional printer repair, setup, and managed services across the USA and UK. 24/7 support for HP, Brother, Epson, and Canon printers.",
+    "Professional printer repair, setup, and managed services. 24/7 support for HP, Brother, Epson, and Canon printers.",,
   publisher: {
     "@type": "Organization",
     name: "PrintAlliance",
@@ -108,17 +108,11 @@ export const websiteSchema = {
     },
     "query-input": "required name=search_term_string",
   },
-  inLanguage: ["en-US", "en-GB"],
-  areaServed: [
-    {
-      "@type": "Country",
-      name: "United States",
-    },
-    {
-      "@type": "Country",
-      name: "United Kingdom",
-    },
-  ],
+  inLanguage: ["en"],
+  areaServed: {
+    "@type": "AdministrativeArea",
+    name: "Global",
+  },
 };
 
 export const serviceProviderSchema = {
@@ -135,7 +129,7 @@ export const serviceProviderSchema = {
         "@type": "ContactPoint",
         telephone: "+1-325-219-5205",
         contactType: "customer service",
-        areaServed: ["US", "GB"],
+        areaServed: ["Worldwide"],
         availableLanguage: ["English"],
         hoursAvailable: {
           "@type": "OpeningHoursSpecification",
@@ -154,16 +148,10 @@ export const serviceProviderSchema = {
       },
     ],
   },
-  areaServed: [
-    {
-      "@type": "Country",
-      name: "United States",
-    },
-    {
-      "@type": "Country",
-      name: "United Kingdom",
-    },
-  ],
+  areaServed: {
+    "@type": "AdministrativeArea",
+    name: "Global",
+  },
   availableChannel: {
     "@type": "ServiceChannel",
     serviceUrl: siteUrl,

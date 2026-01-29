@@ -52,7 +52,7 @@ const baseMeta: Record<string, MetaInput> = {
   "/faq": {
     title: "Printer Support FAQ | PrintAlliance",
     description:
-      "Find answers to common printer troubleshooting, pricing, coverage, and onboarding questions for USA & UK customers.",
+      "Find answers to common printer troubleshooting, pricing, coverage, and onboarding questions.",
     keywords: "printer faq, printer troubleshooting answers, printer support help",
     path: "/faq",
   },
@@ -66,7 +66,7 @@ const baseMeta: Record<string, MetaInput> = {
   "/privacy": {
     title: "Privacy Policy | PrintAlliance",
     description:
-      "Understand how PrintAlliance secures personal information, complies with GDPR, and handles data for USA & UK clients.",
+      "Understand how PrintAlliance secures personal information, complies with GDPR, and handles data.",
     keywords: "printer privacy policy, gdpr printer services",
     path: "/privacy",
   },
@@ -81,9 +81,9 @@ const baseMeta: Record<string, MetaInput> = {
     title: "Printer Setup & Installation Services | PrintAlliance",
     description:
       "Deploy printers faster with OEM-certified technicians handling configuration, driver rollout, and fleet onboarding.",
-    keywords: "printer setup service, printer installation usa uk",
+    keywords: "printer setup service, printer installation service",
     path: "/services/printer-setup",
-  },
+  }
   "/services/troubleshooting": {
     title: "Printer Troubleshooting & Repair | PrintAlliance",
     description:
@@ -130,10 +130,9 @@ export const defaultMeta = (path: string) => {
   };
 };
 
-// Generate hreflang tags for US and UK
+// Generate hreflang tags
 export const generateHreflang = (path: string) => [
-  { lang: "en-US", url: `${siteUrl}${path}` },
-  { lang: "en-GB", url: `${siteUrl}${path}` },
+  { lang: "en", url: `${siteUrl}${path}` },
   { lang: "x-default", url: `${siteUrl}${path}` },
 ];
 

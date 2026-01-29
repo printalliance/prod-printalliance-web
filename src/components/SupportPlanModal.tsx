@@ -23,8 +23,7 @@ const issueTypes = [
 ];
 
 const countries = [
-  { label: "United States", value: "USA" },
-  { label: "United Kingdom", value: "UK" },
+  { label: "Other", value: "OTHER" },
   { label: "Canada", value: "Canada" },
   { label: "Australia", value: "Australia" },
   { label: "Other", value: "Other" },
@@ -39,7 +38,7 @@ const SupportPlanModal = ({
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    country: "USA",
+    country: "OTHER",
     issueType: "",
   });
   const [status, setStatus] = useState<
@@ -98,7 +97,7 @@ const SupportPlanModal = ({
       setFormData({
         name: "",
         email: "",
-        country: "USA",
+        country: "OTHER",
         issueType: "",
       });
 

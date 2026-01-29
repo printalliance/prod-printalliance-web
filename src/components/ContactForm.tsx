@@ -28,7 +28,7 @@ const ContactForm = () => {
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
-      country: "USA" as const,
+      country: "OTHER" as const,
       contactMethod: "phone" as const,
       newsletter: false,
       gdpr: false,
@@ -41,7 +41,7 @@ const ContactForm = () => {
       await axios.post("/api/contact", data);
       setStatus("success");
       reset({
-        country: "USA",
+        country: "OTHER",
         contactMethod: "phone",
         newsletter: false,
         gdpr: false,
@@ -91,8 +91,7 @@ const ContactForm = () => {
               </label>
               <div className="space-y-2">
                 {[
-                { label: "USA", value: "USA" },
-                { label: "United Kingdom", value: "UK" },
+                { label: "Other", value: "OTHER" },
                 ].map((option) => (
                   <label
                     key={option.value}

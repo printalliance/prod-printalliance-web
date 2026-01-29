@@ -15,7 +15,7 @@ export const useContactForm = () => {
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
-      country: "USA",
+      country: "OTHER",
       contactMethod: "phone",
       newsletter: false,
       gdpr: false,
@@ -28,7 +28,7 @@ export const useContactForm = () => {
       await axios.post("/api/contact", data);
       setStatus("success");
       form.reset({
-        country: "USA",
+        country: "OTHER",
         contactMethod: "phone",
         newsletter: false,
         gdpr: false,
