@@ -8,9 +8,7 @@ const Footer = () => (
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <h3 className="text-2xl font-bold">PrintAlliance</h3>
-          <p className="mt-4 text-sm text-gray-200">
-            Enterprise-grade printer support with remote diagnostics and onsite dispatch. We provide reliable service for businesses worldwide.
-          </p>
+          <p className="mt-4 text-sm text-gray-200">Printer Support Services</p>
           <div className="mt-5 space-y-1 text-xs uppercase tracking-wide text-gray-400">
             <p>Response &lt; 10 Min</p>
             <p>24/7 expert hotline</p>
