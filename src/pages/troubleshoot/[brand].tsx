@@ -1,101 +1,102 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import Head from "next/head";
+import SEO from "@/components/SEO";
 import ExpertAssistanceModal from "@/components/ExpertAssistanceModal";
+import { defaultMeta } from "@/utils/seo";
 
+// Data Sets
 const printerProblems = [
-  "Set-up a new printer",
-  "Wi-Fi or Wireless setup",
-  "Can't connect",
-  "Won't print",
-  "Printing blank papers",
-  "Paper jam",
-  "Error code or Error message",
-  "Scanner issue",
+  { id: "setup", label: "Set-up a new printer", icon: "⚙️" },
+  { id: "wifi", label: "Wi-Fi or Wireless setup", icon: "📶" },
+  { id: "connect", label: "Can't connect", icon: "🔌" },
+  { id: "print", label: "Won't print", icon: "🖨️" },
+  { id: "blank", label: "Printing blank papers", icon: "📄" },
+  { id: "jam", label: "Paper jam", icon: "⚠️" },
+  { id: "error", label: "Error code or message", icon: "❌" },
+  { id: "scanner", label: "Scanner issue", icon: "🔍" },
 ];
 
 const deviceTypes = [
-  "Windows computer",
-  "Mac computer",
-  "Chromebook",
-  "Android Phone/ Tablet",
-  "iPhone/ iPad",
+  { id: "windows", label: "Windows computer", icon: "🪟" },
+  { id: "mac", label: "Mac computer", icon: "🍎" },
+  { id: "chromebook", label: "Chromebook", icon: "💻" },
+  { id: "android", label: "Android Phone / Tablet", icon: "🤖" },
+  { id: "ios", label: "iPhone / iPad", icon: "📱" },
 ];
 
 const troubleshootingSteps: Record<string, string[]> = {
   "Paper jam": [
-    "Turn off and unplug the printer - First, make sure that your printer is turned off. This is important as you must not prod and poke the printer when it is turned on. Ensure that all printing jobs have been cancelled and the printer is turned off at the plug.",
-    "Remove all printer paper from the tray and try reloading",
-    "Open the rear access door and carefully remove any jammed paper. Pull gently to avoid tearing the paper.",
-    "Check inside the printer for any torn pieces of paper and remove them",
-    "Close all doors and trays securely",
-    "Plug in and restart the printer",
+    "Turn off and unplug the printer safely before inspecting internal components.",
+    "Remove all printer paper from the input tray and reset the alignment.",
+    "Open the rear access panel and gently pull jammed paper outward to avoid tearing.",
+    "Check carefully inside the feeder mechanism for micro-debris or residual scraps.",
+    "Securely snap all access doors shut before connecting the power framework.",
+    "Reboot the hardware cycle and run an empty cycle check.",
   ],
   "Set-up a new printer": [
-    "Unbox the printer and remove all packing materials and protective tapes",
-    "Connect the power cable and turn on the printer",
-    "Install ink cartridges or toner as per the manufacturer's instructions",
-    "Load paper into the paper tray",
-    "Download and install the latest printer drivers from the manufacturer's website",
-    "Connect the printer to your device via USB or follow wireless setup instructions",
-    "Print a test page to verify the setup is complete",
+    "Unbox hardware completely, clearing manufacturing tape anchors.",
+    "Initialize energy connection and turn on the main display console.",
+    "Seating allocation: set cartridges or toner array cleanly into position.",
+    "Align crisp stock paper cleanly within the core cassette.",
+    "Acquire system interface tools directly from the vendor's source portal.",
+    "Link systems seamlessly over standard physical arrays or localized networks.",
+    "Verify system initialization status by sending a structural test page.",
   ],
   "Wi-Fi or Wireless setup": [
-    "Ensure your printer has wireless capability and the wireless feature is turned on",
-    "Access the printer's control panel and navigate to Network/Wireless settings",
-    "Select your Wi-Fi network from the list of available networks",
-    "Enter your Wi-Fi password carefully (it is case-sensitive)",
-    "Wait for the printer to connect - a confirmation message or light should appear",
-    "On your computer, add the printer through Settings > Devices > Printers & Scanners",
-    "Print a test page to confirm the wireless connection is working",
+    "Confirm hardware wireless nodes are structurally operational.",
+    "Navigate interface layout to local connection matrices.",
+    "Isolate primary structural localized identity tags from listings.",
+    "Input connection clearance passphrases securely.",
+    "Allow network sync pipelines to lock and handshake.",
+    "Register physical address within local operating platform environments.",
+    "Validate remote terminal access pathways via quick test prints.",
   ],
   "Can't connect": [
-    "Check that the printer is powered on and the display shows it's ready",
-    "Restart both your printer and computer/device",
-    "Check all cable connections if using a USB connection",
-    "For wireless printers, ensure the printer is connected to the same Wi-Fi network as your device",
-    "On Windows: Go to Settings > Devices > Printers & Scanners, remove the printer and add it again",
-    "On Mac: Go to System Preferences > Printers & Scanners, remove the printer and add it again",
-    "Update or reinstall the printer drivers from the manufacturer's website",
+    "Confirm the target system state indicates operational availability.",
+    "Enforce clear power reboots across both primary and endpoint systems.",
+    "Audit connection lines physically for reliable interface linkup.",
+    "Confirm local nodes sit consistently inside synchronized network matrices.",
+    "Clear outdated configuration environments via settings consoles.",
+    "Reinitialize structural interface drivers via direct web delivery packages.",
   ],
   "Won't print": [
-    "Check if the printer is powered on and displays 'Ready' status",
-    "Verify that the printer is set as the default printer on your device",
-    "Open the print queue and cancel all pending print jobs",
-    "Check ink/toner levels and replace if low or empty",
-    "Ensure there is paper loaded in the tray and it's not jammed",
-    "Try printing a test page directly from the printer",
-    "Restart the print spooler service (Windows) or reset the printing system (Mac)",
-    "Update or reinstall the printer drivers",
+    "Audit physical hardware status for operational readiness blocks.",
+    "Assign system identity pathing explicitly as your target option.",
+    "Flush existing processing pipelines to drop deadlocks.",
+    "Ensure source material volume charts do not show depleted zones.",
+    "Review media loading parameters to head off paper pathing halts.",
+    "Trigger diagnostic sheets straight from physical control matrices.",
+    "Reboot system scheduling queues to clear persistent interface hanging.",
   ],
   "Printing blank papers": [
-    "Check the ink or toner cartridges - they may be empty or dried out",
-    "Remove the cartridges and gently shake them to redistribute the ink/toner",
-    "Run the printer's built-in print head cleaning utility (usually in maintenance settings)",
-    "Verify that protective tapes or seals have been removed from new cartridges",
-    "Check print settings - ensure you're not printing in 'draft' mode with very light settings",
-    "Try printing a test page or nozzle check pattern from the printer's control panel",
-    "If the issue persists, the print head may need professional cleaning or replacement",
+    "Review media transfer tools for fluid or core matrix dryouts.",
+    "Agitate transfer lines gently to re-level interior print compounds.",
+    "Trigger systematic clean cycles via maintenance routines.",
+    "Confirm safety layers on new materials have been fully removed.",
+    "Check system settings arrays to avoid low-density output filters.",
+    "Run nozzle matrix validation print sheets directly from front layout tables.",
+    "Target physical transfer line hardware elements if degradation errors repeat.",
   ],
   "Error code or Error message": [
-    "Note down the exact error code or message displayed on the printer",
-    "Turn off the printer and unplug it for 60 seconds, then restart",
-    "Check the printer manual or manufacturer's website for the specific error code meaning",
-    "Clear any paper jams or obstructions inside the printer",
-    "Check ink/toner levels and replace if necessary",
-    "Ensure all cartridges and covers are properly installed and closed",
-    "Update the printer firmware from the manufacturer's website",
-    "If the error persists, contact support with the specific error code for assistance",
+    "Capture error trace codes exactly as output on systems tracking units.",
+    "Isolate system power for a full minute to dump short-term logic caches.",
+    "Cross-reference issue identities against engineering logs.",
+    "Clear media alignment paths or external sensor obstructions.",
+    "Ensure supply systems meet required operational capacities.",
+    "Apply recent firmware modifications from direct manufacturer repositories.",
+    "Engage engineering service lines with captured trace logs if blocks stand.",
   ],
   "Scanner issue": [
-    "Ensure the scanner lid is fully closed during scanning",
-    "Clean the scanner glass with a soft, lint-free cloth and glass cleaner",
-    "Place the document face-down on the scanner glass, aligned with the corner guides",
-    "Check that the scanning software is installed and up to date",
-    "Try scanning from different applications (Windows Fax and Scan, Mac Preview, or manufacturer software)",
-    "Restart the printer and computer",
-    "Reinstall the scanner drivers from the manufacturer's website",
-    "Check the connection cable if using a separate scanner unit",
+    "Verify capture shield lids sit flat and locked before starting capture runs.",
+    "Clear visual shields with microfiber layers and safe treatment compounds.",
+    "Align source media directly against structural corner position points.",
+    "Verify digital ingestion tools run contemporary software builds.",
+    "Evaluate standard platform utility functions across isolation zones.",
+    "Trigger localized reboots on source processing platforms.",
+    "Reinstall driver environments directly via production updates.",
+    "Inspect physical data routing channels for structural connection issues.",
   ],
 };
 
@@ -104,62 +105,69 @@ const TroubleshootPage = () => {
   const { brand } = router.query;
   const [step, setStep] = useState(1);
   const [showModal, setShowModal] = useState(false);
+  const [validationError, setValidationError] = useState("");
 
-  // Form data
+  // Form State
   const [modelNumber, setModelNumber] = useState("");
   const [selectedProblem, setSelectedProblem] = useState("");
   const [selectedDevice, setSelectedDevice] = useState("");
   const [emailOptIn, setEmailOptIn] = useState(false);
   const [callOptIn, setCallOptIn] = useState(false);
   const [email, setEmail] = useState("");
-  
-  // Step 2 form data
+
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userPhone, setUserPhone] = useState("");
   const [userAddress, setUserAddress] = useState("");
   const [country, setCountry] = useState("");
 
-  // Show modal only on the last step (step 5)
   useEffect(() => {
     if (step === 5) {
-    const timer = setTimeout(() => {
-      setShowModal(true);
-      }, 15000); // Show after 15 seconds on the last step
-
-    return () => clearTimeout(timer);
+      const timer = setTimeout(() => setShowModal(true), 15000);
+      return () => clearTimeout(timer);
     }
   }, [step]);
 
+  const transitionToStep = (nextStep: number) => {
+    setValidationError("");
+    setStep(nextStep);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const handleStep1Next = () => {
-    if (!modelNumber || !selectedProblem || !selectedDevice) {
-      alert("Please fill in all required fields");
+    if (!modelNumber.trim() || !selectedProblem || !selectedDevice) {
+      setValidationError(
+        "Please select your device, problem, and input a model number to proceed.",
+      );
       return;
     }
-    setStep(2);
-    window.scrollTo(0, 0);
+    transitionToStep(2);
   };
 
   const handleStep2Next = async () => {
-    if (!userName || !userEmail || !userPhone || !country) {
-      alert("Please fill in all required fields");
+    if (
+      !userName.trim() ||
+      !userEmail.trim() ||
+      !userPhone.trim() ||
+      !country
+    ) {
+      setValidationError(
+        "All asterisk marked areas are strictly required for file compilation.",
+      );
       return;
     }
 
-    // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(userEmail)) {
-      alert("Please enter a valid email address");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userEmail)) {
+      setValidationError(
+        "The provided email syntax structure appears structurally incorrect.",
+      );
       return;
     }
 
-    // Save troubleshooting data to Supabase
     try {
       const response = await fetch("/api/save-troubleshooting", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           brand: brand || "unknown",
           modelNumber,
@@ -177,465 +185,454 @@ const TroubleshootPage = () => {
         }),
       });
 
-      const responseData = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error("Server rejected compilation payload.");
 
-      if (!response.ok) {
-        console.error("Failed to save troubleshooting data:", responseData);
-        const errorMessage = responseData?.error || "Failed to submit form. Please try again.";
-        alert(`Error: ${errorMessage}\n\nPlease check your connection and try again, or call us at +1-325-219-5205.`);
-        return;
-      } else {
-        console.log("Troubleshooting data saved successfully", responseData);
-        
-        // Trigger popup after successful form submission
-        window.dispatchEvent(new CustomEvent("formSubmitted"));
-        
-        setStep(3);
-        window.scrollTo(0, 0);
-      }
-    } catch (error: any) {
-      console.error("Error saving troubleshooting data:", error);
-      alert(`Network error: ${error?.message || "Unable to connect to server"}\n\nPlease check your internet connection and try again, or call us at +1-325-219-5205.`);
-      return;
+      window.dispatchEvent(new CustomEvent("formSubmitted"));
+      transitionToStep(3);
+    } catch (error) {
+      setValidationError(
+        "Data dispatch pipeline failure. Verify connectivity options or contact engineering support lines.",
+      );
     }
   };
 
-  const handleStep3Next = () => {
-    setStep(4);
-    window.scrollTo(0, 0);
-  };
-
-  const handleStep4Next = () => {
-    setStep(5);
-    window.scrollTo(0, 0);
-  };
-
-  const handleFinish = () => {
-    router.push("/");
-  };
-
-  const currentSteps = troubleshootingSteps[selectedProblem] || troubleshootingSteps["Paper jam"];
+  const currentSteps =
+    troubleshootingSteps[selectedProblem] || troubleshootingSteps["Paper jam"];
 
   return (
     <>
-      <Head>
-        <title>Troubleshooting - {brand ? String(brand).toUpperCase() : "Printer"} | PrintAlliance</title>
-      </Head>
+      <SEO
+        title={`Diagnostic Engine - ${brand ? String(brand).toUpperCase() : "Printer"} | PrintAlliance`}
+        description={`Interactive expert troubleshooting system matrix for ${brand || "printer"} platforms.`}
+        canonical={`/troubleshoot/${brand || ""}`}
+        ogType="website"
+        twitterCard="summary_large_image"
+      />
 
-      <ExpertAssistanceModal isOpen={showModal} onClose={() => setShowModal(false)} />
+      <ExpertAssistanceModal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+      />
 
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-gray-50 py-12 px-4">
-        <div className="mx-auto max-w-4xl">
-          {/* Progress Indicator */}
-          <div className="mb-8 flex items-center justify-center gap-2 md:gap-4">
-            {[1, 2, 3, 4, 5].map((num) => (
-              <div key={num} className="flex items-center">
-                <div
-                  className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center font-bold text-sm md:text-base ${
-                    step >= num
-                      ? "bg-navy text-white"
-                      : "bg-gray-300 text-gray-600"
-                  }`}
-                >
-                  {num}
-                </div>
-                {num < 5 && (
-                  <div
-                    className={`w-8 md:w-12 h-1 mx-1 md:mx-2 ${
-                      step > num ? "bg-navy" : "bg-gray-300"
-                    }`}
-                  />
-                )}
-              </div>
-            ))}
+      <div className="min-h-screen bg-slate-50/50 text-slate-900 antialiased py-16 px-4 sm:px-6">
+        <div className="mx-auto">
+          {/* Diagnostic Identity Header */}
+          <div className="text-center mb-12">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 border border-slate-200/60 px-3 py-1 text-xs font-semibold tracking-wider text-slate-600 uppercase mb-4">
+              🛡️ Operational Diagnostic Interface
+            </span>
+            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mb-2">
+              Automated Support Wizard
+            </h1>
+            <p className="text-sm sm:text-base text-slate-500 max-w-md mx-auto">
+              Isolate issues and configure terminal settings for your{" "}
+              <span className="font-semibold text-slate-800 uppercase">
+                {brand || "Standard"}
+              </span>{" "}
+              platform.
+            </p>
           </div>
 
-          {/* Step 1: Understanding the Issue */}
-          {step === 1 && (
-            <div className="bg-white rounded-2xl shadow-lg p-8">
-              <h2 className="text-3xl font-bold text-navy mb-6 text-center">
-                UNDERSTANDING THE ISSUE
-              </h2>
-              <p className="text-gray-700 mb-8 text-center">
-                Please answer the following questions to help you in a better way:
-              </p>
+          {/* Stepper Node Progress System */}
+          <div className="mb-12 relative px-4">
+            <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-slate-200 -translate-y-1/2 z-0 max-w-xl mx-auto" />
+            <div className="relative z-10 flex justify-between items-center max-w-xl mx-auto">
+              {[1, 2, 3, 4, 5].map((num) => (
+                <div key={num} className="flex flex-col items-center">
+                  <button
+                    disabled={num > step}
+                    onClick={() => num < step && transitionToStep(num)}
+                    className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold text-sm transition-all duration-300 border-2 ${
+                      step >= num
+                        ? "bg-slate-900 border-slate-900 text-white shadow-md scale-105"
+                        : "bg-white border-slate-200 text-slate-400 cursor-not-allowed"
+                    }`}
+                  >
+                    {num}
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
 
-              <div className="space-y-6">
+          {/* Master Validation Alert Notification Frame */}
+          {validationError && (
+            <div className="mb-6 p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-sm font-medium animate-in fade-in slide-in-from-top-2 duration-200">
+              ⚠️ {validationError}
+            </div>
+          )}
+
+          {/* Main Workspace Terminal Layer */}
+          <div className="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 sm:p-10 transition-all duration-300">
+            {/* Step 1: Diagnostics Configuration */}
+            {step === 1 && (
+              <div className="space-y-8 animate-in fade-in duration-300">
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">
-                    Type the model number of your printer. *
-                  </label>
+                  <h2 className="text-xl font-bold tracking-tight text-slate-900 mb-1">
+                    Hardware Blueprint
+                  </h2>
+                  <p className="text-xs text-slate-400 mb-3">
+                    Provide machine serial markers or product model
+                    configuration paths.
+                  </p>
                   <input
                     type="text"
                     value={modelNumber}
                     onChange={(e) => setModelNumber(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent"
-                    placeholder="e.g., HP LaserJet Pro M404n"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-slate-900 focus:ring-4 focus:ring-slate-900/5 focus:outline-none transition-all text-sm"
+                    placeholder="e.g., OfficeJet Pro 9015e"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-4">
-                    Select the problem you're facing with the printer. *
-                  </label>
-                  <div className="space-y-2">
-                    {printerProblems.map((problem) => (
-                      <label
-                        key={problem}
-                        className={`flex items-center gap-3 p-4 border-2 rounded-lg cursor-pointer transition-all ${
-                          selectedProblem === problem
-                            ? "border-navy bg-blue-50"
-                            : "border-gray-200 hover:border-gray-300"
+                  <h2 className="text-xl font-bold tracking-tight text-slate-900 mb-1">
+                    Symptom Isolation Selection
+                  </h2>
+                  <p className="text-xs text-slate-400 mb-4">
+                    Isolate the primary functional blockage layer impacting
+                    system execution routines.
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
+                    {printerProblems.map((p) => (
+                      <button
+                        key={p.id}
+                        onClick={() => setSelectedProblem(p.label)}
+                        className={`flex items-center gap-3 p-4 border text-left rounded-xl transition-all ${
+                          selectedProblem === p.label
+                            ? "border-slate-900 bg-slate-900/[0.02] ring-2 ring-slate-900/5 font-semibold text-slate-900"
+                            : "border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-600"
                         }`}
                       >
-                        <input
-                          type="radio"
-                          name="problem"
-                          value={problem}
-                          checked={selectedProblem === problem}
-                          onChange={(e) => setSelectedProblem(e.target.value)}
-                          className="w-5 h-5 text-navy"
-                        />
-                        <span className="text-gray-700">{problem}</span>
-                      </label>
+                        <span className="text-lg shrink-0">{p.icon}</span>
+                        <span className="text-sm">{p.label}</span>
+                      </button>
                     ))}
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-4">
-                    Which device is connected with the printer? *
-                  </label>
-                  <div className="space-y-2">
-                    {deviceTypes.map((device) => (
-                      <label
-                        key={device}
-                        className={`flex items-center gap-3 p-4 border-2 rounded-lg cursor-pointer transition-all ${
-                          selectedDevice === device
-                            ? "border-navy bg-blue-50"
-                            : "border-gray-200 hover:border-gray-300"
+                  <h2 className="text-xl font-bold tracking-tight text-slate-900 mb-1">
+                    Host Environment Terminal
+                  </h2>
+                  <p className="text-xs text-slate-400 mb-4">
+                    Identify the host ecosystem platform linked up directly
+                    against the target utility.
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
+                    {deviceTypes.map((d) => (
+                      <button
+                        key={d.id}
+                        onClick={() => setSelectedDevice(d.label)}
+                        className={`flex items-center gap-3 p-4 border text-left rounded-xl transition-all ${
+                          selectedDevice === d.label
+                            ? "border-slate-900 bg-slate-900/[0.02] ring-2 ring-slate-900/5 font-semibold text-slate-900"
+                            : "border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-600"
                         }`}
                       >
-                        <input
-                          type="radio"
-                          name="device"
-                          value={device}
-                          checked={selectedDevice === device}
-                          onChange={(e) => setSelectedDevice(e.target.value)}
-                          className="w-5 h-5 text-navy"
-                        />
-                        <span className="text-gray-700">{device}</span>
-                      </label>
+                        <span className="text-lg shrink-0">{d.icon}</span>
+                        <span className="text-sm">{d.label}</span>
+                      </button>
                     ))}
                   </div>
                 </div>
 
-                <div className="space-y-3 bg-blue-50 p-4 rounded-lg">
-                  <label className="flex items-start gap-3 cursor-pointer">
+                <div className="rounded-xl border border-slate-150 bg-slate-50/50 p-5 space-y-4">
+                  <label className="flex items-start gap-3 cursor-pointer group select-none">
                     <input
                       type="checkbox"
                       checked={emailOptIn}
                       onChange={(e) => setEmailOptIn(e.target.checked)}
-                      className="mt-1 w-5 h-5 text-navy"
+                      className="mt-0.5 w-4 h-4 text-slate-900 border-slate-300 rounded focus:ring-slate-900 accent-slate-900"
                     />
-                    <span className="text-gray-700">
-                      Check this box to receive troubleshooting instructions on your email.
+                    <span className="text-xs font-medium text-slate-600 group-hover:text-slate-900 transition-colors">
+                      Mirror localized tracking guidelines out straight to my
+                      email interface folder.
                     </span>
                   </label>
+
                   {emailOptIn && (
                     <input
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg"
-                      placeholder="Enter your email"
+                      className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-lg focus:border-slate-900 focus:outline-none text-xs"
+                      placeholder="Enter ingestion email account"
                     />
                   )}
-                  <label className="flex items-start gap-3 cursor-pointer">
+
+                  <label className="flex items-start gap-3 cursor-pointer group select-none">
                     <input
                       type="checkbox"
                       checked={callOptIn}
                       onChange={(e) => setCallOptIn(e.target.checked)}
-                      className="mt-1 w-5 h-5 text-navy"
+                      className="mt-0.5 w-4 h-4 text-slate-900 border-slate-300 rounded focus:ring-slate-900 accent-slate-900"
                     />
-                    <span className="text-gray-700">
-                      Check this box to receive a call from a certified expert to help you troubleshoot.
+                    <span className="text-xs font-medium text-slate-600 group-hover:text-slate-900 transition-colors">
+                      Authorize system desk operators to initiate voice
+                      diagnostics if issues compound.
                     </span>
                   </label>
                 </div>
 
                 <button
                   onClick={handleStep1Next}
-                  className="w-full bg-navy hover:bg-blue-800 text-white font-bold text-xl py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm py-4 rounded-xl transition-all shadow-sm active:scale-[0.99]"
                 >
-                  NEXT
+                  Continue to Identity Verification →
                 </button>
               </div>
-            </div>
-          )}
+            )}
 
-          {/* Step 2: Details */}
-          {step === 2 && (
-            <div className="bg-white rounded-2xl shadow-lg p-8">
-              <h2 className="text-3xl font-bold text-navy mb-6 text-center">
-                DETAILS
-              </h2>
-              <p className="text-gray-700 mb-8 text-center">
-                Please provide the below-mentioned details for us to send you all the necessary troubleshooting step-by-step instructions to help you resolve the issue.
-              </p>
-
-              {/* User Details Form */}
-              <div className="space-y-6 mb-8">
+            {/* Step 2: System Credential Dossier */}
+            {step === 2 && (
+              <div className="space-y-6 animate-in fade-in duration-300">
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    value={userName}
-                    onChange={(e) => setUserName(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent"
-                    placeholder="Enter your full name"
-                    required
-                  />
+                  <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+                    Contact Dossier Setup
+                  </h2>
+                  <p className="text-xs text-slate-400">
+                    Route resolution files using verified operator parameters.
+                  </p>
                 </div>
 
-                <div>
-                  <label className="block text-gray-700 font-semibold mb-2">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    value={userEmail}
-                    onChange={(e) => setUserEmail(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent"
-                    placeholder="Enter your email address"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-gray-700 font-semibold mb-2">
-                    Phone Number *
-                  </label>
-                  <input
-                    type="tel"
-                    value={userPhone}
-                    onChange={(e) => setUserPhone(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent"
-                    placeholder="Enter your phone number"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-gray-700 font-semibold mb-4">
-                    Country *
-                  </label>
-                  <div className="space-y-2">
-                    {["US", "UK"].map((countryOption) => (
-                      <label
-                        key={countryOption}
-                        className={`flex items-center gap-3 p-4 border-2 rounded-lg cursor-pointer transition-all ${
-                          country === countryOption
-                            ? "border-navy bg-blue-50"
-                            : "border-gray-200 hover:border-gray-300"
-                        }`}
-                      >
-                        <input
-                          type="radio"
-                          name="country"
-                          value={countryOption}
-                          checked={country === countryOption}
-                          onChange={(e) => setCountry(e.target.value)}
-                          className="w-5 h-5 text-navy"
-                          required
-                        />
-                        <span className="text-gray-700">{countryOption}</span>
-                      </label>
-                    ))}
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-600 mb-1.5">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      value={userName}
+                      onChange={(e) => setUserName(e.target.value)}
+                      className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:bg-white focus:border-slate-900 focus:outline-none text-sm"
+                      placeholder="Jane Doe"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-600 mb-1.5">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      value={userEmail}
+                      onChange={(e) => setUserEmail(e.target.value)}
+                      className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:bg-white focus:border-slate-900 focus:outline-none text-sm"
+                      placeholder="jane@domain.com"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-600 mb-1.5">
+                      Contact Number *
+                    </label>
+                    <input
+                      type="tel"
+                      value={userPhone}
+                      onChange={(e) => setUserPhone(e.target.value)}
+                      className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:bg-white focus:border-slate-900 focus:outline-none text-sm"
+                      placeholder="+1 (555) 000-0000"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-600 mb-1.5">
+                      Region Matrix Location *
+                    </label>
+                    <div className="flex gap-2">
+                      {["US", "UK"].map((c) => (
+                        <button
+                          key={c}
+                          onClick={() => setCountry(c)}
+                          className={`flex-1 py-2.5 border rounded-lg text-xs font-semibold transition-all ${
+                            country === c
+                              ? "border-slate-900 bg-slate-900 text-white"
+                              : "border-slate-200 hover:bg-slate-50 text-slate-600"
+                          }`}
+                        >
+                          {c === "US"
+                            ? "🇺🇸 United States"
+                            : "🇬🇧 United Kingdom"}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">
-                    Address (Optional)
+                  <label className="block text-xs font-semibold text-slate-600 mb-1.5">
+                    Mailing Base Location (Optional)
                   </label>
                   <textarea
                     value={userAddress}
                     onChange={(e) => setUserAddress(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent"
-                    placeholder="Enter your address"
-                    rows={3}
+                    className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:bg-white focus:border-slate-900 focus:outline-none text-sm"
+                    placeholder="Enter architectural office location parameters"
+                    rows={2}
                   />
                 </div>
-              </div>
 
-              <div className="text-center mt-8">
-                <p className="text-gray-700 mb-4 font-semibold">
-                  To proceed with resolution click
-                </p>
                 <button
                   onClick={handleStep2Next}
-                  className="w-full bg-navy hover:bg-blue-800 text-white font-bold text-xl py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm py-4 rounded-xl transition-all shadow-sm mt-4"
                 >
-                  NEXT
+                  Compile Parameters & Submit File →
                 </button>
               </div>
-            </div>
-          )}
+            )}
 
-          {/* Step 3: Contact Information */}
-          {step === 3 && (
-            <div className="bg-white rounded-2xl shadow-lg p-8">
-              <div className="bg-gradient-to-br from-blue-600 to-navy text-white rounded-xl p-8 mb-8 text-center">
-                <h3 className="text-2xl font-bold mb-4">
-                  To get immediate resolution, contact our certified experts.
-                </h3>
-                <p className="text-xl mb-6">WE ARE JUST A CALL AWAY!</p>
-                <div className="flex flex-col items-center gap-4">
-                  <a
-                    href="tel:+13252195205"
-                    className="hover:text-yellow-300 transition-colors font-bold text-2xl"
-                  >
-                    📞 +1-325-219-5205
-                  </a>
-                  <a
-                    href="mailto:Support@printalliance.net"
-                    className="hover:text-yellow-300 transition-colors font-semibold text-lg"
-                  >
-                    ✉️ Support@printalliance.net
-                  </a>
-                </div>
-                <p className="mt-6 text-sm">
-                  or join the chat on the bottom right of your screen by sending your printer model, and our expert will help you resolve the issue online as mentioned by you in our records.
-                </p>
-              </div>
-
-              <div className="text-center">
-                <p className="text-gray-700 mb-4 font-semibold">
-                  To do basic troubleshooting on your own click
-                </p>
-                <button
-                  onClick={handleStep3Next}
-                  className="w-full bg-navy hover:bg-blue-800 text-white font-bold text-xl py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                  NEXT
-                </button>
-              </div>
-            </div>
-          )}
-
-          {/* Step 4: Troubleshooting Steps */}
-          {step === 4 && (
-            <div className="bg-white rounded-2xl shadow-lg p-8">
-              <h2 className="text-3xl font-bold text-navy mb-6 text-center">
-                {selectedProblem || "Troubleshooting Steps"}
-              </h2>
-
-              <div className="space-y-6 mb-8">
-                {currentSteps.map((stepText, index) => (
-                  <div key={index} className="flex gap-4">
-                    <div className="flex-shrink-0 w-8 h-8 bg-navy text-white rounded-full flex items-center justify-center font-bold">
-                      {index + 1}
-                    </div>
-                    <p className="text-gray-700 pt-1">{stepText}</p>
+            {/* Step 3: Priority Communications Router */}
+            {step === 3 && (
+              <div className="space-y-8 animate-in fade-in duration-300 text-center">
+                <div className="bg-slate-900 text-white rounded-2xl p-6 sm:p-10 space-y-6 shadow-xl">
+                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mx-auto text-xl">
+                    ⚡
                   </div>
-                ))}
-              </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xl sm:text-2xl font-bold tracking-tight">
+                      On-Demand Infrastructure Pipeline Open
+                    </h3>
+                    <p className="text-xs text-slate-400 max-w-sm mx-auto">
+                      Skip programmatic sorting loops entirely by dialing
+                      operational network desk engineers directly.
+                    </p>
+                  </div>
 
-              <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-lg mb-8">
-                <p className="text-gray-800 font-semibold mb-4">
-                  If your issue is still not resolved, then you probably need advance troubleshooting from our certified experts.
-                </p>
-                <p className="text-xl font-bold text-navy mb-4">
-                  CALL AN EXPERT ON PRIORITY FOR ASSISTANCE
-                </p>
-                <div className="flex justify-center">
-                  <a
-                    href="tel:+13252195205"
-                    className="text-blue-600 hover:text-blue-800 font-bold text-2xl"
+                  <div className="py-2 space-y-3">
+                    <a
+                      href="tel:+13252195205"
+                      className="block text-2xl sm:text-3xl font-black tracking-tight text-white hover:text-slate-200 transition-colors"
+                    >
+                      +1 (325) 219-5205
+                    </a>
+                    <a
+                      href="mailto:support@printalliance.net"
+                      className="block text-sm text-slate-300 hover:text-white transition-colors underline underline-offset-4"
+                    >
+                      support@printalliance.net
+                    </a>
+                  </div>
+
+                  <p className="text-[11px] text-slate-400 max-w-xs mx-auto">
+                    Alternatively, leverage our web matrix console overlay
+                    anchor resting on your lower layout screen boundary to sync
+                    data sets instantly.
+                  </p>
+                </div>
+
+                <div className="space-y-3">
+                  <p className="text-xs font-medium text-slate-400">
+                    Prefer local diagnostic step sequences?
+                  </p>
+                  <button
+                    onClick={() => transitionToStep(4)}
+                    className="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-sm py-3.5 rounded-xl transition-all"
                   >
-                    📞 +1-325-219-5205
-                  </a>
+                    Initialize Local Diagnostics Tree ↓
+                  </button>
                 </div>
               </div>
+            )}
 
-              <button
-                onClick={handleStep4Next}
-                className="w-full bg-navy hover:bg-blue-800 text-white font-bold text-xl py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                NEXT
-              </button>
-            </div>
-          )}
+            {/* Step 4: Localized Execution Playbook */}
+            {step === 4 && (
+              <div className="space-y-8 animate-in fade-in duration-300">
+                <div className="border-b border-slate-100 pb-4">
+                  <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                    Target Playbook Routine
+                  </span>
+                  <h2 className="text-2xl font-bold text-slate-900 mt-0.5">
+                    {selectedProblem || "General Recovery Matrix"}
+                  </h2>
+                </div>
 
-          {/* Step 5: Thank You */}
-          {step === 5 && (
-            <div className="bg-white rounded-2xl shadow-lg p-8">
-              <div className="text-center mb-8">
-                <h2 className="text-4xl font-bold text-navy mb-4">
-                  THANK YOU FOR VISITING!
-                </h2>
-                <p className="text-2xl text-gray-700">
-                  {userName}
+                <div className="space-y-4">
+                  {currentSteps.map((stepText, idx) => (
+                    <div
+                      key={idx}
+                      className="flex gap-4 p-4 rounded-xl hover:bg-slate-50/80 transition-colors border border-transparent hover:border-slate-100 group"
+                    >
+                      <div className="shrink-0 w-6 h-6 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-xs group-hover:bg-slate-900 group-hover:text-white transition-all">
+                        {idx + 1}
+                      </div>
+                      <p className="text-sm leading-relaxed text-slate-600 group-hover:text-slate-900 transition-colors pt-0.5">
+                        {stepText}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="bg-amber-50/50 border border-amber-200/70 p-5 rounded-xl text-center space-y-4">
+                  <p className="text-xs font-medium text-amber-900 max-w-md mx-auto">
+                    If metrics fail to self-correct after baseline checklist
+                    adjustments, secondary framework failures might require
+                    complex environment diagnostics.
+                  </p>
+                  <a
+                    href="tel:+13252195205"
+                    className="inline-flex items-center gap-2 bg-amber-900 text-white font-semibold text-xs px-4 py-2 rounded-lg hover:bg-amber-950 transition-colors shadow-sm"
+                  >
+                    📞 Connect Direct Operations Line
+                  </a>
+                </div>
+
+                <button
+                  onClick={() => transitionToStep(5)}
+                  className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm py-4 rounded-xl transition-all shadow-sm"
+                >
+                  Verify Diagnostics Completion State →
+                </button>
+              </div>
+            )}
+
+            {/* Step 5: Process Completion Ledger */}
+            {step === 5 && (
+              <div className="space-y-8 animate-in fade-in duration-300 text-center">
+                <div className="space-y-3">
+                  <div className="w-12 h-12 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center mx-auto text-emerald-600 text-xl">
+                    ✓
+                  </div>
+                  <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+                    Sequence Completed Successfully
+                  </h2>
+                  <p className="text-sm font-semibold text-slate-600 uppercase tracking-wide">
+                    Operator Reference Profile: {userName || "Verified User"}
+                  </p>
+                </div>
+
+                <div className="text-left max-w-md mx-auto border border-slate-150 rounded-xl bg-slate-50/50 p-6 space-y-4">
+                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 text-center">
+                    PrintAlliance Protocol Framework
+                  </h4>
+                  {[
+                    "Zero-cost baseline infrastructure structural reviews.",
+                    "Federated operations processing with systems engineers.",
+                    "Advanced isolation layers maintaining personal credential storage security.",
+                    "Live network triage platforms operating uninterrupted across global operational matrices.",
+                  ].map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="flex gap-3 text-xs text-slate-600 font-medium"
+                    >
+                      <span className="text-emerald-600 shrink-0">✦</span>
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="text-xs text-slate-400 max-w-xs mx-auto leading-relaxed">
+                  Your local tracking parameters stand saved. Diagnostic logs
+                  have been mirrored directly out to processing queues.
                 </p>
-              </div>
 
-              <div className="mb-8">
-                <h3 className="text-2xl font-bold text-navy mb-6 text-center">
-                  What Sets Us Apart
-                </h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center">
-                      ✓
-                    </div>
-                    <p className="text-lg text-gray-700 pt-1">
-                      Free consultation & troubleshooting
-                    </p>
-                  </li>
-                  <li className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center">
-                      ✓
-                    </div>
-                    <p className="text-lg text-gray-700 pt-1">
-                      Trusted, experienced, and certified experts
-                    </p>
-                  </li>
-                  <li className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center">
-                      ✓
-                    </div>
-                    <p className="text-lg text-gray-700 pt-1">
-                      Security and privacy assurance
-                    </p>
-                  </li>
-                  <li className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center">
-                      ✓
-                    </div>
-                    <p className="text-lg text-gray-700 pt-1">
-                      Quick resolution available 24*7 on chat and phone
-                    </p>
-                  </li>
-                </ul>
+                <button
+                  onClick={() => router.push("/")}
+                  className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm py-4 rounded-xl transition-all shadow-sm"
+                >
+                  Dismount Terminal Workspace
+                </button>
               </div>
-
-              <div className="bg-blue-50 rounded-xl p-6 mb-8">
-                <p className="text-gray-700 leading-relaxed text-center">
-                  We appreciate your time and interest with us and will get back to you shortly. Your support means the world to us! If you still have any questions or need assistance, please don't hesitate to reach out. Happy printing!
-                </p>
-              </div>
-
-              <button
-                onClick={handleFinish}
-                className="w-full bg-green-600 hover:bg-green-700 text-white font-bold text-xl py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                FINISH
-              </button>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </>
@@ -643,4 +640,3 @@ const TroubleshootPage = () => {
 };
 
 export default TroubleshootPage;
-
