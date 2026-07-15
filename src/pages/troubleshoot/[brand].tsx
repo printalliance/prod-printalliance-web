@@ -243,14 +243,15 @@ const TroubleshootPage = () => {
               🛡️ Operational Diagnostic Interface
             </span>
             <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mb-2">
-              Automated Support Wizard
+              ANALYSING THE PROBLEM
             </h1>
             <p className="text-sm sm:text-base text-slate-500 max-w-md mx-auto">
-              Isolate issues and configure terminal settings for your{" "}
-              <span className="font-semibold text-slate-800 uppercase">
+              Kindly answer the questions below to help us deliver the most
+              suitable assistance, and then click Continue.{" "}
+              {/* <span className="font-semibold text-slate-800 uppercase">
                 {brand || "Standard"}
               </span>{" "}
-              platform.
+              platform. */}
             </p>
           </div>
 
@@ -293,7 +294,7 @@ const TroubleshootPage = () => {
               <div className="space-y-8 animate-in fade-in duration-300">
                 <div>
                   <h2 className="text-xl font-bold tracking-tight text-slate-900 mb-1">
-                    Hardware Blueprint
+                    Printer Model Number
                   </h2>
                   <p className="text-xs text-slate-400 mb-3">
                     Provide machine serial markers or product model
@@ -310,12 +311,12 @@ const TroubleshootPage = () => {
 
                 <div>
                   <h2 className="text-xl font-bold tracking-tight text-slate-900 mb-1">
-                    Symptom Isolation Selection
+                    Choose the type of printer issue from the options below.
                   </h2>
-                  <p className="text-xs text-slate-400 mb-4">
+                  {/* <p className="text-xs text-slate-400 mb-4">
                     Isolate the primary functional blockage layer impacting
                     system execution routines.
-                  </p>
+                  </p> */}
                   <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
                     {printerProblems.map((p) => (
                       <button
@@ -336,12 +337,13 @@ const TroubleshootPage = () => {
 
                 <div>
                   <h2 className="text-xl font-bold tracking-tight text-slate-900 mb-1">
-                    Host Environment Terminal
+                    Choose the type of device that will connect to the printer
+                    from the options below.
                   </h2>
-                  <p className="text-xs text-slate-400 mb-4">
+                  {/* <p className="text-xs text-slate-400 mb-4">
                     Identify the host ecosystem platform linked up directly
                     against the target utility.
-                  </p>
+                  </p> */}
                   <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
                     {deviceTypes.map((d) => (
                       <button
@@ -360,44 +362,6 @@ const TroubleshootPage = () => {
                   </div>
                 </div>
 
-                {/* <div className="rounded-xl border border-slate-150 bg-slate-50/50 p-5 space-y-4">
-                  <label className="flex items-start gap-3 cursor-pointer group select-none">
-                    <input
-                      type="checkbox"
-                      checked={emailOptIn}
-                      onChange={(e) => setEmailOptIn(e.target.checked)}
-                      className="mt-0.5 w-4 h-4 text-slate-900 border-slate-300 rounded focus:ring-slate-900 accent-slate-900"
-                    />
-                    <span className="text-xs font-medium text-slate-600 group-hover:text-slate-900 transition-colors">
-                      Mirror localized tracking guidelines out straight to my
-                      email interface folder.
-                    </span>
-                  </label>
-
-                  {emailOptIn && (
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-lg focus:border-slate-900 focus:outline-none text-xs"
-                      placeholder="Enter ingestion email account"
-                    />
-                  )}
-
-                  <label className="flex items-start gap-3 cursor-pointer group select-none">
-                    <input
-                      type="checkbox"
-                      checked={callOptIn}
-                      onChange={(e) => setCallOptIn(e.target.checked)}
-                      className="mt-0.5 w-4 h-4 text-slate-900 border-slate-300 rounded focus:ring-slate-900 accent-slate-900"
-                    />
-                    <span className="text-xs font-medium text-slate-600 group-hover:text-slate-900 transition-colors">
-                      Authorize system desk operators to initiate voice
-                      diagnostics if issues compound.
-                    </span>
-                  </label>
-                </div> */}
-
                 <button
                   onClick={handleStep1Next}
                   className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm py-4 rounded-xl transition-all shadow-sm active:scale-[0.99]"
@@ -412,10 +376,12 @@ const TroubleshootPage = () => {
               <div className="space-y-6 animate-in fade-in duration-300">
                 <div>
                   <h2 className="text-2xl font-bold tracking-tight text-slate-900">
-                    Contact Dossier Setup
+                    INFORMATION
                   </h2>
                   <p className="text-xs text-slate-400">
-                    Route resolution files using verified operator parameters.
+                    Kindly enter the required details below and then click
+                    Continue — we'll email you step-by-step troubleshooting
+                    guidance to resolve your issue.
                   </p>
                 </div>
 
@@ -429,7 +395,7 @@ const TroubleshootPage = () => {
                       value={userName}
                       onChange={(e) => setUserName(e.target.value)}
                       className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:bg-white focus:border-slate-900 focus:outline-none text-sm"
-                      placeholder="Jane Doe"
+                      placeholder="Enter your full name"
                     />
                   </div>
                   <div>
@@ -441,7 +407,7 @@ const TroubleshootPage = () => {
                       value={userEmail}
                       onChange={(e) => setUserEmail(e.target.value)}
                       className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:bg-white focus:border-slate-900 focus:outline-none text-sm"
-                      placeholder="jane@domain.com"
+                      placeholder="Enter your email address"
                     />
                   </div>
                   <div>
@@ -453,7 +419,7 @@ const TroubleshootPage = () => {
                       value={userPhone}
                       onChange={(e) => setUserPhone(e.target.value)}
                       className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:bg-white focus:border-slate-900 focus:outline-none text-sm"
-                      placeholder="+1 (555) 000-0000"
+                      placeholder="Enter your contact number"
                     />
                   </div>
                   <div>
@@ -493,6 +459,43 @@ const TroubleshootPage = () => {
                     placeholder="Enter architectural office location parameters"
                     rows={2}
                   />
+                </div>
+                <div className="rounded-xl border border-slate-150 bg-slate-50/50 p-5 space-y-4">
+                  <label className="flex items-start gap-3 cursor-pointer group select-none">
+                    <input
+                      type="checkbox"
+                      checked={emailOptIn}
+                      onChange={(e) => setEmailOptIn(e.target.checked)}
+                      className="mt-0.5 w-4 h-4 text-slate-900 border-slate-300 rounded focus:ring-slate-900 accent-slate-900"
+                    />
+                    <span className="text-xs font-medium text-slate-600 group-hover:text-slate-900 transition-colors">
+                      Mirror localized tracking guidelines out straight to my
+                      email interface folder.
+                    </span>
+                  </label>
+
+                  {emailOptIn && (
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-lg focus:border-slate-900 focus:outline-none text-xs"
+                      placeholder="Enter ingestion email account"
+                    />
+                  )}
+
+                  <label className="flex items-start gap-3 cursor-pointer group select-none">
+                    <input
+                      type="checkbox"
+                      checked={callOptIn}
+                      onChange={(e) => setCallOptIn(e.target.checked)}
+                      className="mt-0.5 w-4 h-4 text-slate-900 border-slate-300 rounded focus:ring-slate-900 accent-slate-900"
+                    />
+                    <span className="text-xs font-medium text-slate-600 group-hover:text-slate-900 transition-colors">
+                      Authorize system desk operators to initiate voice
+                      diagnostics if issues compound.
+                    </span>
+                  </label>
                 </div>
 
                 <button

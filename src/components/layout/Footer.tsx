@@ -7,7 +7,7 @@ const Footer = () => (
     <div className="mx-auto max-w-6xl space-y-10 px-4 lg:px-8">
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <h3 className="text-2xl font-bold">PrintAlliance</h3>
+          <h3 className="text-2xl font-bold">Print Alliance</h3>
           <p className="mt-4 text-sm text-gray-200">Printer Support Services</p>
           <div className="mt-5 space-y-1 text-xs uppercase tracking-wide text-gray-400">
             <p>Response &lt; 10 Min</p>
@@ -41,18 +41,19 @@ const Footer = () => (
         </div>
 
         <div>
-          <h4 className="text-lg font-semibold text-white">Support & Policies</h4>
+          <h4 className="text-lg font-semibold text-white">
+            Support & Policies
+          </h4>
           <ul className="mt-4 space-y-2 text-sm text-gray-200">
-            <li>
+            {/* <li>
               <Link href="/service-areas">Service Areas</Link>
-            </li>
+            </li> */}
             <li>
               <Link href="/privacy">Privacy Policy</Link>
             </li>
             <li>
               <Link href="/refund-policy">Refund Policy</Link>
             </li>
-           
           </ul>
         </div>
 
@@ -76,8 +77,6 @@ const Footer = () => (
             </p>
             <p>Global coverage • Remote</p>
           </div>
-
-
         </div>
       </div>
 
@@ -90,4 +89,3 @@ const Footer = () => (
 );
 
 export default Footer;
-

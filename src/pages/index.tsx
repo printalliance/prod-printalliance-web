@@ -36,22 +36,22 @@ const printerBrands = [
 const whyChooseUs = [
   {
     title: "Safe",
-    description: "Your security and privacy are our top priorities",
+    description: "Your security and privacy are our top priorities.",
     icon: "🛡️",
   },
   {
     title: "Reliable",
-    description: "Consistent, dependable service you can count on",
+    description: "Consistent, dependable service you can count on.",
     icon: "💎",
   },
   {
     title: "Quick",
-    description: "Fast response times and efficient problem resolution",
+    description: "Fast response times and efficient problem resolution.",
     icon: "⚡",
   },
   {
     title: "Experienced",
-    description: "Skilled professionals with years of expertise",
+    description: "Skilled professionals with years of expertise.",
     icon: "🎓",
   },
 ];
@@ -172,17 +172,18 @@ const Home = () => {
 
         <div className="relative max-w-4xl mx-auto text-center z-10 space-y-8">
           <div className="space-y-3">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-medium tracking-wide text-blue-300 uppercase backdrop-blur-sm border border-white/5">
+            {/* <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-medium tracking-wide text-blue-300 uppercase backdrop-blur-sm border border-white/5">
               Unified Triage Node
-            </span>
+            </span> */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white uppercase">
-              PRINTER BRAND
+              SELECT YOUR PRINTER BRAND
             </h1>
-            <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed">
-              Select your printer brand and proceed (click 'NEXT') to access all
-              necessary troubleshooting step-by-step instructions for issues
-              like connectivity problems, wireless setup, not printing, blank
-              prints, error codes or scanner issues.
+            <p className="text-sm sm:text-base text-slate-300 mx-auto leading-relaxed">
+              Choose your printer manufacturer from the list below to access
+              detailed, step-by-step guidance for diagnosing and resolving
+              common printer issues, including appearing offline, wireless
+              setup, printing blank pages, displayed error codes, and scanner or
+              multifunction failures.
             </p>
           </div>
           {/* Printer Brand Logos */}
