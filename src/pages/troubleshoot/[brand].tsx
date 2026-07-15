@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Head from "next/head";
@@ -121,6 +121,27 @@ const TroubleshootPage = () => {
   const [userAddress, setUserAddress] = useState("");
   const [country, setCountry] = useState("");
 
+  const formWorkspaceRef = useRef<HTMLDivElement>(null);
+  const modelInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    // router.isReady ensures Next.js has parsed the URL query parameters
+    if (router.isReady && brand && step === 1) {
+      // Small timeout allows the DOM to render fully before scrolling
+      const timer = setTimeout(() => {
+        formWorkspaceRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+
+        // Focus the input field after the scroll animation starts
+        modelInputRef.current?.focus();
+      }, 150);
+
+      return () => clearTimeout(timer);
+    }
+  }, [router.isReady, brand, step]);
+
   useEffect(() => {
     if (step === 5) {
       const timer = setTimeout(() => setShowModal(true), 15000);
@@ -234,7 +255,7 @@ const TroubleshootPage = () => {
           </div>
 
           {/* Stepper Node Progress System */}
-          <div className="mb-12 relative px-4">
+          {/* <div className="mb-12 relative px-4">
             <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-slate-200 -translate-y-1/2 z-0 max-w-xl mx-auto" />
             <div className="relative z-10 flex justify-between items-center max-w-xl mx-auto">
               {[1, 2, 3, 4, 5].map((num) => (
@@ -253,7 +274,7 @@ const TroubleshootPage = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
 
           {/* Master Validation Alert Notification Frame */}
           {validationError && (
@@ -263,7 +284,10 @@ const TroubleshootPage = () => {
           )}
 
           {/* Main Workspace Terminal Layer */}
-          <div className="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 sm:p-10 transition-all duration-300">
+          <div
+            ref={formWorkspaceRef}
+            className="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 sm:p-10 transition-all duration-300"
+          >
             {/* Step 1: Diagnostics Configuration */}
             {step === 1 && (
               <div className="space-y-8 animate-in fade-in duration-300">
@@ -336,7 +360,7 @@ const TroubleshootPage = () => {
                   </div>
                 </div>
 
-                <div className="rounded-xl border border-slate-150 bg-slate-50/50 p-5 space-y-4">
+                {/* <div className="rounded-xl border border-slate-150 bg-slate-50/50 p-5 space-y-4">
                   <label className="flex items-start gap-3 cursor-pointer group select-none">
                     <input
                       type="checkbox"
@@ -372,7 +396,7 @@ const TroubleshootPage = () => {
                       diagnostics if issues compound.
                     </span>
                   </label>
-                </div>
+                </div> */}
 
                 <button
                   onClick={handleStep1Next}

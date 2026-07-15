@@ -17,10 +17,10 @@ const Header = () => {
         >
           <Image
             src="/images/printalliance-logo.png"
-            width={160}
-            height={48}
+            width={150}
+            height={150}
             alt="PrintAlliance Logo"
-            className="h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
+            className="w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
             priority
           />
         </Link>

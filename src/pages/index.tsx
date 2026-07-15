@@ -35,27 +35,23 @@ const printerBrands = [
 
 const whyChooseUs = [
   {
-    title: "Secure Operations",
-    description:
-      "Your data infrastructure security and terminal confidentiality remain our absolute milestone.",
+    title: "Safe",
+    description: "Your security and privacy are our top priorities",
     icon: "🛡️",
   },
   {
-    title: "High Reliability",
-    description:
-      "Consistent infrastructure diagnostics you can depend on, minimal delay matrices.",
+    title: "Reliable",
+    description: "Consistent, dependable service you can count on",
     icon: "💎",
   },
   {
-    title: "Rapid Execution",
-    description:
-      "Accelerated support runtimes targeted at instantaneous problem mitigation.",
+    title: "Quick",
+    description: "Fast response times and efficient problem resolution",
     icon: "⚡",
   },
   {
-    title: "Domain Expertise",
-    description:
-      "Engineered systems managed exclusively by senior hardware network specialists.",
+    title: "Experienced",
+    description: "Skilled professionals with years of expertise",
     icon: "🎓",
   },
 ];
@@ -180,12 +176,13 @@ const Home = () => {
               Unified Triage Node
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white uppercase">
-              Select Platform Identity
+              PRINTER BRAND
             </h1>
             <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed">
-              Isolate your specific hardware brand ecosystem below to launch
-              targeted diagnostics for system dropouts, local spooler freezes,
-              setup arrays, or print errors.
+              Select your printer brand and proceed (click 'NEXT') to access all
+              necessary troubleshooting step-by-step instructions for issues
+              like connectivity problems, wireless setup, not printing, blank
+              prints, error codes or scanner issues.
             </p>
           </div>
           {/* Printer Brand Logos */}
@@ -284,12 +281,14 @@ const Home = () => {
       {/* Minimal Regulatory Notice Frame */}
       <section className="bg-slate-950 py-6 px-4 border-y border-white/5 text-center">
         <p className="text-[11px] text-slate-500 max-w-4xl mx-auto leading-relaxed uppercase tracking-wider">
-          <span className="font-bold text-slate-400">
-            Legal Boundary Notification:
-          </span>{" "}
-          PrintAlliance stands as an autonomous technical operations network
-          directory. We maintain zero corporate alignments or structural ties to
-          specified consumer trade entities.
+          <span className="font-bold text-slate-400">Disclaimer:</span>{" "}
+          PrintAlliance is an independent online support provider. We have no
+          association or affiliation with any brands mentioned on this website
+          in any manner whatsoever. The sole intent of this website is to
+          provide necessary troubleshooting step-by-step instructions and
+          experienced expert advice to help users solve printer-related issues.
+          We will not be responsible for any kind of damage that occurs while
+          following our troubleshooting steps.
         </p>
       </section>
 
@@ -298,7 +297,7 @@ const Home = () => {
         <div className="max-w-5xl mx-auto space-y-16">
           <div className="text-center space-y-2">
             <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
-              Engineered Resolution Frameworks
+              Why Choose Us?
             </h2>
             <p className="text-xs text-slate-400 uppercase tracking-widest font-semibold">
               Platform Integration Priorities
@@ -365,12 +364,10 @@ const Home = () => {
 
         <div className="relative max-w-xl mx-auto space-y-6 z-10">
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-            Need Real-Time System Triage?
+            Need Immediate Help?
           </h2>
           <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            Our certified desk engineers run unbroken support shifts. Bypass
-            code compilation files entirely through voice patches or email
-            drops.
+            Our certified experts are available 24/7 to assist you.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">

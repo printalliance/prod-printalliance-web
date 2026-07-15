@@ -23,10 +23,9 @@ const issueTypes = [
 ];
 
 const countries = [
+  { label: "USA", value: "USA" },
+  { label: "UK", value: "UK" },
   { label: "Other", value: "OTHER" },
-  { label: "Canada", value: "Canada" },
-  { label: "Australia", value: "Australia" },
-  { label: "Other", value: "Other" },
 ];
 
 const SupportPlanModal = ({
@@ -47,7 +46,9 @@ const SupportPlanModal = ({
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -113,7 +114,7 @@ const SupportPlanModal = ({
       console.error("Error submitting support plan request:", error);
       setStatus("error");
       setErrorMessage(
-        error.response?.data?.error || "Failed to submit. Please try again."
+        error.response?.data?.error || "Failed to submit. Please try again.",
       );
     }
   };
@@ -123,9 +124,7 @@ const SupportPlanModal = ({
       {status === "success" ? (
         <div className="py-4 text-center">
           <div className="mb-4 text-4xl">✓</div>
-          <h3 className="mb-2 text-xl font-semibold text-navy">
-            Thank You!
-          </h3>
+          <h3 className="mb-2 text-xl font-semibold text-navy">Thank You!</h3>
           <p className="text-gray-600">
             Your request has been submitted successfully. We'll contact you
             shortly.
@@ -220,5 +219,3 @@ const SupportPlanModal = ({
 };
 
 export default SupportPlanModal;
-
-
