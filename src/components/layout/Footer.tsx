@@ -32,9 +32,6 @@ const Footer = () => (
               <Link href="/contact">Contact Us</Link>
             </li>
             <li>
-              <Link href="/support">Support</Link>
-            </li>
-            <li>
               <Link href="/faq">FAQ</Link>
             </li>
           </ul>
@@ -48,6 +45,9 @@ const Footer = () => (
             {/* <li>
               <Link href="/service-areas">Service Areas</Link>
             </li> */}
+            <li>
+              <Link href="/support">Support</Link>
+            </li>
             <li>
               <Link href="/privacy">Privacy Policy</Link>
             </li>
@@ -80,9 +80,23 @@ const Footer = () => (
         </div>
       </div>
 
-      <div className="flex flex-col gap-4 border-t border-white/20 pt-6 text-sm text-gray-200 lg:flex-row lg:items-center lg:justify-between">
-        <p>© {currentYear} PrintAlliance. All rights reserved.</p>
-        <p>Response time &lt; 10 Min | 24/7 support</p>
+      <div className="border-t border-white/20 pt-6">
+        {/* Disclaimer */}
+        <div className="mb-6 rounded-lg border border-white/10 bg-white/5 p-4">
+          <p className="text-xs leading-6 text-gray-300">
+            <strong className="text-white">Disclaimer:</strong> We are not
+            affiliated with, endorsed by, or associated with printer
+            manufacturers such as HP, Canon, Epson, or Brother. If you wish to
+            contact your printer manufacturer directly, please visit their
+            official website for authorized support and assistance.
+          </p>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="flex flex-col gap-4 text-sm text-gray-200 lg:flex-row lg:items-center lg:justify-between">
+          <p>© {currentYear} Print Alliance. All rights reserved.</p>
+          <p>Response time &lt; 10 Min | 24/7 support</p>
+        </div>
       </div>
     </div>
   </footer>

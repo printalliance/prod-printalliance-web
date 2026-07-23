@@ -279,18 +279,51 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Minimal Regulatory Notice Frame */}
-      <section className="bg-slate-950 py-6 px-4 border-y border-white/5 text-center">
-        <p className="text-[11px] text-slate-500 max-w-4xl mx-auto leading-relaxed uppercase tracking-wider">
-          <span className="font-bold text-slate-400">Disclaimer:</span>{" "}
-          PrintAlliance is an independent online support provider. We have no
-          association or affiliation with any brands mentioned on this website
-          in any manner whatsoever. The sole intent of this website is to
-          provide necessary troubleshooting step-by-step instructions and
-          experienced expert advice to help users solve printer-related issues.
-          We will not be responsible for any kind of damage that occurs while
-          following our troubleshooting steps.
-        </p>
+      {/* Trust & Legal Notice */}
+      <section className="border-y border-slate-200 bg-slate-50 py-10">
+        <div className="mx-auto max-w-6xl px-4 lg:px-8">
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+            <div className="flex items-start gap-4">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-amber-100">
+                <svg
+                  className="h-6 w-6 text-amber-600"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 9v4m0 4h.01M10.29 3.86l-8 14A2 2 0 004 21h16a2 2 0 001.71-3.14l-8-14a2 2 0 00-3.42 0z"
+                  />
+                </svg>
+              </div>
+
+              <div>
+                <span className="inline-flex rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-amber-700">
+                  Legal Disclaimer
+                </span>
+
+                <h2 className="mt-3 text-2xl font-bold text-slate-900">
+                  Independent Printer Support
+                </h2>
+
+                <p className="mt-4 text-base leading-8 text-slate-600">
+                  <strong className="text-slate-900">Disclaimer:</strong>{" "}
+                  PrintAlliance is an independent online support provider. We
+                  have no association or affiliation with any brands mentioned
+                  on this website in any manner whatsoever. The sole intent of
+                  this website is to provide necessary troubleshooting,
+                  step-by-step instructions, and experienced expert advice to
+                  help users solve printer-related issues. We will not be
+                  responsible for any kind of damage that occurs while following
+                  our troubleshooting steps.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Structural Diagnostics Advantages */}

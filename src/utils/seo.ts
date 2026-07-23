@@ -21,7 +21,7 @@ const baseMeta: Record<string, MetaInput> = {
   "/": {
     title: "Professional Printer Support Services | PrintAlliance",
     description:
-      "PrintAlliance delivers 24/7 printer repair, setup, and managed support services. Certified technicians, rapid response, and proactive maintenance. Get expert help for HP, Brother, Epson, and Canon printers.",
+      "PrintAlliance delivers 24/7 printer repair, setup, and managed support services. Rapid response, and proactive maintenance. Get expert help for HP, Brother, Epson, and Canon printers.",
     keywords:
       "printer support, printer repair, printer troubleshooting, HP printer support, Brother printer repair, Epson printer help, Canon printer service, printer setup, wireless printer setup, connectivity fixes, 24/7 printer support, printer maintenance, managed print services, printer technician, printer expert, printer troubleshooting guide, printer error codes, network printer setup, printer driver installation",
     path: "/",

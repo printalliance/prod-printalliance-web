@@ -17,7 +17,10 @@ const AboutPage = () => (
         content="Learn about the mission and expertise powering PrintAlliance."
       />
       <meta property="og:url" content={`${siteUrl}/about`} />
-      <meta property="og:image" content={`${siteUrl}/images/printalliance-logo.png`} />
+      <meta
+        property="og:image"
+        content={`${siteUrl}/images/printalliance-logo.png`}
+      />
     </Head>
     <section className="section-padding">
       <div className="mx-auto max-w-5xl px-4 text-center lg:px-0">
@@ -26,11 +29,18 @@ const AboutPage = () => (
           Keeping your business running with reliable printer support
         </h1>
         <p className="mt-4 text-lg text-gray-600">
-          PrintAlliance is an independent Support provider. We have no association or affiliation with any brands mentioned on this website. The sole intent of this website is to provide necessary troubleshooting steps and expert advice to help users with printer related issues.
-          Start by selecting your printer brand and let us know about the issue that you're facing, and receive all the necessary troubleshooting instructions on the web or in your email. You can also chose to connect with our experts via chat or over the phone for immediate resolution.
+          PrintAlliance is an independent Support provider. We have no
+          association or affiliation with any brands mentioned on this website.
+          The sole intent of this website is to provide necessary
+          troubleshooting steps and expert advice to help users with printer
+          related issues. Start by selecting your printer brand and let us know
+          about the issue that you're facing, and receive all the necessary
+          troubleshooting instructions on the web or in your email. You can also
+          chose to connect with our experts via chat or over the phone for
+          immediate resolution.
         </p>
       </div>
-      <div className="mx-auto mt-12 grid max-w-6xl gap-8 px-4 lg:px-8">
+      {/* <div className="mx-auto mt-12 grid max-w-6xl gap-8 px-4 lg:px-8">
         <div className="grid gap-6 surface p-8 lg:grid-cols-2">
           <div>
             <h2 className="text-2xl font-semibold text-navy">Mission</h2>
@@ -47,11 +57,10 @@ const AboutPage = () => (
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
     <CTA />
   </>
 );
 
 export default AboutPage;
-

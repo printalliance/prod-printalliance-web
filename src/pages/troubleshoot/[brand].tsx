@@ -156,10 +156,8 @@ const TroubleshootPage = () => {
   };
 
   const handleStep1Next = () => {
-    if (!modelNumber.trim() || !selectedProblem || !selectedDevice) {
-      setValidationError(
-        "Please select your device, problem, and input a model number to proceed.",
-      );
+    if (!selectedProblem) {
+      setValidationError("Please select your problem to proceed.");
       return;
     }
     transitionToStep(2);
@@ -218,7 +216,24 @@ const TroubleshootPage = () => {
   };
 
   const currentSteps =
-    troubleshootingSteps[selectedProblem] || troubleshootingSteps["Paper jam"];
+    selectedProblem === "Wi-Fi or Wireless setup"
+      ? selectedDevice === "Mac computer"
+        ? [
+            "Turn on your Mac and your printer.",
+            "Connect the printer to the wireless network.",
+            "Download the latest printer driver from the manufacturer's official website.",
+            "Complete the printer driver installation.",
+            "Open the Apple menu.",
+            "Click System Settings (or System Preferences).",
+            "Select Printers & Scanners.",
+            'Click the "+" button.',
+            "Choose your printer.",
+            "Click Add.",
+            "Wait for the printer to appear.",
+            "Your printer is now ready to use.",
+          ]
+        : troubleshootingSteps[selectedProblem]
+      : troubleshootingSteps[selectedProblem];
 
   return (
     <>
@@ -237,24 +252,6 @@ const TroubleshootPage = () => {
 
       <div className="min-h-screen bg-slate-50/50 text-slate-900 antialiased py-16 px-4 sm:px-6">
         <div className="mx-auto">
-          {/* Diagnostic Identity Header */}
-          <div className="text-center mb-12">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 border border-slate-200/60 px-3 py-1 text-xs font-semibold tracking-wider text-slate-600 uppercase mb-4">
-              🛡️ Operational Diagnostic Interface
-            </span>
-            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mb-2">
-              ANALYSING THE PROBLEM
-            </h1>
-            <p className="text-sm sm:text-base text-slate-500 max-w-md mx-auto">
-              Kindly answer the questions below to help us deliver the most
-              suitable assistance, and then click Continue.{" "}
-              {/* <span className="font-semibold text-slate-800 uppercase">
-                {brand || "Standard"}
-              </span>{" "}
-              platform. */}
-            </p>
-          </div>
-
           {/* Stepper Node Progress System */}
           {/* <div className="mb-12 relative px-4">
             <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-slate-200 -translate-y-1/2 z-0 max-w-xl mx-auto" />
@@ -292,6 +289,23 @@ const TroubleshootPage = () => {
             {/* Step 1: Diagnostics Configuration */}
             {step === 1 && (
               <div className="space-y-8 animate-in fade-in duration-300">
+                {/* Diagnostic Identity Header */}
+                <div className="text-center">
+                  {/* <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 border border-slate-200/60 px-3 py-1 text-xs font-semibold tracking-wider text-slate-600 uppercase mb-4">
+                    🛡️ Operational Diagnostic Interface
+                  </span> */}
+                  <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mb-2">
+                    ANALYSING THE PROBLEM
+                  </h1>
+                  <p className="text-sm sm:text-base text-slate-500 max-w-md mx-auto">
+                    Kindly answer the questions below to help us deliver the
+                    most suitable assistance, and then click Continue.{" "}
+                    {/* <span className="font-semibold text-slate-800 uppercase">
+                {brand || "Standard"}
+              </span>{" "}
+              platform. */}
+                  </p>
+                </div>
                 <div>
                   <h2 className="text-xl font-bold tracking-tight text-slate-900 mb-1">
                     Printer Model Number
@@ -344,7 +358,7 @@ const TroubleshootPage = () => {
                     Identify the host ecosystem platform linked up directly
                     against the target utility.
                   </p> */}
-                  <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-5 gap-3">
                     {deviceTypes.map((d) => (
                       <button
                         key={d.id}
@@ -373,15 +387,19 @@ const TroubleshootPage = () => {
 
             {/* Step 2: System Credential Dossier */}
             {step === 2 && (
-              <div className="space-y-6 animate-in fade-in duration-300">
-                <div>
+              <div className="space-y-10 animate-in fade-in duration-300">
+                <div className="text-center max-w-2xl mx-auto space-y-2">
                   <h2 className="text-2xl font-bold tracking-tight text-slate-900">
                     INFORMATION
                   </h2>
-                  <p className="text-xs text-slate-400">
-                    Kindly enter the required details below and then click
-                    Continue — we'll email you step-by-step troubleshooting
-                    guidance to resolve your issue.
+
+                  <p className="text-sm leading-6 text-slate-500">
+                    Kindly enter the required details below and then click{" "}
+                    <span className="font-semibold text-slate-900">
+                      Continue
+                    </span>
+                    . We'll email you step-by-step troubleshooting guidance to
+                    help resolve your printer issue.
                   </p>
                 </div>
 
@@ -448,7 +466,7 @@ const TroubleshootPage = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
 
-                <div>
+                {/* <div>
                   <label className="block text-xs font-semibold text-slate-600 mb-1.5">
                     Mailing Base Location (Optional)
                   </label>
@@ -459,7 +477,7 @@ const TroubleshootPage = () => {
                     placeholder="Enter architectural office location parameters"
                     rows={2}
                   />
-                </div>
+                </div> */}
                 <div className="rounded-xl border border-slate-150 bg-slate-50/50 p-5 space-y-4">
                   <label className="flex items-start gap-3 cursor-pointer group select-none">
                     <input
@@ -469,12 +487,12 @@ const TroubleshootPage = () => {
                       className="mt-0.5 w-4 h-4 text-slate-900 border-slate-300 rounded focus:ring-slate-900 accent-slate-900"
                     />
                     <span className="text-xs font-medium text-slate-600 group-hover:text-slate-900 transition-colors">
-                      Mirror localized tracking guidelines out straight to my
-                      email interface folder.
+                      Check this box to receive troubleshooting instructions on
+                      your email.
                     </span>
                   </label>
 
-                  {emailOptIn && (
+                  {/* {emailOptIn && (
                     <input
                       type="email"
                       value={email}
@@ -482,7 +500,7 @@ const TroubleshootPage = () => {
                       className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-lg focus:border-slate-900 focus:outline-none text-xs"
                       placeholder="Enter ingestion email account"
                     />
-                  )}
+                  )} */}
 
                   <label className="flex items-start gap-3 cursor-pointer group select-none">
                     <input
@@ -492,8 +510,8 @@ const TroubleshootPage = () => {
                       className="mt-0.5 w-4 h-4 text-slate-900 border-slate-300 rounded focus:ring-slate-900 accent-slate-900"
                     />
                     <span className="text-xs font-medium text-slate-600 group-hover:text-slate-900 transition-colors">
-                      Authorize system desk operators to initiate voice
-                      diagnostics if issues compound.
+                      Check this box to receive a call from a certified expert
+                      to help you troubleshoot.
                     </span>
                   </label>
                 </div>
@@ -516,11 +534,13 @@ const TroubleshootPage = () => {
                   </div>
                   <div className="space-y-2">
                     <h3 className="text-xl sm:text-2xl font-bold tracking-tight">
-                      On-Demand Infrastructure Pipeline Open
+                      To get immediate resolution, contact our certified
+                      experts.
                     </h3>
                     <p className="text-xs text-slate-400 max-w-sm mx-auto">
-                      Skip programmatic sorting loops entirely by dialing
-                      operational network desk engineers directly.
+                      {/* Skip programmatic sorting loops entirely by dialing
+                      operational network desk engineers directly. */}
+                      WE ARE JUST A CALL AWAY!
                     </p>
                   </div>
 
@@ -540,21 +560,21 @@ const TroubleshootPage = () => {
                   </div>
 
                   <p className="text-[11px] text-slate-400 max-w-xs mx-auto">
-                    Alternatively, leverage our web matrix console overlay
-                    anchor resting on your lower layout screen boundary to sync
-                    data sets instantly.
+                    or join the chat on the bottom right of your screen by
+                    sending your printer model, and our expert will help you
+                    resolve the issue online as mentioned by you in our records.
                   </p>
                 </div>
 
                 <div className="space-y-3">
                   <p className="text-xs font-medium text-slate-400">
-                    Prefer local diagnostic step sequences?
+                    To do basic troubleshooting on your own click
                   </p>
                   <button
                     onClick={() => transitionToStep(4)}
                     className="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-sm py-3.5 rounded-xl transition-all"
                   >
-                    Initialize Local Diagnostics Tree ↓
+                    Next ↓
                   </button>
                 </div>
               </div>
@@ -568,7 +588,7 @@ const TroubleshootPage = () => {
                     Target Playbook Routine
                   </span>
                   <h2 className="text-2xl font-bold text-slate-900 mt-0.5">
-                    {selectedProblem || "General Recovery Matrix"}
+                    {selectedProblem || "Troubleshooting Steps"}
                   </h2>
                 </div>
 
@@ -590,15 +610,14 @@ const TroubleshootPage = () => {
 
                 <div className="bg-amber-50/50 border border-amber-200/70 p-5 rounded-xl text-center space-y-4">
                   <p className="text-xs font-medium text-amber-900 max-w-md mx-auto">
-                    If metrics fail to self-correct after baseline checklist
-                    adjustments, secondary framework failures might require
-                    complex environment diagnostics.
+                    If your issue is still not resolved, then you probably need
+                    advance troubleshooting from our certified experts.
                   </p>
                   <a
                     href="tel:+13252195205"
                     className="inline-flex items-center gap-2 bg-amber-900 text-white font-semibold text-xs px-4 py-2 rounded-lg hover:bg-amber-950 transition-colors shadow-sm"
                   >
-                    📞 Connect Direct Operations Line
+                    📞 CALL AN EXPERT ON PRIORITY FOR ASSISTANCE
                   </a>
                 </div>
 
@@ -606,7 +625,7 @@ const TroubleshootPage = () => {
                   onClick={() => transitionToStep(5)}
                   className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm py-4 rounded-xl transition-all shadow-sm"
                 >
-                  Verify Diagnostics Completion State →
+                  Next →
                 </button>
               </div>
             )}
@@ -619,7 +638,7 @@ const TroubleshootPage = () => {
                     ✓
                   </div>
                   <h2 className="text-2xl font-bold tracking-tight text-slate-900">
-                    Sequence Completed Successfully
+                    THANK YOU FOR VISITING!
                   </h2>
                   <p className="text-sm font-semibold text-slate-600 uppercase tracking-wide">
                     Operator Reference Profile: {userName || "Verified User"}
@@ -628,13 +647,13 @@ const TroubleshootPage = () => {
 
                 <div className="text-left max-w-md mx-auto border border-slate-150 rounded-xl bg-slate-50/50 p-6 space-y-4">
                   <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 text-center">
-                    PrintAlliance Protocol Framework
+                    What Sets Us Apart
                   </h4>
                   {[
-                    "Zero-cost baseline infrastructure structural reviews.",
-                    "Federated operations processing with systems engineers.",
-                    "Advanced isolation layers maintaining personal credential storage security.",
-                    "Live network triage platforms operating uninterrupted across global operational matrices.",
+                    " Free consultation & troubleshooting",
+                    "Trusted, experienced, and certified experts",
+                    " Security and privacy assurance",
+                    "Quick resolution available 24*7 on chat and phone",
                   ].map((item, idx) => (
                     <div
                       key={idx}
@@ -647,15 +666,17 @@ const TroubleshootPage = () => {
                 </div>
 
                 <p className="text-xs text-slate-400 max-w-xs mx-auto leading-relaxed">
-                  Your local tracking parameters stand saved. Diagnostic logs
-                  have been mirrored directly out to processing queues.
+                  We appreciate your time and interest with us and will get back
+                  to you shortly. Your support means the world to us! If you
+                  still have any questions or need assistance, please don't
+                  hesitate to reach out. Happy printing!
                 </p>
 
                 <button
                   onClick={() => router.push("/")}
                   className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm py-4 rounded-xl transition-all shadow-sm"
                 >
-                  Dismount Terminal Workspace
+                  Home
                 </button>
               </div>
             )}
