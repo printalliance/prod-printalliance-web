@@ -15,21 +15,29 @@ const printerBrands = [
     name: "HP",
     logo: "https://printersclan.com/asset/images/hplogo.png",
     slug: "hp",
+    width: 100,
+    height: 100,
   },
   {
     name: "Brother",
     logo: "https://printersclan.com/asset/images/brotherprinterlogo.png",
     slug: "brother",
+    width: 100,
+    height: 100,
   },
   {
     name: "Epson",
     logo: "https://printersclan.com/asset/images/epsonlogo1.png",
     slug: "epson",
+    width: 100,
+    height: 100,
   },
   {
     name: "Canon",
     logo: "https://printersclan.com/asset/images/canonlogo.png",
     slug: "canon",
+    width: 100,
+    height: 100,
   },
 ];
 
@@ -240,13 +248,9 @@ const Home = () => {
                     <Image
                       src={brand.logo}
                       alt={`${brand.name} logo`}
-                      fill
-                      priority
+                      width={brand.width}
+                      height={brand.height}
                       className="max-w-[70%] max-h-[70%] object-contain rounded-full filter drop-shadow-sm"
-                      // onError={(e) => {
-                      //   // Fallback if image fails to load
-                      //   e.currentTarget.style.display = "none";
-                      // }}
                     />
                   </div>
                 </div>
