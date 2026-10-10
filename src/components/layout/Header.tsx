@@ -17,8 +17,8 @@ const Header = () => {
         >
           <Image
             src="/images/printalliance-logo.png"
-            width={150}
-            height={150}
+            width={200}
+            height={200}
             alt="PrintAlliance Logo"
             className="w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
             priority

@@ -230,7 +230,7 @@ const Home = () => {
                         : "group-hover:scale-102"
                     }`}
                   >
-                    <Image
+                    <img
                       src={brand.logo}
                       alt={`${brand.name} logo`}
                       className="max-w-[70%] max-h-[70%] object-contain rounded-full filter drop-shadow-sm"
