@@ -6,7 +6,7 @@ import {
   websiteSchema,
   serviceProviderSchema,
 } from "@/utils/schema";
-import { siteUrl, defaultMeta, generateHreflang } from "@/utils/seo";
+import { defaultMeta, generateHreflang } from "@/utils/seo";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
@@ -56,33 +56,33 @@ const whyChooseUs = [
   },
 ];
 
-const services = [
-  {
-    title: "Professional Services",
-    description:
-      "Get reliable, expert assistance for all your printer needs. Our professional services ensure efficient and effective solutions every time.",
-  },
-  {
-    title: "Quick and Hassle-Free Assistance",
-    description:
-      "Receive fast, hassle-free support for your devices. Our streamlined service resolves issues easily and quickly, so you can get back to work.",
-  },
-  {
-    title: "24/7 Available",
-    description:
-      "Enjoy around-the-clock support whenever you need it. Our team is available 24/7 to assist with any printer problems or questions.",
-  },
-  {
-    title: "Experienced Experts",
-    description:
-      "Trust our experienced experts for accurate and efficient solutions. Our skilled team handles all printer issues with knowledge and professionalism.",
-  },
-  {
-    title: "Packages for All",
-    description:
-      "Choose from a variety of packages designed to meet your needs. Affordable options ensure there's a perfect fit for everyone.",
-  },
-];
+// const services = [
+//   {
+//     title: "Professional Services",
+//     description:
+//       "Get reliable, expert assistance for all your printer needs. Our professional services ensure efficient and effective solutions every time.",
+//   },
+//   {
+//     title: "Quick and Hassle-Free Assistance",
+//     description:
+//       "Receive fast, hassle-free support for your devices. Our streamlined service resolves issues easily and quickly, so you can get back to work.",
+//   },
+//   {
+//     title: "24/7 Available",
+//     description:
+//       "Enjoy around-the-clock support whenever you need it. Our team is available 24/7 to assist with any printer problems or questions.",
+//   },
+//   {
+//     title: "Experienced Experts",
+//     description:
+//       "Trust our experienced experts for accurate and efficient solutions. Our skilled team handles all printer issues with knowledge and professionalism.",
+//   },
+//   {
+//     title: "Packages for All",
+//     description:
+//       "Choose from a variety of packages designed to meet your needs. Affordable options ensure there's a perfect fit for everyone.",
+//   },
+// ];
 
 const commonIssues = [
   {
@@ -230,7 +230,7 @@ const Home = () => {
                         : "group-hover:scale-102"
                     }`}
                   >
-                    <img
+                    <Image
                       src={brand.logo}
                       alt={`${brand.name} logo`}
                       className="max-w-[70%] max-h-[70%] object-contain rounded-full filter drop-shadow-sm"

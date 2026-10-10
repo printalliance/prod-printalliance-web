@@ -1,10 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
-import Link from "next/link";
-import Head from "next/head";
 import SEO from "@/components/SEO";
 import ExpertAssistanceModal from "@/components/ExpertAssistanceModal";
-import { defaultMeta } from "@/utils/seo";
 
 // Data Sets
 const printerProblems = [
@@ -113,12 +110,12 @@ const TroubleshootPage = () => {
   const [selectedDevice, setSelectedDevice] = useState("");
   const [emailOptIn, setEmailOptIn] = useState(false);
   const [callOptIn, setCallOptIn] = useState(false);
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
 
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userPhone, setUserPhone] = useState("");
-  const [userAddress, setUserAddress] = useState("");
+  // const [userAddress, setUserAddress] = useState("");
   const [country, setCountry] = useState("");
 
   const formWorkspaceRef = useRef<HTMLDivElement>(null);
@@ -154,7 +151,6 @@ const TroubleshootPage = () => {
     setStep(nextStep);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-
   const handleStep1Next = () => {
     if (!selectedProblem) {
       setValidationError("Please select your problem to proceed.");
@@ -193,24 +189,35 @@ const TroubleshootPage = () => {
           selectedProblem,
           selectedDevice,
           emailOptIn,
-          email,
+          // email,
           callOptIn,
           userName,
           userEmail,
           userPhone,
-          userAddress,
+          // userAddress,
           country,
           sessionId: null,
         }),
       });
 
+      // 👇 ADD THIS - read the body no matter what
+      const raw = await response.text();
+      console.log("STATUS:", response.status);
+      console.log("BODY:", raw);
+
       if (!response.ok) throw new Error("Server rejected compilation payload.");
 
       window.dispatchEvent(new CustomEvent("formSubmitted"));
       transitionToStep(3);
-    } catch (error) {
+    } catch (error: unknown) {
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : "Submission failed. Please try again or call +1 (325) 219-5205.";
+
       setValidationError(
-        "Data dispatch pipeline failure. Verify connectivity options or contact engineering support lines.",
+        errorMessage ||
+          "Submission failed. Please try again or call +1 (325) 219-5205.",
       );
     }
   };
@@ -387,7 +394,7 @@ const TroubleshootPage = () => {
 
             {/* Step 2: System Credential Dossier */}
             {step === 2 && (
-              <div className="space-y-10 animate-in fade-in duration-300">
+              <div className="space-y-10 animate-in fade-in duration-300 max-w-3xl mx-auto">
                 <div className="text-center max-w-2xl mx-auto space-y-2">
                   <h2 className="text-2xl font-bold tracking-tight text-slate-900">
                     INFORMATION
@@ -398,12 +405,13 @@ const TroubleshootPage = () => {
                     <span className="font-semibold text-slate-900">
                       Continue
                     </span>
-                    . We'll email you step-by-step troubleshooting guidance to
-                    help resolve your printer issue.
+                    . We&apos;ll email you step-by-step troubleshooting guidance
+                    to help resolve your printer issue.
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                {/* Name + Email Row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-semibold text-slate-600 mb-1.5">
                       Full Name *
@@ -428,6 +436,10 @@ const TroubleshootPage = () => {
                       placeholder="Enter your email address"
                     />
                   </div>
+                </div>
+
+                {/* Phone + Country Row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-semibold text-slate-600 mb-1.5">
                       Contact Number *
@@ -464,20 +476,7 @@ const TroubleshootPage = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
-
-                {/* <div>
-                  <label className="block text-xs font-semibold text-slate-600 mb-1.5">
-                    Mailing Base Location (Optional)
-                  </label>
-                  <textarea
-                    value={userAddress}
-                    onChange={(e) => setUserAddress(e.target.value)}
-                    className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:bg-white focus:border-slate-900 focus:outline-none text-sm"
-                    placeholder="Enter architectural office location parameters"
-                    rows={2}
-                  />
-                </div> */}
+                {/* Opt-in checkboxes */}
                 <div className="rounded-xl border border-slate-150 bg-slate-50/50 p-5 space-y-4">
                   <label className="flex items-start gap-3 cursor-pointer group select-none">
                     <input
@@ -491,16 +490,6 @@ const TroubleshootPage = () => {
                       your email.
                     </span>
                   </label>
-
-                  {/* {emailOptIn && (
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-lg focus:border-slate-900 focus:outline-none text-xs"
-                      placeholder="Enter ingestion email account"
-                    />
-                  )} */}
 
                   <label className="flex items-start gap-3 cursor-pointer group select-none">
                     <input
@@ -581,7 +570,7 @@ const TroubleshootPage = () => {
             )}
 
             {/* Step 4: Localized Execution Playbook */}
-            {step === 4 && (
+            {/* {step === 4 && (
               <div className="space-y-8 animate-in fade-in duration-300">
                 <div className="border-b border-slate-100 pb-4">
                   <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
@@ -621,6 +610,128 @@ const TroubleshootPage = () => {
                   </a>
                 </div>
 
+                <button
+                  onClick={() => transitionToStep(5)}
+                  className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm py-4 rounded-xl transition-all shadow-sm"
+                >
+                  Next →
+                </button>
+              </div>
+            )} */}
+
+            {step === 4 && (
+              <div className="space-y-8 animate-in fade-in duration-300 max-w-4xl mx-auto">
+                {/* Header */}
+                <div className="border-b border-slate-100 pb-4">
+                  <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                    🛠️ SELF-TROUBLESHOOTING STEPS
+                  </span>
+                  <h2 className="text-2xl font-bold text-slate-900 mt-0.5">
+                    {selectedProblem || "Troubleshooting Steps"}
+                  </h2>
+                  <p className="text-sm text-slate-500 mt-2">
+                    Follow these step-by-step instructions based on the issue
+                    you selected.
+                  </p>
+                </div>
+
+                {/* Set-up a new printer — Windows & Mac side by side */}
+                {selectedProblem === "Set-up a new printer" ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    {/* Windows Column */}
+                    <div className="rounded-2xl border border-slate-200 bg-white p-5 space-y-4">
+                      <div className="flex items-center gap-2 border-b border-slate-100 pb-3">
+                        <span className="text-xl">🪟</span>
+                        <h3 className="text-base font-bold text-slate-900">
+                          Set-up (Windows)
+                        </h3>
+                      </div>
+                      <div className="space-y-3">
+                        {[
+                          "Connect the printer to Wi-Fi or USB and power it on.",
+                          "Download the correct driver from the official website.",
+                          "Run the installer and follow the prompts.",
+                          "Go to Devices & Printers and add/select your printer.",
+                        ].map((stepText, idx) => (
+                          <div
+                            key={idx}
+                            className="flex gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors group"
+                          >
+                            <div className="shrink-0 w-6 h-6 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-xs group-hover:bg-slate-900 group-hover:text-white transition-all">
+                              {idx + 1}
+                            </div>
+                            <p className="text-sm leading-relaxed text-slate-600 group-hover:text-slate-900 transition-colors pt-0.5">
+                              {stepText}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Mac Column */}
+                    <div className="rounded-2xl border border-slate-200 bg-white p-5 space-y-4">
+                      <div className="flex items-center gap-2 border-b border-slate-100 pb-3">
+                        <span className="text-xl">🍎</span>
+                        <h3 className="text-base font-bold text-slate-900">
+                          Set-up (Mac)
+                        </h3>
+                      </div>
+                      <div className="space-y-3">
+                        {[
+                          "Turn on the printer and connect it to Wi-Fi.",
+                          "Download and install the printer driver from the official website.",
+                          "Open Apple Menu → System Settings → Printers & Scanners.",
+                          'Click "+" and add the printer.',
+                        ].map((stepText, idx) => (
+                          <div
+                            key={idx}
+                            className="flex gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors group"
+                          >
+                            <div className="shrink-0 w-6 h-6 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-xs group-hover:bg-slate-900 group-hover:text-white transition-all">
+                              {idx + 1}
+                            </div>
+                            <p className="text-sm leading-relaxed text-slate-600 group-hover:text-slate-900 transition-colors pt-0.5">
+                              {stepText}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  /* Default steps for all other problems */
+                  <div className="space-y-4">
+                    {currentSteps.map((stepText, idx) => (
+                      <div
+                        key={idx}
+                        className="flex gap-4 p-4 rounded-xl hover:bg-slate-50/80 transition-colors border border-transparent hover:border-slate-100 group"
+                      >
+                        <div className="shrink-0 w-6 h-6 rounded-md bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-xs group-hover:bg-slate-900 group-hover:text-white transition-all">
+                          {idx + 1}
+                        </div>
+                        <p className="text-sm leading-relaxed text-slate-600 group-hover:text-slate-900 transition-colors pt-0.5">
+                          {stepText}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Expert CTA */}
+                <div className="bg-amber-50/50 border border-amber-200/70 p-5 rounded-xl text-center space-y-4">
+                  <p className="text-xs font-medium text-amber-900 max-w-md mx-auto">
+                    ⚠️ If your issue is still not resolved, then you probably
+                    need advance troubleshooting from our certified experts.
+                  </p>
+                  <a
+                    href="tel:+13252195205"
+                    className="inline-flex items-center gap-2 bg-amber-900 text-white font-semibold text-xs px-4 py-2 rounded-lg hover:bg-amber-950 transition-colors shadow-sm"
+                  >
+                    📞 CALL AN EXPERT ON PRIORITY FOR ASSISTANCE
+                  </a>
+                </div>
+
+                {/* Next */}
                 <button
                   onClick={() => transitionToStep(5)}
                   className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm py-4 rounded-xl transition-all shadow-sm"
@@ -668,7 +779,7 @@ const TroubleshootPage = () => {
                 <p className="text-xs text-slate-400 max-w-xs mx-auto leading-relaxed">
                   We appreciate your time and interest with us and will get back
                   to you shortly. Your support means the world to us! If you
-                  still have any questions or need assistance, please don't
+                  still have any questions or need assistance, please don&apos;t
                   hesitate to reach out. Happy printing!
                 </p>
 
