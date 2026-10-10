@@ -230,14 +230,23 @@ const Home = () => {
                         : "group-hover:scale-102"
                     }`}
                   >
-                    <img
+                    {/* <Image
+            src="https://raw.githubusercontent.com/printalliance/public-images/refs/heads/main/printer-toner-hd-8k-wallpaper-stock-photographic-image_915071-69886.avif"
+            alt="Background Texture"
+            fill
+            priority
+            className="object-cover"
+          /> */}
+                    <Image
                       src={brand.logo}
                       alt={`${brand.name} logo`}
+                      fill
+                      priority
                       className="max-w-[70%] max-h-[70%] object-contain rounded-full filter drop-shadow-sm"
-                      onError={(e) => {
-                        // Fallback if image fails to load
-                        e.currentTarget.style.display = "none";
-                      }}
+                      // onError={(e) => {
+                      //   // Fallback if image fails to load
+                      //   e.currentTarget.style.display = "none";
+                      // }}
                     />
                   </div>
                 </div>

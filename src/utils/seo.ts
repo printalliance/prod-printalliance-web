@@ -19,7 +19,7 @@ type MetaInput = {
 
 const baseMeta: Record<string, MetaInput> = {
   "/": {
-    title: "Professional Printer Support Services | PrintAlliance",
+    title: "PrintAlliance",
     description:
       "PrintAlliance delivers 24/7 printer repair, setup, and managed support services. Rapid response, and proactive maintenance. Get expert help for HP, Brother, Epson, and Canon printers.",
     keywords:
